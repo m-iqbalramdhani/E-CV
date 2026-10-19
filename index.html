@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Trio • Portfolio & E-CV Hub | Iqbal, Nida & Viola</title>
+  <meta name="description" content="Portfolio kolaboratif dan Electronic CV (E-CV) dari Muhammad Iqbal Ramdhani (Cloud & Fullstack), Nida Fuadia (UI/UX & Frontend), dan Viola Amelia (AI/ML & Mobile).">
+  <meta name="keywords" content="Portfolio, E-CV, Muhammad Iqbal Ramdhani, Nida Fuadia, Viola Amelia, Fullstack, UI/UX, AI, Machine Learning, Cloud, Streamlit CV, Web Developer">
+  <meta name="author" content="Muhammad Iqbal Ramdhani, Nida Fuadia, Viola Amelia">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Nexus Trio • Collaborative Portfolio & E-CV Hub">
+  <meta property="og:description" content="Portfolio 3 talenta rekayasa software: Muhammad Iqbal, Nida Fuadia, dan Viola Amelia. Arsitektur Tangguh, Desain Empatik, dan Kecerdasan Artifisial.">
+  <meta property="og:type" content="website">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <!-- Favicon SVG Data URI -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+
+  <!-- Ambient Backdrop Atmosphere -->
+  <div class="ambient-glow">
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-grid"></div>
+  </div>
+
+  <!-- Custom Kinetic Cursor (Non-obtrusive micro-trailer) -->
+  <div class="custom-cursor" id="customCursor"></div>
+  <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="header-inner">
+        <!-- Brand Logo / Badge -->
+        <a href="#team" class="brand-badge">
+          <div class="brand-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">NEXUS TRIO</span>
+            <span class="brand-sub">E-CV & Engineering Portfolio</span>
+          </div>
+        </a>
+
+        <!-- Main Multi-Persona Switcher (Separating the 3 People) -->
+        <nav class="persona-switcher" aria-label="Persona Switcher">
+          <button class="persona-tab active tab-team" data-persona="team" id="tabTeam">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Nexus Trio (All 3)</span>
+          </button>
+          <button class="persona-tab" data-persona="iqbal" id="tabIqbal">
+            <img src="assets/img/iqbal.jpg" alt="M. Iqbal" class="tab-mini-avatar">
+            <span>M. Iqbal</span>
+          </button>
+          <button class="persona-tab" data-persona="nida" id="tabNida">
+            <img src="assets/img/nida.jpg" alt="Nida Fuadia" class="tab-mini-avatar">
+            <span>Nida Fuadia</span>
+          </button>
+          <button class="persona-tab" data-persona="viola" id="tabViola">
+            <img src="assets/img/viola.jpg" alt="Viola Amelia" class="tab-mini-avatar">
+            <span>Viola Amelia</span>
+          </button>
+        </nav>
+
+        <!-- Header Actions: Sound FX, Dark/Light Mode, Contact -->
+        <div class="header-actions">
+          <button class="icon-btn" id="soundToggleBtn" title="Toggle Micro Sound FX" aria-label="Toggle Sound">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="soundIcon"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          </button>
+          <button class="icon-btn" id="themeToggleBtn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="themeSunIcon"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="themeMoonIcon" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="btn-hire" onclick="document.getElementById('contactModal').classList.add('open');">
+            <span>Collaborate</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Sections -->
+  <main>
+    <!-- 1. Hero Profile & Bio Placement -->
+    <section class="hero-wrapper" id="heroSection">
+      <div class="container" id="heroContainer">
+        <!-- Rendered dynamically by app.js based on active persona -->
+      </div>
+    </section>
+
+    <!-- 2. 1 Project Utama Ber-3 Bersama (SYNAPSE AI Centerpiece) -->
+    <section class="section" id="jointProjectSection" style="padding-top: 1rem;">
+      <!-- Rendered dynamically by app.js -->
+    </section>
+
+    <!-- 3. Placement Tech Stack & Bahasa Pemrograman -->
+    <section class="section" id="techStackSection">
+      <!-- Rendered dynamically by app.js -->
+    </section>
+
+    <!-- 4. Project Portofolio Masing-Masing -->
+    <section class="section" id="projectsSection">
+      <!-- Rendered dynamically by app.js -->
+    </section>
+
+    <!-- 5. Timeline Pengalaman Kerja & Pendidikan (ECV Dual Mode) -->
+    <section class="section" id="timelineSection">
+      <!-- Rendered dynamically by app.js -->
+    </section>
+
+    <!-- 6. Sertifikasi & Kredensial -->
+    <section class="section" id="certsSection">
+      <!-- Rendered dynamically by app.js -->
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer style="padding: 4rem 0 7rem 0; border-top: 1px solid var(--border-subtle); background: var(--bg-secondary);">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+        <div>
+          <div style="display:flex; align-items:center; gap:0.5rem; font-family:var(--font-heading); font-size:1.3rem; font-weight:800; margin-bottom:0.5rem;">
+            <span style="color:var(--active-accent);">⚡</span> NEXUS TRIO STUDIO
+          </div>
+          <p style="font-size:0.88rem; color:var(--text-muted); max-width:480px;">
+            Dibuat dengan dedikasi rekayasa tinggi oleh Muhammad Iqbal Ramdhani, Nida Fuadia, dan Viola Amelia. Menggunakan arsitektur murni HTML5, CSS3, dan ES6 Vanilla untuk efisiensi loading instan dan kemudahan deployment di Firebase Hosting.
+          </p>
+        </div>
+        <div style="display:flex; gap:2.5rem; flex-wrap:wrap;">
+          <div>
+            <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; margin-bottom:0.75rem;">Profiles</div>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:0.4rem; font-size:0.88rem;">
+              <li><a href="#iqbal" style="color:var(--text-secondary);">M. Iqbal Ramdhani</a></li>
+              <li><a href="#nida" style="color:var(--text-secondary);">Nida Fuadia</a></li>
+              <li><a href="#viola" style="color:var(--text-secondary);">Viola Amelia</a></li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; margin-bottom:0.75rem;">Navigation</div>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:0.4rem; font-size:0.88rem;">
+              <li><a href="#jointProjectSection" style="color:var(--text-secondary);">Flagship Project</a></li>
+              <li><a href="#techStackSection" style="color:var(--text-secondary);">Tech Stack Matrix</a></li>
+              <li><a href="#projectsSection" style="color:var(--text-secondary);">Individual Projects</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center; font-size:0.8rem; color:var(--text-muted); flex-wrap:wrap; gap:1rem;">
+        <div>&copy; 2026 Nexus Trio Studio. All rights reserved. Non-AI Slop Handcrafted Design.</div>
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <span style="width:7px; height:7px; border-radius:50%; background:var(--emerald-primary); display:inline-block;"></span>
+          <span>Firebase Hosting Ready • Zero Build Dependencies</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Fast Navigation Dock (Bottom Mobile/Desktop Quick Switcher) -->
+  <nav class="floating-dock" aria-label="Quick Dock">
+    <button class="dock-item active" data-persona="team" title="Nexus Trio">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+      <span>Trio</span>
+    </button>
+    <div class="dock-divider"></div>
+    <button class="dock-item" data-persona="iqbal" title="Muhammad Iqbal">
+      <span style="color:var(--iqbal-accent); font-weight:700;">Iqbal</span>
+    </button>
+    <button class="dock-item" data-persona="nida" title="Nida Fuadia">
+      <span style="color:var(--nida-accent); font-weight:700;">Nida</span>
+    </button>
+    <button class="dock-item" data-persona="viola" title="Viola Amelia">
+      <span style="color:var(--viola-accent); font-weight:700;">Viola</span>
+    </button>
+    <div class="dock-divider"></div>
+    <a href="#jointProjectSection" class="dock-item" title="Joint Project">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <span>Joint</span>
+    </a>
+  </nav>
+
+  <!-- MODAL 1: Individual Project Case Study Modal -->
+  <div class="modal-overlay" id="caseStudyModal" role="dialog" aria-modal="true" aria-labelledby="caseStudyTitle">
+    <div class="modal-box spotlight-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="caseStudyTitle">Project Case Study</h3>
+        <button class="modal-close-btn" aria-label="Close Modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-content-scroll">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: Printable & Viewable E-CV Modal -->
+  <div class="modal-overlay" id="ecvModal" role="dialog" aria-modal="true" aria-labelledby="ecvModalTitle">
+    <div class="modal-box spotlight-card" style="max-width: 900px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="ecvModalTitle">Curriculum Vitae Preview</h3>
+        <button class="modal-close-btn" aria-label="Close Modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-content-scroll">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: Hire / Contact Modal -->
+  <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+    <div class="modal-box spotlight-card" style="max-width: 620px;">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="contactModalTitle">Connect with Nexus Trio</h3>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-top:2px;">Diskusikan proyek kolaborasi, rekrutmen, atau penawaran kerja sama</p>
+        </div>
+        <button class="modal-close-btn" aria-label="Close Modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-content-scroll">
+        <form id="contactForm" style="display:flex; flex-direction:column; gap:1.25rem;">
+          <div>
+            <label for="contactRecipient" style="font-size:0.82rem; font-weight:600; color:var(--text-secondary); display:block; margin-bottom:0.4rem;">Tujuan Pesan</label>
+            <select id="contactRecipient" style="width:100%; padding:0.75rem 1rem; border-radius:var(--radius-md); background:var(--bg-tertiary); border:1px solid var(--border-subtle); color:#fff; font-family:inherit; outline:none;">
+              <option value="team">Seluruh Tim (Nexus Trio Collective)</option>
+              <option value="iqbal">Muhammad Iqbal Ramdhani (Fullstack & Cloud)</option>
+              <option value="nida">Nida Fuadia (UI/UX & Design System)</option>
+              <option value="viola">Viola Amelia (Machine Learning & Mobile)</option>
+            </select>
+          </div>
+          <div>
+            <label for="contactName" style="font-size:0.82rem; font-weight:600; color:var(--text-secondary); display:block; margin-bottom:0.4rem;">Nama Lengkap / Perusahaan</label>
+            <input type="text" id="contactName" required placeholder="Contoh: Alex Pratama (Google / Telkom)" style="width:100%; padding:0.75rem 1rem; border-radius:var(--radius-md); background:var(--bg-tertiary); border:1px solid var(--border-subtle); color:#fff; font-family:inherit; outline:none;">
+          </div>
+          <div>
+            <label for="contactEmail" style="font-size:0.82rem; font-weight:600; color:var(--text-secondary); display:block; margin-bottom:0.4rem;">Email Kontak</label>
+            <input type="email" id="contactEmail" required placeholder="nama@perusahaan.com" style="width:100%; padding:0.75rem 1rem; border-radius:var(--radius-md); background:var(--bg-tertiary); border:1px solid var(--border-subtle); color:#fff; font-family:inherit; outline:none;">
+          </div>
+          <div>
+            <label for="contactMessage" style="font-size:0.82rem; font-weight:600; color:var(--text-secondary); display:block; margin-bottom:0.4rem;">Pesan / Tawaran Proyek</label>
+            <textarea id="contactMessage" rows="4" required placeholder="Jelaskan kebutuhan proyek atau tawaran role posisi Anda..." style="width:100%; padding:0.75rem 1rem; border-radius:var(--radius-md); background:var(--bg-tertiary); border:1px solid var(--border-subtle); color:#fff; font-family:inherit; outline:none; resize:vertical;"></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="justify-content:center; padding:0.9rem;">
+            <span>Kirim Pesan Langsung</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Application Logic Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/canvas-radar.js"></script>
+  <script src="js/sound-effects.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
