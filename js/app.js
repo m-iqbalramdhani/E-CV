@@ -337,28 +337,28 @@ document.addEventListener('DOMContentLoaded', () => {
               <line x1="450" y1="80" x2="600" y2="80" stroke="url(#gradFlow)" stroke-width="2" stroke-dasharray="6,4"/>
               <line x1="740" y1="80" x2="840" y2="80" stroke="url(#gradFlow)" stroke-width="2" stroke-dasharray="6,4"/>
 
-              <!-- Node 1: Nida's Frontend & UX -->
+              <!-- Node 1: Nida's QA & Test Automation -->
               <g transform="translate(20, 35)">
                 <rect width="140" height="90" rx="14" fill="#0f172a" stroke="#f472b6" stroke-width="1.5"/>
                 <text x="70" y="38" fill="#f472b6" font-family="Outfit" font-size="13" font-weight="700" text-anchor="middle">Nida Fuadia</text>
-                <text x="70" y="58" fill="#f8fafc" font-family="JetBrains Mono" font-size="11" text-anchor="middle">Portal Web Guru</text>
-                <text x="70" y="74" fill="#94a3b8" font-family="JetBrains Mono" font-size="9" text-anchor="middle">Dashboard TU & a11y</text>
+                <text x="70" y="58" fill="#f8fafc" font-family="JetBrains Mono" font-size="11" text-anchor="middle">QA &amp; Tester</text>
+                <text x="70" y="74" fill="#94a3b8" font-family="JetBrains Mono" font-size="9" text-anchor="middle">Stress &amp; Geofence Test</text>
               </g>
 
-              <!-- Node 2: Iqbal's Backend & Geofence -->
+              <!-- Node 2: Iqbal's Fullstack & DB -->
               <g transform="translate(310, 35)">
                 <rect width="140" height="90" rx="14" fill="#0f172a" stroke="#00f0ff" stroke-width="1.5"/>
                 <text x="70" y="38" fill="#00f0ff" font-family="Outfit" font-size="13" font-weight="700" text-anchor="middle">M. Iqbal</text>
-                <text x="70" y="58" fill="#f8fafc" font-family="JetBrains Mono" font-size="11" text-anchor="middle">RESTful API / Go</text>
-                <text x="70" y="74" fill="#94a3b8" font-family="JetBrains Mono" font-size="9" text-anchor="middle">Geofence & DB Presensi</text>
+                <text x="70" y="58" fill="#f8fafc" font-family="JetBrains Mono" font-size="11" text-anchor="middle">Fullstack &amp; Database</text>
+                <text x="70" y="74" fill="#94a3b8" font-family="JetBrains Mono" font-size="9" text-anchor="middle">Haversine API &amp; DB Engine</text>
               </g>
 
-              <!-- Node 3: Viola's Mobile App & Face Check -->
+              <!-- Node 3: Viola's Project Management (PM) -->
               <g transform="translate(600, 35)">
                 <rect width="140" height="90" rx="14" fill="#0f172a" stroke="#34d399" stroke-width="1.5"/>
                 <text x="70" y="38" fill="#34d399" font-family="Outfit" font-size="13" font-weight="700" text-anchor="middle">Viola Amelia</text>
-                <text x="70" y="58" fill="#f8fafc" font-family="JetBrains Mono" font-size="11" text-anchor="middle">Aplikasi Flutter</text>
-                <text x="70" y="74" fill="#94a3b8" font-family="JetBrains Mono" font-size="9" text-anchor="middle">Deteksi Swafoto Guru</text>
+                <text x="70" y="58" fill="#f8fafc" font-family="JetBrains Mono" font-size="11" text-anchor="middle">Project Manager (PM)</text>
+                <text x="70" y="74" fill="#94a3b8" font-family="JetBrains Mono" font-size="9" text-anchor="middle">Scrum Sprint &amp; Stakeholder</text>
               </g>
 
               <!-- Output Node: Server SMK Binatama -->
@@ -373,22 +373,22 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="contribution-section">
             <h4 class="contribution-heading">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              Pembagian Peran & Rekayasa Sistem di SIA-BINATAMA
+              Pembagian Peran &amp; Rekayasa Sistem di SIA-BINATAMA
             </h4>
-            <p style="font-size:0.92rem; color:var(--text-muted);">Pilih salah satu personil untuk melihat kontribusi teknis spesifik & cuplikan kode implementasi.</p>
+            <p style="font-size:0.92rem; color:var(--text-muted);">Pilih salah satu personil untuk melihat kontribusi teknis spesifik &amp; cuplikan kode implementasi.</p>
 
             <div class="contribution-nav">
               <button class="contrib-tab-btn ${state.activeContribTab === 'iqbal' ? 'active' : ''}" data-member="iqbal">
                 <img src="${PORTFOLIO_DATA.members.iqbal.avatar}" alt="Iqbal" class="contrib-tab-avatar">
-                <span>Muhammad Iqbal (Backend & Geofence)</span>
+                <span>Muhammad Iqbal (Fullstack &amp; Database)</span>
               </button>
               <button class="contrib-tab-btn ${state.activeContribTab === 'nida' ? 'active' : ''}" data-member="nida">
                 <img src="${PORTFOLIO_DATA.members.nida.avatar}" alt="Nida" class="contrib-tab-avatar">
-                <span>Nida Fuadia (UI/UX & Portal Guru)</span>
+                <span>Nida Fuadia (Quality Assurance &amp; Tester)</span>
               </button>
               <button class="contrib-tab-btn ${state.activeContribTab === 'viola' ? 'active' : ''}" data-member="viola">
                 <img src="${PORTFOLIO_DATA.members.viola.avatar}" alt="Viola" class="contrib-tab-avatar">
-                <span>Viola Amelia (App Mobile & Deteksi Selfie)</span>
+                <span>Viola Amelia (Project Manager &amp; Scrum)</span>
               </button>
             </div>
 
@@ -415,7 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="dot dot-yellow"></span>
                     <span class="dot dot-green"></span>
                   </div>
-                  <span class="code-window-title">sia_binatama_${state.activeContribTab}.${state.activeContribTab === 'viola' ? 'dart' : state.activeContribTab === 'nida' ? 'css' : 'js'}</span>
+                  <span class="code-window-title">sia_binatama_${state.activeContribTab}.${state.activeContribTab === 'viola' ? 'md' : state.activeContribTab === 'nida' ? 'test.js' : 'sql'}</span>
                 </div>
                 <pre class="code-content-pre"><code>${escapeHTML(currentContrib.codeHighlight)}</code></pre>
               </div>
@@ -547,14 +547,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     techStackSection.innerHTML = `
       <div class="container">
-        <div class="section-header" style="text-align: center; align-items: center; margin-bottom: 2.25rem;">
-          <div class="section-tag">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-            Tech Stack
-          </div>
-          <h2 class="section-title">Keahlian Teknologi: ${member.nickname}</h2>
-        </div>
-
         <div class="tech-stack-layout">
           <!-- Pure Floating Logos Cluster (One Unified Organic Cloud, ZERO TEXT) -->
           <div class="floating-logos-cluster view-enter">
