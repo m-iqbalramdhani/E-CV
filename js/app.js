@@ -1,23 +1,22 @@
 /**
- * Main Application Controller - NEXUS TRIO
- * Multi-Profile Portfolio & E-CV Hub
+ * Main Application Controller - E-CV & Portfolio Hub
+ * Muhammad Iqbal Ramdhani, Nida Fuadia, Viola Amelia
+ * 1 Joint Project: SIA-BINATAMA (Presensi Guru SMK Binatama)
  * Pure Vanilla JavaScript (ES6+)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   // Application State
   const state = {
-    activePersona: 'team', // 'team' | 'iqbal' | 'nida' | 'viola'
+    activePersona: 'iqbal', // 'iqbal' | 'nida' | 'viola'
     activeContribTab: 'iqbal',
     activeTechFilter: 'all',
     activeTimelineTab: 'experience',
-    theme: localStorage.getItem('theme') || 'dark',
-    radarInstance: null
+    theme: localStorage.getItem('theme') || 'dark'
   };
 
   // Color mappings per persona
   const PERSONA_COLORS = {
-    team: { accent: '#00f0ff', glow: 'rgba(0, 240, 255, 0.25)' },
     iqbal: { accent: '#00d2ff', glow: 'rgba(0, 210, 255, 0.28)' },
     nida: { accent: '#f472b6', glow: 'rgba(244, 114, 182, 0.28)' },
     viola: { accent: '#34d399', glow: 'rgba(52, 211, 153, 0.28)' }
@@ -49,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('theme', state.theme);
       applyTheme(state.theme);
       if (window.soundFx) window.soundFx.playSwitch();
-      if (state.radarInstance) state.radarInstance.draw();
     });
   }
 
@@ -92,10 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function initRouting() {
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '').toLowerCase();
-      if (['team', 'iqbal', 'nida', 'viola'].includes(hash)) {
+      if (['iqbal', 'nida', 'viola'].includes(hash)) {
         switchPersona(hash, false);
       } else {
-        switchPersona('team', false);
+        switchPersona('iqbal', false);
       }
     };
 
@@ -105,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 4. Persona Switching Logic
   function switchPersona(personaId, updateHash = true) {
-    if (!['team', 'iqbal', 'nida', 'viola'].includes(personaId)) personaId = 'team';
+    if (!['iqbal', 'nida', 'viola'].includes(personaId)) personaId = 'iqbal';
     state.activePersona = personaId;
 
     if (updateHash) {
@@ -121,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update Top Switcher Tabs
     personaTabs.forEach(tab => {
-      tab.classList.remove('active', 'tab-iqbal', 'tab-nida', 'tab-viola', 'tab-team');
+      tab.classList.remove('active', 'tab-iqbal', 'tab-nida', 'tab-viola');
       if (tab.dataset.persona === personaId) {
         tab.classList.add('active', `tab-${personaId}`);
       }
@@ -142,10 +140,10 @@ document.addEventListener('DOMContentLoaded', () => {
     renderTimeline(personaId);
     renderCertificates(personaId);
 
-    // Smooth Scroll to Top if user triggered switch
+    // Smooth Scroll to Top
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Re-trigger counter animations
+    // Counters
     initCounters();
   }
 
@@ -153,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
   personaTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const p = tab.dataset.persona;
-      switchPersona(p);
+      if (p) switchPersona(p);
     });
   });
 
@@ -165,157 +163,86 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. Render Hero Section
+  // 5. Render Hero Profile Section
   function renderHero(personaId) {
     if (!heroContainer) return;
+    const member = PORTFOLIO_DATA.members[personaId];
 
-    if (personaId === 'team') {
-      const team = PORTFOLIO_DATA.team;
-      heroContainer.innerHTML = `
-        <div class="hero-grid view-enter">
-          <div class="hero-content">
-            <div class="hero-status-pill">
-              <span class="status-indicator"></span>
-              <span>Available for Collaborative Engineering & High-Stakes Projects</span>
-            </div>
-            <h1 class="hero-title">
-              Crafting Digital Mastery with <span class="name-highlight">${team.name}</span>
-            </h1>
-            <h2 class="hero-subtitle">${team.tagline}</h2>
-            <p class="hero-bio">${team.description}</p>
-            <div class="hero-actions">
-              <button class="btn-primary" id="exploreJointBtn">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-                Explore Joint Project
-              </button>
-              <button class="btn-secondary" id="openTeamEcvBtn">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                Print / View Team E-CV
-              </button>
-              <button class="btn-secondary" id="heroHireBtn">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                Contact Trio
-              </button>
-            </div>
-            <div class="hero-metrics-row">
-              ${team.metrics.map(m => `
-                <div class="metric-item">
-                  <div class="metric-number">
-                    <span class="counter-number" data-target="${m.value}">${m.value}</span>
-                    <span class="metric-suffix">${m.suffix}</span>
-                  </div>
-                  <span class="metric-label">${m.label}</span>
-                </div>
-              `).join('')}
-            </div>
+    heroContainer.innerHTML = `
+      <div class="hero-grid view-enter">
+        <div class="hero-content">
+          <div class="hero-status-pill">
+            <span class="status-indicator"></span>
+            <span>${member.status}</span>
           </div>
+          <h1 class="hero-title">
+            Halo, Saya <span class="name-highlight">${member.name}</span>
+          </h1>
+          <h2 class="hero-subtitle">${member.role}</h2>
+          <p class="hero-bio">${member.bio}</p>
+          <div class="hero-actions">
+            <button class="btn-primary" id="openEcvBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              Lihat / Cetak E-CV
+            </button>
+            <button class="btn-secondary" id="scrollToJointBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              Project SIA-Binatama
+            </button>
+            <button class="btn-secondary" id="heroHireBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Hubungi ${member.nickname}
+            </button>
+            <button class="btn-secondary" id="copyEmailBtn" data-email="${member.email}">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Salin Email
+            </button>
+          </div>
+          <div class="hero-metrics-row">
+            ${member.stats.map(m => `
+              <div class="metric-item">
+                <div class="metric-number">
+                  <span class="counter-number" data-target="${m.value}">${m.value}</span>
+                  <span class="metric-suffix">${m.suffix}</span>
+                </div>
+                <span class="metric-label">${m.label}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
 
-          <!-- Hero Team Mosaic Card with 3D Tilt -->
-          <div class="hero-portrait-card spotlight-card" id="heroPortraitCard">
-            <div class="portrait-glow-border"></div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1rem;">
-              <div class="portrait-img-box" style="aspect-ratio: 4/5; cursor:pointer;" onclick="window.location.hash='iqbal'">
-                <img src="${PORTFOLIO_DATA.members.iqbal.avatar}" alt="Muhammad Iqbal Ramdhani" class="portrait-img">
-                <div style="position:absolute; bottom:6px; left:6px; background:rgba(0,0,0,0.7); padding:2px 8px; border-radius:12px; font-size:11px; font-weight:700; color:#00f0ff;">Iqbal</div>
-              </div>
-              <div class="portrait-img-box" style="aspect-ratio: 4/5; cursor:pointer;" onclick="window.location.hash='nida'">
-                <img src="${PORTFOLIO_DATA.members.nida.avatar}" alt="Nida Fuadia" class="portrait-img">
-                <div style="position:absolute; bottom:6px; left:6px; background:rgba(0,0,0,0.7); padding:2px 8px; border-radius:12px; font-size:11px; font-weight:700; color:#f472b6;">Nida</div>
-              </div>
-              <div class="portrait-img-box" style="aspect-ratio: 4/5; cursor:pointer;" onclick="window.location.hash='viola'">
-                <img src="${PORTFOLIO_DATA.members.viola.avatar}" alt="Viola Amelia" class="portrait-img">
-                <div style="position:absolute; bottom:6px; left:6px; background:rgba(0,0,0,0.7); padding:2px 8px; border-radius:12px; font-size:11px; font-weight:700; color:#34d399;">Viola</div>
-              </div>
-            </div>
-            <div class="portrait-badge-overlay" style="position:relative; bottom:0; left:0; right:0;">
+        <!-- Hero Portrait Card with 3D Tilt -->
+        <div class="hero-portrait-card spotlight-card" id="heroPortraitCard">
+          <div class="portrait-glow-border"></div>
+          <div class="portrait-img-box">
+            <img src="${member.avatar}" alt="${member.name}" class="portrait-img">
+            <div class="portrait-badge-overlay">
               <div class="portrait-person-info">
-                <span class="portrait-person-name">Nexus Trio Collective</span>
-                <span class="portrait-person-role">Fullstack • UI/UX • AI/ML</span>
+                <span class="portrait-person-name">${member.name}</span>
+                <span class="portrait-person-role">${member.location}</span>
               </div>
               <div class="portrait-socials">
-                <a href="#synapse-ai" class="social-mini-btn" title="View Flagship Collaboration">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <a href="${member.github}" target="_blank" rel="noopener noreferrer" class="social-mini-btn" title="GitHub">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="${member.linkedin}" target="_blank" rel="noopener noreferrer" class="social-mini-btn" title="LinkedIn">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
               </div>
             </div>
           </div>
         </div>
-      `;
-    } else {
-      const member = PORTFOLIO_DATA.members[personaId];
-      heroContainer.innerHTML = `
-        <div class="hero-grid view-enter">
-          <div class="hero-content">
-            <div class="hero-status-pill">
-              <span class="status-indicator"></span>
-              <span>${member.status}</span>
-            </div>
-            <h1 class="hero-title">
-              Hello, I am <span class="name-highlight">${member.name}</span>
-            </h1>
-            <h2 class="hero-subtitle">${member.role}</h2>
-            <p class="hero-bio">${member.bio}</p>
-            <div class="hero-actions">
-              <button class="btn-primary" id="openEcvBtn">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                View / Export E-CV
-              </button>
-              <button class="btn-secondary" id="heroHireBtn">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                Hire / Contact ${member.nickname}
-              </button>
-              <button class="btn-secondary" id="copyEmailBtn" data-email="${member.email}">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                Copy Email
-              </button>
-            </div>
-            <div class="hero-metrics-row">
-              ${member.stats.map(m => `
-                <div class="metric-item">
-                  <div class="metric-number">
-                    <span class="counter-number" data-target="${m.value}">${m.value}</span>
-                    <span class="metric-suffix">${m.suffix}</span>
-                  </div>
-                  <span class="metric-label">${m.label}</span>
-                </div>
-              `).join('')}
-            </div>
-          </div>
+      </div>
+    `;
 
-          <!-- Hero Portrait Card with 3D Tilt -->
-          <div class="hero-portrait-card spotlight-card" id="heroPortraitCard">
-            <div class="portrait-glow-border"></div>
-            <div class="portrait-img-box">
-              <img src="${member.avatar}" alt="${member.name}" class="portrait-img">
-              <div class="portrait-badge-overlay">
-                <div class="portrait-person-info">
-                  <span class="portrait-person-name">${member.name}</span>
-                  <span class="portrait-person-role">${member.location}</span>
-                </div>
-                <div class="portrait-socials">
-                  <a href="${member.github}" target="_blank" rel="noopener noreferrer" class="social-mini-btn" title="GitHub Profile">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                  </a>
-                  <a href="${member.linkedin}" target="_blank" rel="noopener noreferrer" class="social-mini-btn" title="LinkedIn Profile">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-    // Attach Hero Button Listeners
     setupHeroListeners();
     init3DTilt();
   }
 
   function setupHeroListeners() {
-    const exploreJointBtn = document.getElementById('exploreJointBtn');
-    if (exploreJointBtn) {
-      exploreJointBtn.addEventListener('click', () => {
+    const scrollToJointBtn = document.getElementById('scrollToJointBtn');
+    if (scrollToJointBtn) {
+      scrollToJointBtn.addEventListener('click', () => {
         document.getElementById('jointProjectSection').scrollIntoView({ behavior: 'smooth' });
       });
     }
@@ -323,11 +250,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const openEcvBtn = document.getElementById('openEcvBtn');
     if (openEcvBtn) {
       openEcvBtn.addEventListener('click', () => openEcvModal(state.activePersona));
-    }
-
-    const openTeamEcvBtn = document.getElementById('openTeamEcvBtn');
-    if (openTeamEcvBtn) {
-      openTeamEcvBtn.addEventListener('click', () => openEcvModal('team'));
     }
 
     const heroHireBtn = document.getElementById('heroHireBtn');
@@ -340,32 +262,35 @@ document.addEventListener('DOMContentLoaded', () => {
       copyEmailBtn.addEventListener('click', () => {
         const email = copyEmailBtn.dataset.email;
         navigator.clipboard.writeText(email).then(() => {
-          showToast(`Email copied: ${email} 📋`);
+          showToast(`Email berhasil disalin: ${email} 📋`);
           if (window.soundFx) window.soundFx.playSuccess();
         });
       });
     }
   }
 
-  // 6. Render Flagship Joint Project Section
+  // 6. Render Joint Project Section: SIA-BINATAMA
   function renderJointProject() {
     if (!jointProjectSection) return;
-    const joint = PORTFOLIO_DATA.team.jointProject;
+    const joint = PORTFOLIO_DATA.jointProject;
     const currentContrib = joint.contributions[state.activeContribTab];
 
     jointProjectSection.innerHTML = `
       <div class="container">
         <div class="section-header">
-          <div class="section-tag">Centerpiece Flagship Project</div>
-          <h2 class="section-title">Kolaborasi 1 Project Utama Bersama</h2>
-          <p class="section-desc">Dirancang, dikembangkan, dan diorkestrasi secara holistik oleh Muhammad Iqbal, Nida Fuadia, dan Viola Amelia.</p>
+          <div class="section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            1 Project Bareng Ber-3
+          </div>
+          <h2 class="section-title">SIA-BINATAMA</h2>
+          <p class="section-desc">Sistem Informasi Akademik & Presensi Guru di Sekolah SMK Binatama yang dirancang dan dikembangkan bersama oleh Muhammad Iqbal, Nida Fuadia, dan Viola Amelia.</p>
         </div>
 
         <div class="joint-project-card spotlight-card">
           <div class="joint-card-header">
             <div class="joint-header-left">
               <span class="joint-flag-badge">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                 ${joint.badge} • ${joint.date}
               </span>
               <h3 class="joint-title">${joint.title}</h3>
@@ -375,16 +300,16 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="joint-actions-group">
               <a href="${joint.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                Repository Code
+                Repository Proyek
               </a>
-              <button class="btn-primary" id="openJointDemoBtn">
+              <button class="btn-primary" onclick="document.getElementById('teacherAttendanceDemo').scrollIntoView({behavior:'smooth'});">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-                Launch Live Sandbox
+                Uji Simulasi Presensi
               </button>
             </div>
           </div>
 
-          <!-- Joint Project Stats KPI Row -->
+          <!-- Project Stats Bento Row -->
           <div class="joint-stats-grid">
             ${joint.stats.map(s => `
               <div class="joint-stat-box">
@@ -394,11 +319,11 @@ document.addEventListener('DOMContentLoaded', () => {
             `).join('')}
           </div>
 
-          <!-- Architecture Flow Diagram (Interactive SVG) -->
+          <!-- Architecture Flow Diagram for SMK Binatama -->
           <div style="margin: 2.5rem 0; padding: 1.5rem; background: rgba(0,0,0,0.35); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);">
             <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; display:flex; justify-content:space-between; align-items:center;">
-              <span>SYSTEM ARCHITECTURE TOPOLOGY</span>
-              <span style="color:var(--emerald-primary);">● Cluster Healthy (Multi-AZ)</span>
+              <span>TOPOLOGI ARSITEKTUR PRESENSI GURU • SMK BINATAMA</span>
+              <span style="color:var(--emerald-primary);">● Geofence Active (Radius 50m)</span>
             </div>
             <svg viewBox="0 0 900 160" width="100%" height="auto" style="overflow:visible;">
               <defs>
@@ -416,30 +341,30 @@ document.addEventListener('DOMContentLoaded', () => {
               <g transform="translate(20, 35)">
                 <rect width="140" height="90" rx="14" fill="#0f172a" stroke="#f472b6" stroke-width="1.5"/>
                 <text x="70" y="38" fill="#f472b6" font-family="Outfit" font-size="13" font-weight="700" text-anchor="middle">Nida Fuadia</text>
-                <text x="70" y="58" fill="#f8fafc" font-family="JetBrains Mono" font-size="11" text-anchor="middle">Adaptive UI</text>
-                <text x="70" y="74" fill="#94a3b8" font-family="JetBrains Mono" font-size="9" text-anchor="middle">Bento System</text>
+                <text x="70" y="58" fill="#f8fafc" font-family="JetBrains Mono" font-size="11" text-anchor="middle">Portal Web Guru</text>
+                <text x="70" y="74" fill="#94a3b8" font-family="JetBrains Mono" font-size="9" text-anchor="middle">Dashboard TU & a11y</text>
               </g>
 
-              <!-- Node 2: Iqbal's Backend & Cloud -->
+              <!-- Node 2: Iqbal's Backend & Geofence -->
               <g transform="translate(310, 35)">
                 <rect width="140" height="90" rx="14" fill="#0f172a" stroke="#00f0ff" stroke-width="1.5"/>
                 <text x="70" y="38" fill="#00f0ff" font-family="Outfit" font-size="13" font-weight="700" text-anchor="middle">M. Iqbal</text>
-                <text x="70" y="58" fill="#f8fafc" font-family="JetBrains Mono" font-size="11" text-anchor="middle">FastAPI Gateway</text>
-                <text x="70" y="74" fill="#94a3b8" font-family="JetBrains Mono" font-size="9" text-anchor="middle">Vector Cache / K8s</text>
+                <text x="70" y="58" fill="#f8fafc" font-family="JetBrains Mono" font-size="11" text-anchor="middle">RESTful API / Go</text>
+                <text x="70" y="74" fill="#94a3b8" font-family="JetBrains Mono" font-size="9" text-anchor="middle">Geofence & DB Presensi</text>
               </g>
 
-              <!-- Node 3: Viola's AI Engine -->
+              <!-- Node 3: Viola's Mobile App & Face Check -->
               <g transform="translate(600, 35)">
                 <rect width="140" height="90" rx="14" fill="#0f172a" stroke="#34d399" stroke-width="1.5"/>
                 <text x="70" y="38" fill="#34d399" font-family="Outfit" font-size="13" font-weight="700" text-anchor="middle">Viola Amelia</text>
-                <text x="70" y="58" fill="#f8fafc" font-family="JetBrains Mono" font-size="11" text-anchor="middle">RAG Inference</text>
-                <text x="70" y="74" fill="#94a3b8" font-family="JetBrains Mono" font-size="9" text-anchor="middle">PyTorch Re-ranking</text>
+                <text x="70" y="58" fill="#f8fafc" font-family="JetBrains Mono" font-size="11" text-anchor="middle">Aplikasi Flutter</text>
+                <text x="70" y="74" fill="#94a3b8" font-family="JetBrains Mono" font-size="9" text-anchor="middle">Deteksi Swafoto Guru</text>
               </g>
 
-              <!-- Output Node -->
+              <!-- Output Node: Server SMK Binatama -->
               <g transform="translate(840, 50)">
                 <circle cx="30" cy="30" r="26" fill="#1e293b" stroke="#00f0ff" stroke-width="1.5"/>
-                <text x="30" y="34" fill="#00f0ff" font-family="JetBrains Mono" font-size="10" font-weight="700" text-anchor="middle">LIVE</text>
+                <text x="30" y="34" fill="#00f0ff" font-family="JetBrains Mono" font-size="10" font-weight="700" text-anchor="middle">SMK</text>
               </g>
             </svg>
           </div>
@@ -448,22 +373,22 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="contribution-section">
             <h4 class="contribution-heading">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              Pembagian Peran & Rekayasa Arsitektur Ber-3
+              Pembagian Peran & Rekayasa Sistem di SIA-BINATAMA
             </h4>
-            <p style="font-size:0.92rem; color:var(--text-muted);">Pilih salah satu anggota untuk melihat kontribusi teknis spesifik & cuplikan kode implementasi.</p>
+            <p style="font-size:0.92rem; color:var(--text-muted);">Pilih salah satu personil untuk melihat kontribusi teknis spesifik & cuplikan kode implementasi.</p>
 
             <div class="contribution-nav">
               <button class="contrib-tab-btn ${state.activeContribTab === 'iqbal' ? 'active' : ''}" data-member="iqbal">
                 <img src="${PORTFOLIO_DATA.members.iqbal.avatar}" alt="Iqbal" class="contrib-tab-avatar">
-                <span>Muhammad Iqbal (Cloud & Backend)</span>
+                <span>Muhammad Iqbal (Backend & Geofence)</span>
               </button>
               <button class="contrib-tab-btn ${state.activeContribTab === 'nida' ? 'active' : ''}" data-member="nida">
                 <img src="${PORTFOLIO_DATA.members.nida.avatar}" alt="Nida" class="contrib-tab-avatar">
-                <span>Nida Fuadia (UI/UX & Design System)</span>
+                <span>Nida Fuadia (UI/UX & Portal Guru)</span>
               </button>
               <button class="contrib-tab-btn ${state.activeContribTab === 'viola' ? 'active' : ''}" data-member="viola">
                 <img src="${PORTFOLIO_DATA.members.viola.avatar}" alt="Viola" class="contrib-tab-avatar">
-                <span>Viola Amelia (AI/ML & Pipeline)</span>
+                <span>Viola Amelia (App Mobile & Deteksi Selfie)</span>
               </button>
             </div>
 
@@ -490,42 +415,61 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="dot dot-yellow"></span>
                     <span class="dot dot-green"></span>
                   </div>
-                  <span class="code-window-title">${state.activeContribTab}_synapse_engine.${state.activeContribTab === 'viola' ? 'py' : state.activeContribTab === 'nida' ? 'css' : 'ts'}</span>
+                  <span class="code-window-title">sia_binatama_${state.activeContribTab}.${state.activeContribTab === 'viola' ? 'dart' : state.activeContribTab === 'nida' ? 'css' : 'js'}</span>
                 </div>
                 <pre class="code-content-pre"><code>${escapeHTML(currentContrib.codeHighlight)}</code></pre>
               </div>
             </div>
           </div>
 
-          <!-- Interactive Live AI Query Simulator Box -->
-          <div class="live-demo-card">
+          <!-- Interactive Teacher Attendance Simulation for SMK Binatama -->
+          <div class="live-demo-card" id="teacherAttendanceDemo" style="margin-top: 2.5rem;">
             <div class="live-demo-header">
               <span class="live-badge">
                 <span style="width:6px; height:6px; background:#10b981; border-radius:50%; display:inline-block;"></span>
-                INTERACTIVE NEURAL BENCHMARK SIMULATOR
+                SIMULATOR PRESENSI GURU SMK BINATAMA
               </span>
-              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted);">Real-time Multi-Agent Sandbox</span>
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted);">Real-time Geofence & Biometric Verification</span>
             </div>
-            <div class="demo-suggestions">
-              <span class="demo-chip" data-prompt="Jelaskan arsitektur event-driven Synapse AI">⚡ "Arsitektur Event-Driven"</span>
-              <span class="demo-chip" data-prompt="Berapa benchmark latency query pgvector?">⏱ "Latency pgvector & Caching"</span>
-              <span class="demo-chip" data-prompt="Bagaimana design system Synapse menjaga a11y?">🎨 "Design System & WCAG AAA"</span>
+
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; margin-bottom:1.25rem;">
+              <div>
+                <label style="font-size:0.8rem; font-weight:600; color:var(--text-secondary); display:block; margin-bottom:0.4rem;">Pilih Dewan Guru / Staf</label>
+                <select id="simTeacherSelect" class="demo-input" style="width:100%;">
+                  <option value="Drs. H. Sukamto, M.Pd (Kepala Sekolah)">Drs. H. Sukamto, M.Pd — Kepala Sekolah</option>
+                  <option value="Bambang Sudarsono, S.Pd (Guru Produktif TKJ)" selected>Bambang Sudarsono, S.Pd — Guru Produktif TKJ</option>
+                  <option value="Siti Nurjanah, S.Kom (Guru Pemrograman RPL)">Siti Nurjanah, S.Kom — Guru Pemrograman RPL</option>
+                  <option value="Ahmad Fauzi, S.T (Guru Teknik Otomotif)">Ahmad Fauzi, S.T — Guru Teknik Otomotif</option>
+                  <option value="Dewi Lestari, S.Pd (Guru Bahasa Inggris)">Dewi Lestari, S.Pd — Guru Bahasa Inggris</option>
+                </select>
+              </div>
+
+              <div>
+                <label style="font-size:0.8rem; font-weight:600; color:var(--text-secondary); display:block; margin-bottom:0.4rem;">Simulasi Lokasi Guru Saat Absen</label>
+                <select id="simLocationSelect" class="demo-input" style="width:100%;">
+                  <option value="inside" selected>📍 Di Lingkungan SMK Binatama (Radius 28 Meter) [VALID]</option>
+                  <option value="outside">📍 Di Luar Sekolah / Rumah (Radius 2.4 KM) [INVALID]</option>
+                </select>
+              </div>
             </div>
-            <div class="demo-input-box">
-              <input type="text" id="aiQueryInput" class="demo-input" placeholder="Ketik pertanyaan atau klik salah satu chip di atas..." value="Jelaskan arsitektur event-driven Synapse AI">
-              <button class="demo-btn" id="runAiQueryBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                Execute
+
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:0.5rem;">
+              <span style="font-size:0.82rem; color:var(--text-muted);">Tekan tombol di samping untuk menguji simulasi alur presensi real-time:</span>
+              <button class="demo-btn" id="runAttendanceSimBtn" style="background:var(--active-accent); color:#000;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Simulasikan Absen Guru
               </button>
             </div>
-            <div class="demo-output-box" id="aiQueryOutput">
-              SYNAPSE REASONING ENGINE RESPONSE:
-              Arsitektur Synapse AI memisahkan layer ingress dengan gRPC stream buffer yang dikelola oleh Muhammad Iqbal, dihubungkan ke hybrid RAG re-ranking pipeline oleh Viola Amelia, dan dirender secara streaming pada adaptive bento dashboard oleh Nida Fuadia dengan latensi rata-rata 38ms.
+
+            <div class="demo-output-box" id="attendanceOutput">
+              SIAP MENERIMA PRESENSI GURU SMK BINATAMA
+              Klik tombol 'Simulasikan Absen Guru' untuk menguji verifikasi koordinat geofencing GPS dan validasi biometrik swafoto.
             </div>
+
             <div class="demo-output-meta">
-              <span id="outputLatency">Latency: 38ms</span>
-              <span id="outputAgents">Agents Activated: 4 Workers</span>
-              <span id="outputConfidence">Confidence Score: 99.4%</span>
+              <span id="outputGeoStatus">Status Lokasi: Menunggu Uji</span>
+              <span id="outputFaceStatus">Verifikasi Wajah: On-Device Standby</span>
+              <span id="outputDbLog">Database: Connected</span>
             </div>
           </div>
         </div>
@@ -542,95 +486,64 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Attach Simulator Listeners
-    setupSimulatorListeners();
+    setupAttendanceSimulatorListeners();
   }
 
-  function setupSimulatorListeners() {
-    const runBtn = document.getElementById('runAiQueryBtn');
-    const input = document.getElementById('aiQueryInput');
-    const output = document.getElementById('aiQueryOutput');
-    const latencyEl = document.getElementById('outputLatency');
-    const chips = document.querySelectorAll('.demo-chip');
+  function setupAttendanceSimulatorListeners() {
+    const runBtn = document.getElementById('runAttendanceSimBtn');
+    const teacherSelect = document.getElementById('simTeacherSelect');
+    const locationSelect = document.getElementById('simLocationSelect');
+    const output = document.getElementById('attendanceOutput');
+    const geoStatus = document.getElementById('outputGeoStatus');
+    const faceStatus = document.getElementById('outputFaceStatus');
+    const dbLog = document.getElementById('outputDbLog');
 
-    chips.forEach(chip => {
-      chip.addEventListener('click', () => {
-        if (input) input.value = chip.dataset.prompt;
-        runQuery();
-      });
-    });
+    if (!runBtn) return;
 
-    if (runBtn) {
-      runBtn.addEventListener('click', runQuery);
-    }
-
-    if (input) {
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') runQuery();
-      });
-    }
-
-    function runQuery() {
-      if (!output || !input) return;
-      const q = input.value.trim();
-      if (!q) return;
+    runBtn.addEventListener('click', () => {
+      if (!output) return;
+      const teacher = teacherSelect.value;
+      const isInside = locationSelect.value === 'inside';
 
       if (window.soundFx) window.soundFx.playClick();
-      output.innerHTML = `<span style="color:var(--cyan-primary);">Analisis vektor & RAG inferensi sedang berlangsung...</span>`;
+      output.innerHTML = `<span style="color:var(--active-accent);">Memproses sinyal GPS dan verifikasi wajah guru...</span>`;
 
       setTimeout(() => {
-        const randLatency = Math.floor(Math.random() * 15) + 32;
-        const confidence = (98.5 + Math.random() * 1.4).toFixed(1);
+        const timeNow = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
-        let answer = `SYNAPSE REASONING ENGINE RESPONSE:\n`;
-        if (q.toLowerCase().includes('arsitektur') || q.toLowerCase().includes('event-driven')) {
-          answer += `Sistem memanfaatkan RabbitMQ & gRPC streaming layer (Iqbal) yang mentransfer payload ke context compressor (Viola). Komponen UI disinkronkan melalui WebSocket event bus (Nida).`;
-        } else if (q.toLowerCase().includes('latency') || q.toLowerCase().includes('pgvector')) {
-          answer += `Query pgvector terakselerasi dengan IVFFlat indexing & Redis L1 cache, menekan p99 latency menjadi 36ms pada 2.5 juta embedding 1536-dimensi.`;
-        } else if (q.toLowerCase().includes('design') || q.toLowerCase().includes('a11y')) {
-          answer += `Design system 'Synapse Neo' memenuhi standar WCAG 2.1 Level AAA: contrast ratio minimum 7:1, full keyboard trap navigation, dan reduced-motion media query fallback.`;
+        if (isInside) {
+          output.innerHTML = `
+            <div style="color:#10b981; font-weight:700; margin-bottom:4px;">✅ PRESENSI BERHASIL DITERIMA [STATUS: TEPAT WAKTU]</div>
+            <div>Guru: <strong>${teacher}</strong></div>
+            <div>Waktu Check-In: <strong>${timeNow} WIB</strong></div>
+            <div>Koordinat GPS: <strong>-7.77128, 110.36715 (Radius 28m dari Gerbang SMK Binatama)</strong></div>
+            <div>Bukti Swafoto: <strong>Terverifikasi Kamera Mobile (Kesesuaian Biometrik 99.4%)</strong></div>
+            <div>Tercatat pada Sistem Tata Usaha (TU) dan Notifikasi Terkirim ke Kepala Sekolah.</div>
+          `;
+          if (geoStatus) geoStatus.innerHTML = `<span style="color:#10b981;">● Lokasi: Valid di SMK Binatama (28m)</span>`;
+          if (faceStatus) faceStatus.innerHTML = `<span style="color:#10b981;">● Wajah: Terotentikasi</span>`;
+          if (dbLog) dbLog.innerHTML = `<span style="color:#10b981;">● Log ID: #ATT-${Math.floor(1000 + Math.random() * 9000)} Disimpan</span>`;
+          if (window.soundFx) window.soundFx.playSuccess();
         } else {
-          answer += `Query "${q}" berhasil diproses melalui multi-agent consensus pool. Vektor retrieval terverifikasi dengan nilai cosine similarity 0.942.`;
+          output.innerHTML = `
+            <div style="color:#f43f5e; font-weight:700; margin-bottom:4px;">❌ PRESENSI DITOLAK [DI LUAR RADIUS SMK BINATAMA]</div>
+            <div>Guru: <strong>${teacher}</strong></div>
+            <div>Penyebab: <strong>Terdeteksi berada 2.4 KM di luar batas perimeter geofence sekolah!</strong></div>
+            <div>Sistem memblokir absensi otomatis untuk mencegah titip absen atau manipulasi lokasi GPS.</div>
+            <div style="color:#f59e0b; margin-top:4px;">Saran: Silakan lakukan presensi saat tiba di area gerbang / kantor guru SMK Binatama.</div>
+          `;
+          if (geoStatus) geoStatus.innerHTML = `<span style="color:#f43f5e;">● Lokasi: Ditolak (2.4km Di Luar Radius)</span>`;
+          if (faceStatus) faceStatus.innerHTML = `<span style="color:#f59e0b;">● Swafoto: Dibatalkan</span>`;
+          if (dbLog) dbLog.innerHTML = `<span style="color:#f43f5e;">● Status: Reject Log #ERR-GEO</span>`;
         }
-
-        output.textContent = answer;
-        if (latencyEl) latencyEl.textContent = `Latency: ${randLatency}ms`;
-        const confEl = document.getElementById('outputConfidence');
-        if (confEl) confEl.textContent = `Confidence Score: ${confidence}%`;
-        if (window.soundFx) window.soundFx.playSuccess();
       }, 350);
-    }
+    });
   }
 
-  // 7. Render Tech Stack & Programming Languages
+  // 7. Render Floating Tech Stack Logos (NO Percentages, With Floating Animations)
   function renderTechStack(personaId) {
     if (!techStackSection) return;
-
-    let member;
-    let title;
-    let subtitle;
-
-    if (personaId === 'team') {
-      title = "Tech Stack & Spesialisasi Pemrograman Tim";
-      subtitle = "Peta keahlian komprehensif dari Muhammad Iqbal, Nida Fuadia, dan Viola Amelia.";
-      // Aggregate representative skills
-      member = {
-        name: "Nexus Trio Combined",
-        radarSkills: {
-          labels: ["Backend & Cloud", "UI/UX & Design", "Machine Learning", "Frontend Dev", "Mobile Apps", "System Architecture"],
-          values: [95, 96, 94, 93, 91, 92]
-        },
-        techStack: [
-          ...PORTFOLIO_DATA.members.iqbal.techStack.slice(0, 4),
-          ...PORTFOLIO_DATA.members.nida.techStack.slice(0, 4),
-          ...PORTFOLIO_DATA.members.viola.techStack.slice(0, 4)
-        ]
-      };
-    } else {
-      member = PORTFOLIO_DATA.members[personaId];
-      title = `Tech Stack & Bahasa Pemrograman: ${member.nickname}`;
-      subtitle = `Bahasa pemrograman, framework, dan tools yang dikuasai secara mendalam oleh ${member.name}.`;
-    }
+    const member = PORTFOLIO_DATA.members[personaId];
 
     const filteredTech = state.activeTechFilter === 'all'
       ? member.techStack
@@ -639,61 +552,50 @@ document.addEventListener('DOMContentLoaded', () => {
     techStackSection.innerHTML = `
       <div class="container">
         <div class="section-header">
-          <div class="section-tag">Competency Matrix</div>
-          <h2 class="section-title">${title}</h2>
-          <p class="section-desc">${subtitle}</p>
+          <div class="section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            Technology & Programming Skills
+          </div>
+          <h2 class="section-title">Tech Stack & Bahasa Pemrograman: ${member.nickname}</h2>
+          <p class="section-desc">Kumpulan bahasa pemrograman, framework, dan tools yang dikuasai secara mendalam oleh ${member.name}. Setiap kartu bergerak mengambang secara dinamis.</p>
         </div>
 
         <div class="tech-stack-layout">
-          <!-- Left: Filterable Skill Cards Grid -->
-          <div class="tech-grid-col">
-            <div class="tech-filters">
-              <button class="filter-btn ${state.activeTechFilter === 'all' ? 'active' : ''}" data-filter="all">All Stack</button>
-              <button class="filter-btn ${state.activeTechFilter === 'language' ? 'active' : ''}" data-filter="language">Languages</button>
-              <button class="filter-btn ${state.activeTechFilter === 'framework' ? 'active' : ''}" data-filter="framework">Frameworks</button>
-              <button class="filter-btn ${state.activeTechFilter === 'cloud' ? 'active' : ''}" data-filter="cloud">Cloud & DB</button>
-              <button class="filter-btn ${state.activeTechFilter === 'tools' ? 'active' : ''}" data-filter="tools">Tools & UX</button>
-            </div>
-
-            <div class="tech-grid view-enter">
-              ${filteredTech.map(t => `
-                <div class="tech-card spotlight-card">
-                  <div class="tech-card-header">
-                    <div class="tech-name-box">
-                      <div class="tech-icon-circle">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                      </div>
-                      <span class="tech-name">${t.name}</span>
-                    </div>
-                    <span class="tech-exp-pill">${t.exp}</span>
-                  </div>
-                  <div class="tech-progress-bar-bg">
-                    <div class="tech-progress-fill" style="width: ${t.level}%;"></div>
-                  </div>
-                  <div class="tech-percent-text">
-                    <span>Proficiency</span>
-                    <span>${t.level}%</span>
-                  </div>
-                </div>
-              `).join('')}
-            </div>
+          <div class="tech-filters">
+            <button class="filter-btn ${state.activeTechFilter === 'all' ? 'active' : ''}" data-filter="all">Semua Stack (${member.techStack.length})</button>
+            <button class="filter-btn ${state.activeTechFilter === 'language' ? 'active' : ''}" data-filter="language">Bahasa Pemrograman</button>
+            <button class="filter-btn ${state.activeTechFilter === 'framework' ? 'active' : ''}" data-filter="framework">Framework & Library</button>
+            <button class="filter-btn ${state.activeTechFilter === 'cloud' ? 'active' : ''}" data-filter="cloud">Database & Cloud</button>
+            <button class="filter-btn ${state.activeTechFilter === 'tools' ? 'active' : ''}" data-filter="tools">Tools & DevOps</button>
           </div>
 
-          <!-- Right: Interactive Canvas Radar Chart Widget -->
-          <div class="radar-widget-box spotlight-card">
-            <div class="radar-title-box">
-              <h4 style="font-size:1.15rem; font-weight:700;">Interactive Skill Radar</h4>
-              <p style="font-size:0.82rem; color:var(--text-muted);">Arahkan kursor pada simpul untuk melihat skor akurasi</p>
-            </div>
-            <div class="radar-canvas-container">
-              <canvas id="radarCanvas"></canvas>
-            </div>
-            <div class="radar-legend">
-              <div class="legend-item">
-                <span class="legend-dot"></span>
-                <span>Active Core Competency</span>
-              </div>
-            </div>
+          <!-- Floating Tech Stack Cards Grid -->
+          <div class="floating-tech-grid view-enter">
+            ${filteredTech.map((t, idx) => {
+              const floatClass = `float-item-${(idx % 4) + 1}`;
+              const iconSvg = (window.TECH_ICONS && window.TECH_ICONS[t.icon]) ? window.TECH_ICONS[t.icon] : `
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              `;
+
+              return `
+                <div class="floating-tech-card spotlight-card ${floatClass}" title="${t.name}">
+                  <div class="tech-card-top">
+                    <div class="tech-logo-wrapper">
+                      ${iconSvg}
+                    </div>
+                    <span class="tech-exp-badge">${t.exp}</span>
+                  </div>
+                  <div class="tech-card-body">
+                    <h4 class="tech-card-title">${t.name}</h4>
+                    <p class="tech-card-desc">${t.desc}</p>
+                  </div>
+                  <div class="tech-card-footer">
+                    <span class="tech-cat-chip">${t.category}</span>
+                    <span class="tech-float-indicator"></span>
+                  </div>
+                </div>
+              `;
+            }).join('')}
           </div>
         </div>
       </div>
@@ -708,60 +610,23 @@ document.addEventListener('DOMContentLoaded', () => {
         renderTechStack(personaId);
       });
     });
-
-    // Initialize or update Interactive Radar Chart
-    setTimeout(() => {
-      const radarColor = PERSONA_COLORS[personaId] || PERSONA_COLORS.team;
-      if (!state.radarInstance) {
-        state.radarInstance = new InteractiveRadar('radarCanvas');
-      } else {
-        state.radarInstance.canvas = document.getElementById('radarCanvas');
-        if (state.radarInstance.canvas) {
-          state.radarInstance.ctx = state.radarInstance.canvas.getContext('2d');
-          state.radarInstance.resize();
-        }
-      }
-
-      if (state.radarInstance && member.radarSkills) {
-        state.radarInstance.setData(
-          member.radarSkills.labels,
-          member.radarSkills.values,
-          radarColor.accent,
-          radarColor.glow
-        );
-      }
-    }, 50);
   }
 
   // 8. Render Individual Projects
   function renderProjects(personaId) {
     if (!projectsSection) return;
-
-    let projects = [];
-    let title;
-    let subtitle;
-
-    if (personaId === 'team') {
-      title = "Proyek Unggulan Masing-Masing Anggota";
-      subtitle = "Portofolio individual Muhammad Iqbal, Nida Fuadia, dan Viola Amelia.";
-      projects = [
-        ...PORTFOLIO_DATA.members.iqbal.individualProjects.map(p => ({ ...p, author: 'Muhammad Iqbal Ramdhani' })),
-        ...PORTFOLIO_DATA.members.nida.individualProjects.map(p => ({ ...p, author: 'Nida Fuadia' })),
-        ...PORTFOLIO_DATA.members.viola.individualProjects.map(p => ({ ...p, author: 'Viola Amelia' }))
-      ];
-    } else {
-      const member = PORTFOLIO_DATA.members[personaId];
-      title = `Project Portofolio: ${member.nickname}`;
-      subtitle = `Karya nyata dan implementasi produksi yang dikerjakan oleh ${member.name}.`;
-      projects = member.individualProjects.map(p => ({ ...p, author: member.name }));
-    }
+    const member = PORTFOLIO_DATA.members[personaId];
+    const projects = member.individualProjects.map(p => ({ ...p, author: member.name }));
 
     projectsSection.innerHTML = `
       <div class="container">
         <div class="section-header">
-          <div class="section-tag">Curated Portfolio</div>
-          <h2 class="section-title">${title}</h2>
-          <p class="section-desc">${subtitle}</p>
+          <div class="section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Portofolio Individual
+          </div>
+          <h2 class="section-title">Project Lainnya dari ${member.nickname}</h2>
+          <p class="section-desc">Karya nyata, produk software, dan implementasi yang dibangun secara mandiri oleh ${member.name}.</p>
         </div>
 
         <div class="projects-grid view-enter">
@@ -785,7 +650,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="project-card-footer">
                   <span class="project-case-link">
-                    <span>View Case Study</span>
+                    <span>Lihat Case Study</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
                   </span>
                   <div style="display:flex; gap:6px;">
@@ -801,7 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `;
 
-    // Click project to open case study modal
+    // Case study modal click listeners
     const projectCards = projectsSection.querySelectorAll('.project-card');
     projectCards.forEach(card => {
       card.addEventListener('click', () => {
@@ -812,41 +677,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 9. Render Interactive Timeline (Experience vs Education Dual Mode)
+  // 9. Render Timeline (Experience vs Education)
   function renderTimeline(personaId) {
     if (!timelineSection) return;
-
-    let timelineItems = [];
-    let title;
-    let subtitle;
-
+    const member = PORTFOLIO_DATA.members[personaId];
     const isExp = state.activeTimelineTab === 'experience';
+    const list = isExp ? member.experience : member.education;
+    const items = list.map(i => ({ ...i, owner: member.name, ownerNick: member.nickname }));
 
-    if (personaId === 'team') {
-      title = isExp ? "Jejak Pengalaman Profesional Tim" : "Latar Belakang Pendidikan Tim";
-      subtitle = "Rekam jejak karir dan akademis dari ketiga personil Nexus Trio.";
-      // Combined
-      ['iqbal', 'nida', 'viola'].forEach(key => {
-        const m = PORTFOLIO_DATA.members[key];
-        const list = isExp ? m.experience : m.education;
-        list.forEach(item => {
-          timelineItems.push({ ...item, owner: m.name, ownerNick: m.nickname });
-        });
-      });
-    } else {
-      const member = PORTFOLIO_DATA.members[personaId];
-      title = isExp ? `Pengalaman Kerja: ${member.nickname}` : `Riwayat Edukasi: ${member.nickname}`;
-      subtitle = isExp
-        ? `Riwayat kontribusi dan peran profesional ${member.name}.`
-        : `Pendidikan formal dan prestasi akademis ${member.name}.`;
-      const list = isExp ? member.experience : member.education;
-      timelineItems = list.map(i => ({ ...i, owner: member.name, ownerNick: member.nickname }));
-    }
+    const title = isExp ? `Pengalaman Kerja: ${member.nickname}` : `Riwayat Edukasi: ${member.nickname}`;
+    const subtitle = isExp
+      ? `Rekam jejak kontribusi industri dan peran profesional ${member.name}.`
+      : `Pendidikan formal dan prestasi akademis ${member.name}.`;
 
     timelineSection.innerHTML = `
       <div class="container">
         <div class="section-header" style="align-items: center; text-align: center;">
-          <div class="section-tag">Chronicle & Milestones</div>
+          <div class="section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Chronicle & Milestones
+          </div>
           <h2 class="section-title">${title}</h2>
           <p class="section-desc">${subtitle}</p>
         </div>
@@ -863,7 +713,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <div class="timeline-track view-enter">
-          ${timelineItems.map(item => `
+          ${items.map(item => `
             <div class="timeline-card spotlight-card">
               <div class="timeline-dot"></div>
               <div class="timeline-card-header">
@@ -882,7 +732,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `;
 
-    // Timeline toggle listener
+    // Toggle listeners
     const timeTabs = timelineSection.querySelectorAll('.time-tab');
     timeTabs.forEach(tab => {
       tab.addEventListener('click', () => {
@@ -893,34 +743,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 10. Render Certifications Section
+  // 10. Render Certifications
   function renderCertificates(personaId) {
     if (!certsSection) return;
-
-    let certs = [];
-    let title;
-    let subtitle;
-
-    if (personaId === 'team') {
-      title = "Sertifikasi & Kredensial Tim";
-      subtitle = "Sertifikasi resmi industri yang diraih oleh masing-masing anggota.";
-      ['iqbal', 'nida', 'viola'].forEach(key => {
-        const m = PORTFOLIO_DATA.members[key];
-        m.certifications.forEach(c => certs.push({ ...c, recipient: m.name }));
-      });
-    } else {
-      const member = PORTFOLIO_DATA.members[personaId];
-      title = `Sertifikasi: ${member.nickname}`;
-      subtitle = `Kredensial profesional dan lisensi keahlian resmi ${member.name}.`;
-      certs = member.certifications.map(c => ({ ...c, recipient: member.name }));
-    }
+    const member = PORTFOLIO_DATA.members[personaId];
+    const certs = member.certifications.map(c => ({ ...c, recipient: member.name }));
 
     certsSection.innerHTML = `
       <div class="container">
         <div class="section-header">
-          <div class="section-tag">Accreditations</div>
-          <h2 class="section-title">${title}</h2>
-          <p class="section-desc">${subtitle}</p>
+          <div class="section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            Accreditations
+          </div>
+          <h2 class="section-title">Sertifikasi & Kredensial: ${member.nickname}</h2>
+          <p class="section-desc">Kredensial industri resmi dan lisensi keahlian yang telah diraih oleh ${member.name}.</p>
         </div>
 
         <div class="cert-grid view-enter">
@@ -939,7 +776,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="cert-issuer">${c.issuer} • ${c.year}</div>
               <div class="cert-id-tag">ID: ${c.id}</div>
               <div style="font-size:0.75rem; color:var(--text-muted); border-top:1px solid var(--border-subtle); padding-top:0.5rem;">
-                Recipient: <strong style="color:var(--text-primary);">${c.recipient}</strong>
+                Penerima: <strong style="color:var(--text-primary);">${c.recipient}</strong>
               </div>
             </div>
           `).join('')}
@@ -979,10 +816,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div style="display:flex; gap:1rem; margin-top:1rem;">
           <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="flex:1; justify-content:center;">
-            View Code Repository
+            Buka Repository Code
           </a>
           <button class="btn-secondary" onclick="document.getElementById('caseStudyModal').classList.remove('open');">
-            Close
+            Tutup
           </button>
         </div>
       `;
@@ -996,70 +833,61 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!ecvModal) return;
     const body = ecvModal.querySelector('.modal-content-scroll');
     const title = ecvModal.querySelector('.modal-title');
+    const m = PORTFOLIO_DATA.members[personaId] || PORTFOLIO_DATA.members.iqbal;
 
-    let membersToPrint = [];
-    if (personaId === 'team') {
-      if (title) title.textContent = "Nexus Trio - Combined Executive CV";
-      membersToPrint = [PORTFOLIO_DATA.members.iqbal, PORTFOLIO_DATA.members.nida, PORTFOLIO_DATA.members.viola];
-    } else {
-      const m = PORTFOLIO_DATA.members[personaId];
-      if (title) title.textContent = `Curriculum Vitae: ${m.name}`;
-      membersToPrint = [m];
-    }
+    if (title) title.textContent = `Curriculum Vitae: ${m.name}`;
 
     if (body) {
       body.innerHTML = `
         <div style="display:flex; justify-content:flex-end; gap:0.75rem; margin-bottom:1rem;">
           <button class="btn-primary" id="triggerPrintBtn" style="padding:0.5rem 1.25rem;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-            Print / Save to PDF
+            Cetak / Simpan ke PDF
           </button>
         </div>
 
-        ${membersToPrint.map(m => `
-          <div class="ecv-preview-sheet" style="margin-bottom: 2rem;">
-            <div class="ecv-header-row">
-              <img src="${m.avatar}" alt="${m.name}" class="ecv-avatar-mini">
-              <div>
-                <h2 class="ecv-name">${m.name}</h2>
-                <div class="ecv-role">${m.role}</div>
-                <div class="ecv-contact-line">
-                  📍 ${m.location} • ✉️ ${m.email}
-                </div>
+        <div class="ecv-preview-sheet" style="margin-bottom: 2rem;">
+          <div class="ecv-header-row">
+            <img src="${m.avatar}" alt="${m.name}" class="ecv-avatar-mini">
+            <div>
+              <h2 class="ecv-name">${m.name}</h2>
+              <div class="ecv-role">${m.role}</div>
+              <div class="ecv-contact-line">
+                📍 ${m.location} • ✉️ ${m.email}
               </div>
-            </div>
-
-            <h3 class="ecv-section-heading">Professional Summary</h3>
-            <p class="ecv-text-body">${m.bio}</p>
-
-            <h3 class="ecv-section-heading">Key Technical Competencies</h3>
-            <div class="ecv-skills-chips">
-              ${m.techStack.map(t => `<span class="ecv-chip">${t.name} (${t.level}%)</span>`).join('')}
-            </div>
-
-            <h3 class="ecv-section-heading">Work Experience</h3>
-            ${m.experience.map(e => `
-              <div style="margin-bottom:0.75rem;">
-                <div style="display:flex; justify-content:space-between; font-weight:700; font-size:0.92rem; color:#0f172a;">
-                  <span>${e.role} — ${e.company}</span>
-                  <span style="color:#64748b; font-size:0.82rem;">${e.period}</span>
-                </div>
-                <p class="ecv-text-body" style="font-size:0.85rem; margin-top:2px;">${e.description}</p>
-              </div>
-            `).join('')}
-
-            <h3 class="ecv-section-heading">Education & Certifications</h3>
-            ${m.education.map(ed => `
-              <div style="margin-bottom:0.5rem;">
-                <div style="font-weight:700; font-size:0.9rem; color:#0f172a;">${ed.degree} (${ed.period})</div>
-                <div style="font-size:0.82rem; color:#475569;">${ed.institution} — ${ed.description}</div>
-              </div>
-            `).join('')}
-            <div style="margin-top:0.5rem; font-size:0.82rem; color:#334155;">
-              <strong>Certifications:</strong> ${m.certifications.map(c => `${c.name} (${c.issuer})`).join('; ')}
             </div>
           </div>
-        `).join('')}
+
+          <h3 class="ecv-section-heading">Professional Summary</h3>
+          <p class="ecv-text-body">${m.bio}</p>
+
+          <h3 class="ecv-section-heading">Key Technical Competencies</h3>
+          <div class="ecv-skills-chips">
+            ${m.techStack.map(t => `<span class="ecv-chip">${t.name} (${t.exp})</span>`).join('')}
+          </div>
+
+          <h3 class="ecv-section-heading">Pengalaman Kerja</h3>
+          ${m.experience.map(e => `
+            <div style="margin-bottom:0.75rem;">
+              <div style="display:flex; justify-content:space-between; font-weight:700; font-size:0.92rem; color:#0f172a;">
+                <span>${e.role} — ${e.company}</span>
+                <span style="color:#64748b; font-size:0.82rem;">${e.period}</span>
+              </div>
+              <p class="ecv-text-body" style="font-size:0.85rem; margin-top:2px;">${e.description}</p>
+            </div>
+          `).join('')}
+
+          <h3 class="ecv-section-heading">Pendidikan & Sertifikasi</h3>
+          ${m.education.map(ed => `
+            <div style="margin-bottom:0.5rem;">
+              <div style="font-weight:700; font-size:0.9rem; color:#0f172a;">${ed.degree} (${ed.period})</div>
+              <div style="font-size:0.82rem; color:#475569;">${ed.institution} — ${ed.description}</div>
+            </div>
+          `).join('')}
+          <div style="margin-top:0.5rem; font-size:0.82rem; color:#334155;">
+            <strong>Sertifikasi:</strong> ${m.certifications.map(c => `${c.name} (${c.issuer})`).join('; ')}
+          </div>
+        </div>
       `;
 
       const printBtn = document.getElementById('triggerPrintBtn');
@@ -1076,11 +904,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openContactModal(personaId) {
     if (!contactModal) return;
-    const subtitle = contactModal.querySelector('.modal-subtitle');
     const recipientSelect = document.getElementById('contactRecipient');
-
     if (recipientSelect) {
-      recipientSelect.value = personaId === 'team' ? 'team' : personaId;
+      recipientSelect.value = personaId;
     }
 
     contactModal.classList.add('open');
@@ -1195,9 +1021,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 15. Custom Mouse Spotlight Trailer (Subtle, High-End Feel)
+  // 15. Custom Mouse Spotlight Trailer
   document.addEventListener('mousemove', (e) => {
-    // Update spotlight cards
     const cards = document.querySelectorAll('.spotlight-card');
     cards.forEach(c => {
       const rect = c.getBoundingClientRect();
@@ -1212,7 +1037,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Custom cursor movement
     const cursor = document.getElementById('customCursor');
     const cursorDot = document.getElementById('customCursorDot');
     if (cursor && cursorDot) {
@@ -1224,7 +1048,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Cursor hover magnification
-  document.querySelectorAll('a, button, input, .project-card, .tech-card').forEach(el => {
+  document.querySelectorAll('a, button, input, .project-card, .floating-tech-card').forEach(el => {
     el.addEventListener('mouseenter', () => {
       const cursor = document.getElementById('customCursor');
       if (cursor) cursor.classList.add('cursor-hover');

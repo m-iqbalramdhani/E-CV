@@ -1,6 +1,6 @@
 /* ==========================================================================
    NEXUS TRIO - Kinetic Micro-Animations & Dynamic Motion
-   Natural Spring Transitions, Spotlight Border Glows, Radar Sweeps
+   Natural Spring Transitions, Spotlight Border Glows, Floating Tech Logos
    ========================================================================== */
 
 /* Keyframe Animations */
@@ -19,12 +19,40 @@
   }
 }
 
-@keyframes float-subtle {
+/* Staggered Organic Floating Animations for Tech Stack Logos */
+@keyframes float-drift-1 {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-10px) rotate(1.2deg);
+  }
+}
+
+@keyframes float-drift-2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(-1.5deg);
+  }
+}
+
+@keyframes float-drift-3 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes float-drift-4 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-1deg);
   }
 }
 
@@ -57,22 +85,26 @@
   }
 }
 
-@keyframes radar-sweep {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 /* Kinetic Classes */
 .animate-fade-up {
   animation: fade-slide-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.animate-float {
-  animation: float-subtle 6s ease-in-out infinite;
+/* Dynamic Floating Card Classes with Staggered Rhythms */
+.float-item-1 {
+  animation: float-drift-1 4.2s ease-in-out infinite;
+}
+
+.float-item-2 {
+  animation: float-drift-2 5.0s ease-in-out infinite 0.6s;
+}
+
+.float-item-3 {
+  animation: float-drift-3 4.6s ease-in-out infinite 1.2s;
+}
+
+.float-item-4 {
+  animation: float-drift-4 5.4s ease-in-out infinite 1.8s;
 }
 
 /* Dynamic Spotlight Card Hover Effect */
