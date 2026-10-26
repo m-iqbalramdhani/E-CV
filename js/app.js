@@ -557,7 +557,7 @@ document.addEventListener('DOMContentLoaded', () => {
             Technology & Programming Skills
           </div>
           <h2 class="section-title">Tech Stack & Bahasa Pemrograman: ${member.nickname}</h2>
-          <p class="section-desc">Kumpulan bahasa pemrograman, framework, dan tools yang dikuasai secara mendalam oleh ${member.name}. Setiap kartu bergerak mengambang secara dinamis.</p>
+          <p class="section-desc">Kumpulan bahasa pemrograman, framework, dan tools yang dikuasai secara mendalam oleh ${member.name}. Logo melayang dan bergerak dinamis.</p>
         </div>
 
         <div class="tech-stack-layout">
@@ -569,30 +569,21 @@ document.addEventListener('DOMContentLoaded', () => {
             <button class="filter-btn ${state.activeTechFilter === 'tools' ? 'active' : ''}" data-filter="tools">Tools & DevOps</button>
           </div>
 
-          <!-- Floating Tech Stack Cards Grid -->
-          <div class="floating-tech-grid view-enter">
+          <!-- Direct Floating Logos (Cloud / Constellation - NO CARD) -->
+          <div class="floating-logos-cloud view-enter">
             ${filteredTech.map((t, idx) => {
               const floatClass = `float-item-${(idx % 4) + 1}`;
               const iconSvg = (window.TECH_ICONS && window.TECH_ICONS[t.icon]) ? window.TECH_ICONS[t.icon] : `
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
               `;
 
               return `
-                <div class="floating-tech-card spotlight-card ${floatClass}" title="${t.name}">
-                  <div class="tech-card-top">
-                    <div class="tech-logo-wrapper">
-                      ${iconSvg}
-                    </div>
-                    <span class="tech-exp-badge">${t.exp}</span>
+                <div class="floating-tech-logo-item ${floatClass}" title="${t.name} • ${t.exp}">
+                  <span class="tech-hover-pill">${t.exp} • ${t.category}</span>
+                  <div class="tech-svg-box">
+                    ${iconSvg}
                   </div>
-                  <div class="tech-card-body">
-                    <h4 class="tech-card-title">${t.name}</h4>
-                    <p class="tech-card-desc">${t.desc}</p>
-                  </div>
-                  <div class="tech-card-footer">
-                    <span class="tech-cat-chip">${t.category}</span>
-                    <span class="tech-float-indicator"></span>
-                  </div>
+                  <span class="tech-logo-label">${t.name}</span>
                 </div>
               `;
             }).join('')}
