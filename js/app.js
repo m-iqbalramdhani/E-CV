@@ -540,50 +540,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 7. Render Floating Tech Stack Logos (NO Percentages, With Floating Animations)
+  // 7. Render Pure Floating Tech Stack Logos (One Unified Cluster, ZERO TEXT)
   function renderTechStack(personaId) {
     if (!techStackSection) return;
     const member = PORTFOLIO_DATA.members[personaId];
 
-    const filteredTech = state.activeTechFilter === 'all'
-      ? member.techStack
-      : member.techStack.filter(t => t.category === state.activeTechFilter);
-
     techStackSection.innerHTML = `
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" style="text-align: center; align-items: center; margin-bottom: 2.25rem;">
           <div class="section-tag">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-            Technology & Programming Skills
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            Tech Stack
           </div>
-          <h2 class="section-title">Tech Stack & Bahasa Pemrograman: ${member.nickname}</h2>
-          <p class="section-desc">Kumpulan bahasa pemrograman, framework, dan tools yang dikuasai secara mendalam oleh ${member.name}. Logo melayang dan bergerak dinamis.</p>
+          <h2 class="section-title">Keahlian Teknologi: ${member.nickname}</h2>
         </div>
 
         <div class="tech-stack-layout">
-          <div class="tech-filters">
-            <button class="filter-btn ${state.activeTechFilter === 'all' ? 'active' : ''}" data-filter="all">Semua Stack (${member.techStack.length})</button>
-            <button class="filter-btn ${state.activeTechFilter === 'language' ? 'active' : ''}" data-filter="language">Bahasa Pemrograman</button>
-            <button class="filter-btn ${state.activeTechFilter === 'framework' ? 'active' : ''}" data-filter="framework">Framework & Library</button>
-            <button class="filter-btn ${state.activeTechFilter === 'cloud' ? 'active' : ''}" data-filter="cloud">Database & Cloud</button>
-            <button class="filter-btn ${state.activeTechFilter === 'tools' ? 'active' : ''}" data-filter="tools">Tools & DevOps</button>
-          </div>
-
-          <!-- Direct Floating Logos (Cloud / Constellation - NO CARD) -->
-          <div class="floating-logos-cloud view-enter">
-            ${filteredTech.map((t, idx) => {
+          <!-- Pure Floating Logos Cluster (One Unified Organic Cloud, ZERO TEXT) -->
+          <div class="floating-logos-cluster view-enter">
+            ${member.techStack.map((t, idx) => {
               const floatClass = `float-item-${(idx % 4) + 1}`;
               const iconSvg = (window.TECH_ICONS && window.TECH_ICONS[t.icon]) ? window.TECH_ICONS[t.icon] : `
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
               `;
 
               return `
-                <div class="floating-tech-logo-item ${floatClass}" title="${t.name} • ${t.exp}">
-                  <span class="tech-hover-pill">${t.exp} • ${t.category}</span>
-                  <div class="tech-svg-box">
-                    ${iconSvg}
-                  </div>
-                  <span class="tech-logo-label">${t.name}</span>
+                <div class="pure-tech-logo ${floatClass}" title="${t.name}">
+                  ${iconSvg}
                 </div>
               `;
             }).join('')}
@@ -591,16 +574,6 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
     `;
-
-    // Filter Listeners
-    const filterBtns = techStackSection.querySelectorAll('.filter-btn');
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        state.activeTechFilter = btn.dataset.filter;
-        if (window.soundFx) window.soundFx.playClick();
-        renderTechStack(personaId);
-      });
-    });
   }
 
   // 8. Render Individual Projects
