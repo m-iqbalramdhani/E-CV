@@ -371,9 +371,10 @@ Acceptance Criteria:
         { label: "IPK Akademik", value: 3.94, suffix: "/4.00" },
         { label: "Semester Berjalan", value: 6, suffix: "" },
         { label: "Dedikasi & Ketelitian", value: 100, suffix: "%" },
-        { label: "Sertifikasi Resmi", value: 5, suffix: "+" }
+        { label: "Sertifikasi Resmi", value: 6, suffix: "+" }
       ],
       techStack: [
+        { name: "MySQL", category: "database", icon: "mysql", exp: "Mahir", desc: "Administrasi Basis Data Relasional, DDL/DML & Manajemen Skema" },
         { name: "Microsoft Word", category: "office", icon: "word", exp: "Mahir", desc: "Administrasi Persuratan, Dokumen Resmi & Laporan Sekolah" },
         { name: "Microsoft Excel", category: "office", icon: "excel", exp: "Mahir", desc: "Rekapitulasi Keuangan, Administrasi PTK & Olah Data Kesiswaan" },
         { name: "Microsoft PowerPoint", category: "office", icon: "powerpoint", exp: "Mahir", desc: "Presentasi Edukatif, Materi Pelatihan & Evaluasi Program" },
@@ -423,6 +424,7 @@ Acceptance Criteria:
         }
       ],
       certifications: [
+        { name: "Database Administrator", issuer: "Sertifikasi Profesi & Kompetensi Basis Data", year: "2026", id: "DBA-CERT-2026" },
         { name: "Junior Web Developer", issuer: "Vocational School Graduate Academy (VSGA) - Digital Talent Scholarship 2025 (Komdigi)", year: "2025", id: "VSGA-KOMDIGI-2025" },
         { name: "Pengantar Mindset Digital 1: Mengubah Masa Depan dengan Pola Pikir Digital", issuer: "Digital Talent Scholarship 2025 (Komdigi)", year: "2025", id: "DTS-MINDSET-2025" },
         { name: "Uji Kompetensi Berbasis Industri - Bidang Sistem Basis Data", issuer: "Sertifikasi Industri Basis Data", year: "2024", id: "UKBI-DB-2024" },
