@@ -363,7 +363,7 @@ Acceptance Criteria:
       email: "viola.amelia@portfolio.dev",
       github: "https://github.com/violaamelia",
       linkedin: "https://linkedin.com/in/violaamelia",
-      avatar: "assets/img/viola.jpg",
+      avatar: "assets/img/viola-amelia.jpg",
       status: "Available for Project Manager & Scrum Master Roles",
       bio: "Project Manager dan Agile Scrum Master berpengalaman dalam memimpin siklus pengembangan software end-to-end (SDLC). Terampil dalam backlog prioritization, roadmap delivery, stakeholder management, resource allocation, sprint ceremonies, dan risk mitigation. Berperan sebagai Lead Project Manager pada project presensi guru SIA-BINATAMA yang mengorkestrasi rilis sistem tepat waktu sesuai kebutuhan dewan guru SMK Binatama.",
       stats: [
