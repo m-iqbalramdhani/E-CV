@@ -382,13 +382,10 @@ Acceptance Criteria:
         { name: "MySQL", category: "database", icon: "mysql", exp: "Mahir", desc: "Administrasi Basis Data Relasional, DDL/DML & Manajemen Skema" },
         { name: "DB Designer", category: "database", icon: "dbdesigner", exp: "Mahir", desc: "Pemodelan ERD (Entity Relationship Diagram) & Relasi Tabel" },
         { name: "Cisco", category: "tools", icon: "cisco", exp: "Menengah", desc: "Jaringan Komputer, Simulasi Routing & Topologi Packet Tracer" },
-        { name: "APK Android", category: "tools", icon: "apk", exp: "Menengah", desc: "Simulasi & Distribusi Aplikasi Android (APK)" },
         { name: "PHP", category: "programming", icon: "php", exp: "Dasar", desc: "Pemrograman Web Dinamis & Integrasi Database" },
         { name: "VS Code", category: "tools", icon: "vscode", exp: "Mahir", desc: "Code Editor Utama untuk Pengembangan Web" },
         { name: "Draw.io", category: "tools", icon: "drawio", exp: "Mahir", desc: "Pemodelan Flowchart, Use Case Diagram & Alur Bisnis" },
         { name: "Canva", category: "design", icon: "canva", exp: "Mahir", desc: "Desain Konten Digital Marketing & Publikasi" },
-        { name: "Microsoft Word", category: "office", icon: "word", exp: "Mahir", desc: "Administrasi Persuratan, Dokumen Resmi & Laporan" },
-        { name: "Microsoft Excel", category: "office", icon: "excel", exp: "Mahir", desc: "Rekapitulasi Keuangan & Olah Data Tabular" },
         { name: "XAMPP", category: "tools", icon: "xampp", exp: "Mahir", desc: "Web Server Stack Localhost & Database MySQL" }
       ],
       experience: [],
