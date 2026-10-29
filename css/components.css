@@ -697,182 +697,92 @@
 /* ==========================================================================
    3. TECH STACK & PROGRAMMING LANGUAGES PLACEMENT
    ========================================================================== */
+/* ==========================================================================
+   3. TECH STACK & PROGRAMMING LANGUAGES PLACEMENT (FLOATING ANIMATION)
+   ========================================================================== */
 .tech-stack-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  align-items: start;
+  width: 100%;
 }
 
 .tech-filters {
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  gap: 0.65rem;
+  margin-bottom: 2.25rem;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .filter-btn {
-  padding: 0.45rem 1rem;
+  padding: 0.55rem 1.25rem;
   border-radius: var(--radius-full);
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
-  font-size: 0.82rem;
-  font-weight: 600;
-  transition: all var(--transition-fast);
-}
-
-.filter-btn:hover {
-  color: var(--text-primary);
-  border-color: var(--border-bright);
-}
-
-.filter-btn.active {
-  background: var(--active-accent);
-  color: #000;
-  font-weight: 700;
-  border-color: var(--active-accent);
-}
-
-.tech-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1rem;
-}
-
-.tech-card {
-  padding: 1.15rem;
-  border-radius: var(--radius-md);
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  backdrop-filter: blur(12px);
-  transition: all var(--transition-fast);
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-.tech-card:hover {
-  border-color: var(--active-accent);
-  background: var(--bg-card-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-}
-
-.tech-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.tech-name-box {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-}
-
-.tech-icon-circle {
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--active-accent);
-}
-
-.tech-name {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--text-primary);
-}
-
-.tech-exp-pill {
-  font-size: 0.72rem;
-  font-family: var(--font-mono);
-  color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.05);
-  padding: 0.2rem 0.55rem;
-  border-radius: var(--radius-full);
-}
-
-.tech-progress-bar-bg {
-  width: 100%;
-  height: 6px;
-  border-radius: 3px;
-  background: rgba(255, 255, 255, 0.08);
-  overflow: hidden;
-}
-
-.tech-progress-fill {
-  height: 100%;
-  border-radius: 3px;
-  background: linear-gradient(90deg, var(--active-accent) 0%, var(--violet-primary) 100%);
-  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.tech-percent-text {
-  font-size: 0.75rem;
-  font-family: var(--font-mono);
-  color: var(--text-secondary);
-  display: flex;
-  justify-content: space-between;
-}
-
-/* Radar Chart Widget Box */
-.radar-widget-box {
-  border-radius: var(--radius-xl);
   background: var(--bg-card);
   border: 1px solid var(--border-medium);
-  backdrop-filter: blur(20px);
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: var(--shadow-md);
-  position: sticky;
-  top: 96px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(12px);
 }
 
-.radar-title-box {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.radar-canvas-container {
+/* ==========================================================================
+   3. PURE FLOATING TECH STACK LOGOS CLUSTER (ZERO TEXT, PURE LOGOS)
+   ========================================================================== */
+.tech-stack-layout {
   width: 100%;
-  max-width: 380px;
-  aspect-ratio: 1 / 1;
-  position: relative;
-}
-
-#radarCanvas {
-  width: 100%;
-  height: 100%;
-}
-
-.radar-legend {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.legend-item {
-  display: flex;
   align-items: center;
-  gap: 0.45rem;
-  font-size: 0.78rem;
-  color: var(--text-secondary);
 }
 
-.legend-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--active-accent);
+/* Floating Logos Cluster (One Unified Organic Cloud) */
+.floating-logos-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2.25rem 2.75rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3.5rem 2.5rem;
+  border-radius: var(--radius-xl);
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.035) 0%, rgba(0, 0, 0, 0.25) 60%, transparent 100%);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: relative;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5), 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+.pure-tech-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+  will-change: transform;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
+}
+
+.pure-tech-logo svg {
+  width: 52px;
+  height: 52px;
+  max-width: 100%;
+  max-height: 100%;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pure-tech-logo:hover {
+  animation-play-state: paused !important;
+  transform: translateY(-12px) scale(1.3) !important;
+  filter: drop-shadow(0 0 22px var(--active-glow)) drop-shadow(0 14px 28px rgba(0, 0, 0, 0.65)) !important;
+  z-index: 30;
+}
+
+.pure-tech-logo:hover svg {
+  transform: scale(1.1) rotate(4deg);
 }
 
 /* ==========================================================================

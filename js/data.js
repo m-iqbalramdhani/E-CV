@@ -1,124 +1,133 @@
 /**
  * Portfolio & E-CV Multi-Profile Data Store
  * Members: Muhammad Iqbal Ramdhani, Nida Fuadia, Viola Amelia
- * Joint Project: SYNAPSE AI - Autonomous Knowledge & Workflow Platform
+ * Roles:
+ * - Muhammad Iqbal Ramdhani: Fullstack Engineer & Database Architect
+ * - Nida Fuadia: Data Analytics & UI/UX Specialist
+ * - Viola Amelia: IT Project Manager & Agile Scrum Master
+ * 1 Joint Project: SIA-BINATAMA (Sistem Informasi & Presensi Guru SMK Binatama)
  */
 
 const PORTFOLIO_DATA = {
-  team: {
-    name: "Nexus Trio Studio",
-    tagline: "Collaborative Engineering, Empathetic Design & Next-Gen Intelligence",
-    description: "Kolaborasi tiga talenta multidisiplin: Muhammad Iqbal Ramdhani (Fullstack & Cloud Architect), Nida Fuadia (UI/UX Strategist & Frontend Engineer), dan Viola Amelia (AI/ML Engineer & Mobile Specialist). Kami menggabungkan arsitektur software tangguh, desain berkelas berpusat pada manusia, dan kecerdasan artifisial canggih.",
-    metrics: [
-      { label: "Total Projects Shipped", value: 24, suffix: "+" },
-      { label: "Client Satisfaction", value: 99.4, suffix: "%" },
-      { label: "Code Commits", value: 1850, suffix: "+" },
-      { label: "Combined Experience", value: 9, suffix: " Years" }
+  jointProject: {
+    id: "sia-binatama",
+    title: "SIA-BINATAMA",
+    subtitle: "Sistem Informasi Akademik & Presensi Guru SMK Binatama Berbasis Geofencing & Biometrik",
+    category: "Fullstack • Database • QA Testing • Project Management",
+    badge: "Project Bersama Ber-3 • SMK Binatama",
+    date: "2024 - 2025",
+    summary: "Sistem presensi guru dan manajemen akademik terpadu yang dirancang dan dibangun bersama oleh Iqbal (Fullstack & DB), Nida (QA & Tester), dan Viola (Project Manager) untuk SMK Binatama. Mengintegrasikan validasi lokasi geofencing radius area sekolah, verifikasi swafoto anti-titip absen, rekapitulasi kehadiran otomatis untuk bagian Tata Usaha (TU) & Kepala Sekolah, serta portal jadwal mengajar harian guru.",
+    liveUrl: "https://sia-binatama.sch.id",
+    githubUrl: "https://github.com/m-iqbalramdhani/sia-binatama",
+    stats: [
+      { label: "Dewan Guru & Staf", value: "65+" },
+      { label: "Radius Geofence", value: "35m" },
+      { label: "Kecepatan Presensi", value: "< 1.2s" },
+      { label: "Akurasi Lokasi", value: "99.8%" }
     ],
-    jointProject: {
-      id: "synapse-ai",
-      title: "SYNAPSE AI",
-      subtitle: "Autonomous Multi-Agent Knowledge & Real-Time Intelligence Platform",
-      category: "Fullstack • AI/ML • Design System",
-      badge: "Flagship Collaboration Project",
-      date: "2025 - 2026",
-      summary: "Platform kolaborasi bertenaga AI yang dirancang dan dibangun bersama dari nol oleh Iqbal, Nida, dan Viola. Menghubungkan enterprise knowledge base dengan autonomous multi-agent reasoning, visualisasi data real-time, dan antarmuka bento-grid modular yang intuitif.",
-      liveUrl: "https://synapse-ai-preview.web.app",
-      githubUrl: "https://github.com/nexustrio/synapse-ai-platform",
-      stats: [
-        { label: "Query Latency", value: "< 42ms" },
-        { label: "Accuracy Score", value: "99.2%" },
-        { label: "Concurrent Agents", value: "64+" },
-        { label: "User Delight Rate", value: "98.7%" }
-      ],
-      techStack: [
-        { name: "Python / FastAPI", category: "Backend" },
-        { name: "TypeScript", category: "Language" },
-        { name: "Next.js / Vanilla ES6", category: "Frontend" },
-        { name: "PyTorch & LangChain", category: "AI / ML" },
-        { name: "Docker & K8s", category: "Cloud" },
-        { name: "Tailwind & Vanilla CSS", category: "Design" },
-        { name: "PostgreSQL & pgvector", category: "Database" },
-        { name: "Figma Token Studio", category: "UI/UX" }
-      ],
-      contributions: {
-        iqbal: {
-          role: "Lead Systems Architect & Cloud Backend",
-          tagline: "High-throughput microservices, distributed caching, and vector indexing",
-          tasks: [
-            "Merancang arsitektur microservices event-driven dengan RabbitMQ dan gRPC untuk streaming respons AI tanpa jeda.",
-            "Mengimplementasikan vector storage berkinerja tinggi menggunakan PostgreSQL + pgvector dan Redis caching layer.",
-            "Membangun CI/CD pipeline otomatis berbasis GitHub Actions menuju Kubernetes cluster dengan zero-downtime rolling update.",
-            "Menjaga skalabilitas sistem hingga menampung 5,000+ request per detik dengan latensi rata-rata di bawah 45ms."
-          ],
-          codeHighlight: `// Vector Search Gateway Engine (Iqbal)
-async function searchVectorSpace(embedding, threshold = 0.88, limit = 10) {
-  const query = \`
-    SELECT doc_id, chunk_text, 1 - (embedding <=> $1) AS cosine_similarity
-    FROM knowledge_vectors
-    WHERE 1 - (embedding <=> $1) >= $2
-    ORDER BY cosine_similarity DESC
-    LIMIT $3;\`;
-  return await db.query(query, [embedding, threshold, limit]);
-}`
-        },
-        nida: {
-          role: "Data Analytics & UI/UX Specialist",
-          tagline: "Data visualization, database design (ERD/MySQL), and intuitive user interfaces",
-          tasks: [
-            "Merancang prototype dan wireframe antarmuka pengguna berbasis Figma dengan alur interaksi intuitif dan ramah pengguna.",
-            "Membangun dashboard visualisasi data dan metrik performa interaktif yang memudahkan pemantauan analitik (Power BI & Web).",
-            "Merancang arsitektur basis data relasional (ERD) dan skema tabel terstruktur untuk konsistensi data sistem.",
-            "Menerapkan pengujian keamanan antarmuka dan validasi form untuk memastikan keandalan serta integritas sistem."
-          ],
-          codeHighlight: `/* Dynamic Fluid Responsive Design Tokens & Data Architecture (Nida) */
-:root {
-  --synapse-surface: rgba(15, 23, 42, 0.72);
-  --synapse-border: rgba(255, 255, 255, 0.08);
-  --synapse-glow: radial-gradient(circle, #f472b622 0%, transparent 70%);
-  --motion-spring: cubic-bezier(0.16, 1, 0.3, 1);
-  backdrop-filter: blur(24px) saturate(180%);
-}`
-        },
-        viola: {
-          role: "Lead AI/ML Engineer & Real-Time Pipeline",
-          tagline: "Fine-tuned LLM embeddings, RAG pipeline, and telemetry inference",
-          tasks: [
-            "Mengembangkan hybrid RAG (Retrieval-Augmented Generation) pipeline dengan fine-tuned embeddings untuk akurasi domain-spesifik 99.2%.",
-            "Membangun model context-compression yang memangkas konsumsi token LLM hingga 48% tanpa degradasi pemahaman makna.",
-            "Membangun lightweight on-device neural parser untuk kompresi dokumen teks lokal sebelum dikirim ke server.",
-            "Mengimplementasikan anomaly detection model untuk memantau integritas output AI dan mencegah hallucination."
-          ],
-          codeHighlight: `# Neural Re-ranking & Deduplication Pipeline (Viola)
-def rerank_context_chunks(query_emb, candidates, top_k=5):
-    cross_scores = cross_encoder.predict([(query, c.text) for c in candidates])
-    ranked_indices = np.argsort(cross_scores)[::-1][:top_k]
-    return [candidates[i] for i in ranked_indices if cross_scores[i] > 0.85]`
-        }
+    techStack: [
+      { name: "Go & Node.js", category: "Backend" },
+      { name: "PostgreSQL & MySQL", category: "Database" },
+      { name: "React & TypeScript", category: "Fullstack Web" },
+      { name: "Cypress & Postman", category: "QA & Testing" },
+      { name: "Jira & Scrum", category: "Project Management" },
+      { name: "GPS Geofencing", category: "Location" },
+      { name: "Face Biometrics", category: "Verification" },
+      { name: "Docker & Linux", category: "Infrastructure" }
+    ],
+    contributions: {
+      iqbal: {
+        role: "Lead Fullstack & Database Architect",
+        tagline: "Database Schema, Haversine GPS Geofencing, RESTful API & Admin Management",
+        tasks: [
+          "Merancang skema database relasional PostgreSQL & MySQL teroptimasi untuk presensi, jadwal mengajar, dan log audit guru SMK Binatama.",
+          "Mengembangkan modul kalkulasi geofencing dengan rumus Haversine dan spatial indexing untuk mendeteksi radius guru secara presisi.",
+          "Membangun RESTful API dengan otentikasi JWT dan Role-Based Access Control (Kepala Sekolah, Waka Kurikulum, Guru Piket, Guru Mapel).",
+          "Mengonfigurasi Redis caching untuk query jadwal dan session presensi guru guna mencegah database bottleneck di jam sibuk pagi hari."
+        ],
+        codeHighlight: `-- Skema Database Presensi Guru SMK Binatama (Muhammad Iqbal - Fullstack & DB)
+CREATE TABLE attendance_logs (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  teacher_id VARCHAR(32) NOT NULL REFERENCES teachers(id),
+  latitude DECIMAL(10, 7) NOT NULL,
+  longitude DECIMAL(10, 7) NOT NULL,
+  distance_meters NUMERIC(6, 2) NOT NULL,
+  is_inside_geofence BOOLEAN NOT NULL DEFAULT true,
+  selfie_hash VARCHAR(128) NOT NULL,
+  check_in_time TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+  status VARCHAR(20) CHECK (status IN ('TEPAT_WAKTU', 'TERLAMBAT', 'IZIN', 'DINAS_LUAR'))
+);
+CREATE INDEX idx_attendance_teacher_date ON attendance_logs (teacher_id, check_in_time DESC);
+CREATE INDEX idx_attendance_status ON attendance_logs (status);`
       },
-      keyFeatures: [
-        {
-          title: "Multi-Agent Orchestration",
-          description: "Agen pintar independen beroperasi paralel untuk sintesis riset, fact-checking, dan komputasi otomatis.",
-          icon: "cpu"
-        },
-        {
-          title: "Sub-50ms Vector Retrieval",
-          description: "Pencarian semantik berkecepatan ultra-tinggi melintasi jutaan lembar dokumen enterprise terenkripsi.",
-          icon: "zap"
-        },
-        {
-          title: "Bento-Grid Adaptive UI",
-          description: "Antarmuka cerdas yang menyesuaikan tata letak berdasarkan konteks interaksi pengguna secara real-time.",
-          icon: "layout"
-        },
-        {
-          title: "Explainable AI Traceability",
-          description: "Setiap kesimpulan AI memiliki tautan sitasi sumber data orisinal dengan visualisasi confidence score.",
-          icon: "shield"
-        }
-      ]
-    }
+      nida: {
+        role: "UI/UX & Data Analytics Specialist",
+        tagline: "Attendance Dashboard, ERD Data Structure, Wireframe Prototyping & Usability Testing",
+        tasks: [
+          "Merancang prototype antarmuka presensi guru dan portal akademik SMK Binatama di Figma dengan alur interaksi intuitif dan responsif.",
+          "Membangun dashboard visualisasi data kehadiran guru harian dan rekapitulasi bulanan yang memudahkan monitoring pihak TU & Kepala Sekolah.",
+          "Merancang arsitektur basis data relasional (ERD) dan validasi struktur data presensi untuk menjamin konsistensi laporan.",
+          "Melakukan pengujian usability (UAT) bersama dewan guru dan verifikasi formulir presensi guna memastikan kemudahan penggunaan sistem."
+        ],
+        codeHighlight: `/* Form Validasi & Logika Rekapitulasi Presensi (Nida Fuadia) */
+const attendanceAnalytics = {
+  validateWithinRadius: (lat, lng, schoolGeo) => {
+    const dist = calculateHaversine(lat, lng, schoolGeo.lat, schoolGeo.lng);
+    return { isValid: dist <= 35, distanceMeters: Math.round(dist) };
+  },
+  summarizeMonthlyAttendance: (records) => {
+    return records.map(r => ({
+      nip: r.teacherId,
+      namaGuru: r.teacherName,
+      kehadiranTepatWaktu: r.onTimeCount,
+      persentase: ((r.onTimeCount / r.totalActiveDays) * 100).toFixed(1) + '%'
+    }));
+  }
+};`
+      },
+      viola: {
+        role: "Lead Project Manager & Agile Product Owner",
+        tagline: "Sprint Backlog, PRD & User Stories, Stakeholder SMK Binatama & UAT Delivery",
+        tasks: [
+          "Menyusun Product Requirement Document (PRD) dan roadmap implementasi presensi guru SMK Binatama bersama Kepala Sekolah dan staf kurikulum.",
+          "Memimpin sprint planning mingguan, daily standups, dan sprint review bersama tim engineer (Iqbal & Nida) dengan framework Scrum.",
+          "Mengelola user acceptance testing (UAT) dengan 65+ dewan guru SMK Binatama untuk memastikan adopsi presensi geofence tanpa hambatan teknis.",
+          "Memitigasi risiko kendala sinyal GPS dan konektivitas di area sekolah melalui perumusan requirement offline caching dan validasi biometrik."
+        ],
+        codeHighlight: `# SIA-BINATAMA Sprint 4: Core Teacher Attendance MVP (Viola Amelia - PM)
+User Story:
+  Sebagai Guru SMK Binatama, saya ingin melakukan presensi masuk & pulang
+  langsung dari smartphone dalam radius area sekolah agar kehadiran tercatat valid.
+
+Acceptance Criteria:
+  [x] AC-1: Koordinat GPS guru diverifikasi dalam radius <= 35 meter dari gerbang sekolah.
+  [x] AC-2: Kamera swafoto mendeteksi wajah guru secara real-time sebelum submit payload.
+  [x] AC-3: Response time pencatatan presensi < 1.2 detik pada jam kedatangan (06:45 - 07:15).
+  [x] AC-4: Status presensi (Tepat Waktu/Terlambat) otomatis terupdate di dashboard TU & Kepala Sekolah.`
+      }
+    },
+    keyFeatures: [
+      {
+        title: "Validasi GPS Geofencing",
+        description: "Mencegah kecurangan presensi dengan membatasi titik absensi hanya dalam radius 35-50 meter dari gerbang SMK Binatama.",
+        icon: "map-pin"
+      },
+      {
+        title: "Verifikasi Swafoto Biometrik",
+        description: "Guru mengambil foto selfie saat jam kedatangan dan kepulangan sebagai bukti otentik kehadiran mengajar.",
+        icon: "camera"
+      },
+      {
+        title: "Rekap Otomatis TU & Kepsek",
+        description: "Kepala Sekolah dan bagian Tata Usaha dapat mengunduh rekapitulasi kehadiran bulanan dalam format Excel/PDF dengan 1 kali klik.",
+        icon: "file-text"
+      },
+      {
+        title: "Jurnal Mengajar Terintegrasi",
+        description: "Dilengkapi modul pengisian materi dan jurnal tatap muka harian sesuai silabus kurikulum di SMK Binatama.",
+        icon: "book-open"
+      }
+    ]
   },
 
   members: {
@@ -126,59 +135,58 @@ def rerank_context_chunks(query_emb, candidates, top_k=5):
       id: "iqbal",
       name: "Muhammad Iqbal Ramdhani",
       nickname: "Iqbal",
-      role: "Fullstack Architect & Cloud Infrastructure Engineer",
+      role: "Fullstack Engineer & Database Architect",
       location: "Bandung / Jakarta, Indonesia",
       email: "iqbal.ramdhani@portfolio.dev",
-      github: "https://github.com/iqbalramdhani",
+      github: "https://github.com/m-iqbalramdhani",
       linkedin: "https://linkedin.com/in/muhammadiqbalramdhani",
       avatar: "assets/img/iqbal.jpg",
-      status: "Available for Senior Fullstack & Cloud Roles",
-      bio: "Software Engineer berfokus pada arsitektur sistem skala besar, distributed microservices, dan performa tinggi. Berpengalaman merancang backend tangguh dengan Go, Python, dan TypeScript, didukung infrastruktur cloud modern berbasis Docker dan Kubernetes. Selalu mengutamakan clean architecture, efisiensi resource, dan keandalan sistem.",
-      radarSkills: {
-        labels: ["Backend & API", "System Architecture", "Cloud & DevOps", "Frontend Dev", "Database & Caching", "Security & Reliability"],
-        values: [96, 92, 90, 84, 94, 88]
-      },
+      status: "Available for Senior Fullstack & Database Roles",
+      bio: "Fullstack Engineer dan Database Architect berfokus pada arsitektur sistem skala besar, optimalisasi database relasional & NoSQL, indexing spasial, serta frontend modern. Berpengalaman merancang backend tangguh dengan Go, PHP/Laravel, Node.js, dan Python, didukung infrastruktur database PostgreSQL, MySQL, Redis, dan MongoDB. Berperan sebagai Lead Fullstack & Database Architect pada project presensi guru SIA-BINATAMA.",
       stats: [
-        { label: "Tahun Pengalaman", value: 3.5, suffix: "+" },
-        { label: "Production APIs", value: 40, suffix: "+" },
-        { label: "Uptime Maintained", value: 99.98, suffix: "%" },
-        { label: "Code Repositories", value: 55, suffix: "+" }
+        { label: "Tahun Pengalaman", value: 4, suffix: "+" },
+        { label: "Production Databases", value: 25, suffix: "+" },
+        { label: "Query Optimization", value: 65, suffix: "% faster" },
+        { label: "Fullstack Repositories", value: 60, suffix: "+" }
       ],
       techStack: [
-        { name: "Go (Golang)", category: "language", level: 92, exp: "3 Tahun", icon: "golang" },
-        { name: "TypeScript / JavaScript", category: "language", level: 95, exp: "4 Tahun", icon: "typescript" },
-        { name: "Python", category: "language", level: 88, exp: "3 Tahun", icon: "python" },
-        { name: "SQL (PostgreSQL / MySQL)", category: "language", level: 94, exp: "4 Tahun", icon: "database" },
-        { name: "Node.js / Express / NestJS", category: "framework", level: 94, exp: "4 Tahun", icon: "nodejs" },
-        { name: "FastAPI / Gin", category: "framework", level: 90, exp: "3 Tahun", icon: "api" },
-        { name: "React & Next.js", category: "framework", level: 86, exp: "3 Tahun", icon: "react" },
-        { name: "Docker & Kubernetes", category: "cloud", level: 88, exp: "2.5 Tahun", icon: "docker" },
-        { name: "Redis & RabbitMQ", category: "cloud", level: 90, exp: "3 Tahun", icon: "server" },
-        { name: "AWS & Firebase Hosting", category: "cloud", level: 86, exp: "3 Tahun", icon: "cloud" },
-        { name: "Git & CI/CD Pipelines", category: "tools", level: 95, exp: "4 Tahun", icon: "git" },
-        { name: "Linux / Bash Shell", category: "tools", level: 90, exp: "4 Tahun", icon: "terminal" }
+        { name: "Go (Golang)", category: "language", icon: "golang", exp: "3.5+ Tahun", desc: "Backend Core & High Throughput Microservices" },
+        { name: "PostgreSQL", category: "database", icon: "postgres", exp: "4+ Tahun", desc: "Relational DB, Spatial Indexing & Haversine Geofence" },
+        { name: "MySQL", category: "database", icon: "mysql", exp: "4+ Tahun", desc: "Academic Database & Presensi Tables" },
+        { name: "Redis", category: "database", icon: "redis", exp: "3+ Tahun", desc: "In-Memory Session Caching & Attendance Queue" },
+        { name: "MongoDB", category: "database", icon: "mongodb", exp: "3+ Tahun", desc: "Document Database & Audit Logs" },
+        { name: "PHP & Laravel", category: "framework", icon: "laravel", exp: "3.5+ Tahun", desc: "Fullstack Web & REST API Services" },
+        { name: "TypeScript", category: "language", icon: "typescript", exp: "4+ Tahun", desc: "Type-safe Fullstack Development" },
+        { name: "JavaScript (ES6+)", category: "language", icon: "javascript", exp: "4+ Tahun", desc: "Modern Web Ecosystem & Frontend Logic" },
+        { name: "React.js", category: "framework", icon: "react", exp: "3.5+ Tahun", desc: "Admin Management & Teacher Portal" },
+        { name: "Node.js", category: "framework", icon: "nodejs", exp: "4+ Tahun", desc: "Event-driven Microservices & Realtime APIs" },
+        { name: "Vue.js", category: "framework", icon: "vue", exp: "3+ Tahun", desc: "Administrative Dashboard Panels" },
+        { name: "Docker", category: "cloud", icon: "docker", exp: "3+ Tahun", desc: "Containerization & DB Clustering" },
+        { name: "Git & GitHub", category: "tools", icon: "git", exp: "4+ Tahun", desc: "Version Control & Collaborative CI/CD" },
+        { name: "Linux Server", category: "tools", icon: "linux", exp: "4+ Tahun", desc: "Database Tuning & Server Hardening" },
+        { name: "Tailwind CSS", category: "framework", icon: "tailwind", exp: "3.5+ Tahun", desc: "Utility-first Responsive Styling" }
       ],
       experience: [
         {
           period: "2024 - Sekarang",
-          role: "Senior Cloud & Fullstack Engineer",
+          role: "Lead Fullstack & Database Architect",
           company: "Vertex Distributed Labs",
           type: "Full-Time",
-          description: "Memimpin perancangan core backend architecture untuk sistem analitik transaksi tinggi. Menurunkan latensi API sebesar 38% melalui optimasi query database dan distributed Redis caching."
+          description: "Memimpin perancangan core backend architecture dan arsitektur database multi-cluster. Menurunkan latensi query database sebesar 65% melalui indexing spasial teroptimasi dan distributed Redis caching."
         },
         {
-          period: "2023 - 2024",
-          role: "Backend Infrastructure Developer",
-          company: "Nusantara Cloud Solutions",
-          type: "Contract",
-          description: "Membangun microservices gateway berbasis Go dan mengelola kontainerisasi 25+ layanan menggunakan Docker dan Kubernetes di lingkungan multi-cloud."
+          period: "2024 - 2025",
+          role: "Lead Fullstack & Database Architect",
+          company: "Proyek SIA-BINATAMA (SMK Binatama)",
+          type: "Project Lead",
+          description: "Merancang skema database presensi guru, kalkulasi geofencing Haversine presisi tinggi, integrasi otentikasi JWT, dan modul ekspor laporan kehadiran untuk staf TU & Kepala Sekolah."
         },
         {
           period: "2022 - 2023",
           role: "Fullstack Web Engineer",
           company: "Digital Synergy Indonesia",
           type: "Full-Time",
-          description: "Mengembangkan portal enterprise internal menggunakan Next.js dan PostgreSQL dengan implementasi Role-Based Access Control (RBAC) ketat."
+          description: "Mengembangkan portal enterprise internal menggunakan React, Laravel, dan PostgreSQL dengan implementasi Role-Based Access Control (RBAC) ketat."
         }
       ],
       education: [
@@ -186,50 +194,50 @@ def rerank_context_chunks(query_emb, candidates, top_k=5):
           period: "2021 - 2025",
           degree: "Sarjana Komputer (S.Kom) - Teknik Informatika",
           institution: "Universitas Terkemuka Indonesia",
-          description: "IPK 3.88/4.00. Fokus riset Skripsi pada Distributed Consensus & High Performance Microservices. Asisten Laboratorium Jaringan & Sistem Terdistribusi."
+          description: "IPK 3.88/4.00. Fokus riset Skripsi pada Distributed Database Consensus & High Performance Geolocation Querying."
         }
       ],
       certifications: [
+        { name: "PostgreSQL Database Performance Tuning Specialist", issuer: "EnterpriseDB", year: "2024", id: "EDB-PT-442" },
         { name: "AWS Certified Solutions Architect - Associate", issuer: "Amazon Web Services", year: "2024", id: "AWS-SAA-88219" },
-        { name: "Certified Kubernetes Administrator (CKA)", issuer: "Cloud Native Computing Foundation", year: "2024", id: "CKA-2409-911" },
-        { name: "PostgreSQL Database Performance Tuning", issuer: "EnterpriseDB", year: "2023", id: "EDB-PT-442" }
+        { name: "Oracle Certified Associate, MySQL Database Administrator", issuer: "Oracle", year: "2023", id: "OCA-MYSQL-712" }
       ],
       individualProjects: [
         {
           id: "iqbal-proj-1",
-          title: "AetherCloud Orchestrator",
-          tagline: "Distributed microservice visualizer & traffic management panel",
-          category: "Cloud & Systems",
-          imageBadge: "Go • Docker • gRPC",
-          description: "Platform visualisasi topologi microservices real-time yang memantau throughput, error rate, dan resource consumption setiap node kontainer secara otomatis.",
-          metrics: { value: "<15ms", label: "Latency Metrics" },
-          githubUrl: "https://github.com/iqbalramdhani/aethercloud-orchestrator",
-          demoUrl: "https://aethercloud.demo.dev",
-          tags: ["Golang", "Docker", "gRPC", "Prometheus", "React"]
+          title: "OmniDB Cluster & Query Optimizer",
+          tagline: "Real-time database query analyzer & spatial index visualizer",
+          category: "Database & Systems",
+          imageBadge: "PostgreSQL • Redis • Go",
+          description: "Platform visualisasi performa query database real-time yang menganalisis execution plan (EXPLAIN ANALYZE), mendeteksi deadlocks, dan menyarankan missing composite index otomatis.",
+          metrics: { value: "<8ms", label: "Query Execution" },
+          githubUrl: "https://github.com/m-iqbalramdhani/omnidb-cluster-manager",
+          demoUrl: "https://omnidb.demo.dev",
+          tags: ["PostgreSQL", "Go", "Redis", "Docker", "React"]
         },
         {
           id: "iqbal-proj-2",
-          title: "SentiStream High-Load Pipeline",
-          tagline: "Real-time stream processing engine handling 10k event/sec",
-          category: "Data Streaming",
-          imageBadge: "Python • Redis • Kafka",
-          description: "Sistem ingestion data event-driven dengan Apache Kafka dan Redis stream untuk analitik telemetri data internet of things dengan zero message loss.",
-          metrics: { value: "12,000", label: "Events / Sec" },
-          githubUrl: "https://github.com/iqbalramdhani/sentistream-pipeline",
-          demoUrl: "https://sentistream.demo.dev",
-          tags: ["Python", "FastAPI", "Apache Kafka", "Redis", "PostgreSQL"]
+          title: "GeoFleet Realtime Tracking Engine",
+          tagline: "High-throughput spatial geospatial tracking engine",
+          category: "Fullstack & Geofencing",
+          imageBadge: "Go • PostGIS • WebSocket",
+          description: "Sistem pelacakan armada real-time berbasis PostGIS dan Redis geospatial yang memproses 8,000 koordinat GPS per detik dengan validasi geofence poligon multi-titik.",
+          metrics: { value: "8,000", label: "Coords / Sec" },
+          githubUrl: "https://github.com/m-iqbalramdhani/geofleet-tracking",
+          demoUrl: "https://geofleet.demo.dev",
+          tags: ["Go", "PostGIS", "Redis", "TypeScript", "WebSocket"]
         },
         {
           id: "iqbal-proj-3",
-          title: "DevForge Autonomous CLI",
-          tagline: "Developer productivity tool for instant scaffolding and staging",
-          category: "DevTools",
-          imageBadge: "TypeScript • Node.js",
-          description: "CLI tool modern yang mengotomatisasi boilerplate microservices, validasi skema OpenAPI, dan konfigurasi Dockerfile dalam satu perintah terpadu.",
-          metrics: { value: "4.8k+", label: "NPM Downloads" },
-          githubUrl: "https://github.com/iqbalramdhani/devforge-cli",
-          demoUrl: "https://devforge.demo.dev",
-          tags: ["TypeScript", "Node.js", "Docker", "CLI"]
+          title: "DataForge High-Volume ETL Engine",
+          tagline: "Automated distributed data pipeline for heterogeneous databases",
+          category: "Database Pipelines",
+          imageBadge: "Node.js • MySQL • MongoDB",
+          description: "Pipeline sinkronisasi data antar database relasional (MySQL/PostgreSQL) ke NoSQL (MongoDB) dengan zero-downtime streaming dan transform logic otomatis.",
+          metrics: { value: "50k+", label: "Rows / Min" },
+          githubUrl: "https://github.com/m-iqbalramdhani/dataforge-etl",
+          demoUrl: "https://dataforge.demo.dev",
+          tags: ["MySQL", "MongoDB", "Node.js", "Docker", "TypeScript"]
         }
       ]
     },
@@ -247,78 +255,57 @@ def rerank_context_chunks(query_emb, candidates, top_k=5):
       cvUrl: "https://drive.google.com/file/d/18o08IcRVT4rG4QVK715ueJjq0yVIntBy/view?usp=sharing",
       avatar: "assets/img/nida.jpg",
       status: "Mahasiswa S1 Sistem Informasi (IPK 3.88) • Open for Internship",
-      bio: "Mahasiswa S1 Sistem Informasi Universitas Bina Sarana Informatika dengan IPK 3,88. Memiliki minat mendalam pada Data Analytics, Database, Business Intelligence, Audit Sistem Informasi, dan Teknologi Informasi. Terampil menggunakan Power BI, Figma, Microsoft Office, Database Design serta memiliki pemahaman dasar MySQL, SQL, dan pengujian keamanan web. Cepat belajar, disiplin, dan siap berkembang melalui program magang serta proyek profesional.",
-      radarSkills: {
-        labels: ["Data Analytics", "Power BI", "Figma (UI/UX)", "Database & SQL", "Web Development", "Web Security Testing"],
-        values: [96, 95, 93, 90, 88, 85]
-      },
+      bio: "Mahasiswa S1 Sistem Informasi Universitas Bina Sarana Informatika dengan IPK 3,88. Memiliki minat mendalam pada Data Analytics, Database, Business Intelligence, Audit Sistem Informasi, dan Teknologi Informasi. Terampil menggunakan Power BI, Figma, Microsoft Office, Database Design serta memiliki pemahaman dasar MySQL, SQL, dan pengujian sistem web. Cepat belajar, disiplin, dan siap berkembang melalui program magang serta proyek profesional.",
       stats: [
         { label: "Indeks Prestasi (IPK)", value: 3.88, suffix: " / 4.0" },
         { label: "Proyek & Riset Akademik", value: 6, suffix: "+" },
-        { label: "Sertifikasi & Uji Kompetensi", value: 4, suffix: " Lisensi" },
-        { label: "Tahun Masuk Kuliah", value: 2023, suffix: "" }
+        { label: "Sertifikasi & Lisensi", value: 4, suffix: " Lisensi" },
+        { label: "Tahun Masuk Kuliah", value: 2023, suffix: " (Sem. 7)" }
       ],
       techStack: [
-        { name: "Microsoft Power BI (Dashboard & BI)", category: "tools", level: 95, exp: "Data Analytics", icon: "layout" },
-        { name: "Figma (Wireframe & UI/UX Prototype)", category: "tools", level: 93, exp: "UI/UX Design", icon: "figma" },
-        { name: "MySQL & SQL (Query & DDL/DML)", category: "language", level: 90, exp: "Database", icon: "database" },
-        { name: "Database Design & Relasi ERD", category: "tools", level: 92, exp: "Data Architecture", icon: "server" },
-        { name: "Microsoft Excel (VLOOKUP, SUM, IF)", category: "tools", level: 95, exp: "Data Processing", icon: "table" },
-        { name: "Data Visualization & Analytics", category: "tools", level: 94, exp: "Visual Insights", icon: "zap" },
-        { name: "HTML5 & CSS3 (Dasar Web)", category: "language", level: 88, exp: "Frontend Web", icon: "html" },
-        { name: "Web Security Testing (DVWA Assessment)", category: "tools", level: 85, exp: "Security Testing", icon: "terminal" },
-        { name: "Microsoft Word & PowerPoint", category: "tools", level: 96, exp: "Office Suite", icon: "layout" },
-        { name: "Berpikir Analitis & Problem Solving", category: "framework", level: 95, exp: "Core Competency", icon: "check-circle" },
-        { name: "Audit Sistem Informasi & BI", category: "framework", level: 90, exp: "Information Systems", icon: "users" },
-        { name: "Kerja Sama Tim & Komunikasi", category: "tools", level: 94, exp: "Soft Skills", icon: "users" }
+        { name: "Figma (UI/UX)", category: "tools", icon: "figma", exp: "2.5+ Tahun", desc: "Interactive Prototyping, Wireframing & Design Systems" },
+        { name: "Power BI & Excel", category: "tools", icon: "sheets", exp: "2+ Tahun", desc: "Interactive Business Dashboard & Data Visualization" },
+        { name: "MySQL & Database", category: "database", icon: "mysql", exp: "2+ Tahun", desc: "Relational Database Design & SQL Querying" },
+        { name: "Postman & API QA", category: "tools", icon: "postman", exp: "1.5+ Tahun", desc: "API Endpoint Validation & Testing" },
+        { name: "Git & GitHub", category: "tools", icon: "git", exp: "2+ Tahun", desc: "Version Control & Project Collaboration" },
+        { name: "Trello & Management", category: "tools", icon: "trello", exp: "2+ Tahun", desc: "Sprint Tracking & Task Organization" },
+        { name: "Notion & Documentation", category: "tools", icon: "notion", exp: "2+ Tahun", desc: "SRS, ERD & Specification Documentation" },
+        { name: "JavaScript Web", category: "language", icon: "javascript", exp: "2+ Tahun", desc: "Frontend Interface & DOM Manipulation" },
+        { name: "Slack & Collaboration", category: "tools", icon: "slack", exp: "2+ Tahun", desc: "Team Communication & Project Updates" },
+        { name: "ClickUp & Reporting", category: "tools", icon: "clickup", exp: "1.5+ Tahun", desc: "Task Milestone & Timeline Planning" }
       ],
       experience: [
         {
-          period: "2024",
-          role: "Web Developer & UI Designer",
-          company: "SiPmanTep (Stasiun Metland Telaga Murni)",
-          type: "Academic Project",
-          description: "Merancang dan membangun sistem informasi pengelolaan tempat parkir berbasis website (SiPmanTep) di Stasiun Metland Telaga Murni untuk mempermudah pencatatan, pemantauan kapasitas slot parkir, dan rekapitulasi data kendaraan."
+          period: "2024 - Sekarang",
+          role: "Studi Mandiri & Analisis Sistem",
+          company: "Universitas Bina Sarana Informatika",
+          type: "Akademik",
+          description: "Melakukan analisis sistem informasi dan riset antarmuka aplikasi. Merancang dashboard analitik berbasis Power BI dan pemodelan data terstruktur untuk optimalisasi pemantauan data."
         },
         {
-          period: "2024",
-          role: "UI/UX Designer",
-          company: "Perancangan UI/UX Aplikasi Workout",
-          type: "Academic Project",
-          description: "Merancang wireframing, user flow, visual design system, dan prototipe interaktif aplikasi mobile kebugaran/workout menggunakan Figma dengan pendekatan user-centered design."
-        },
-        {
-          period: "2024",
-          role: "Business Intelligence & Data Analyst",
-          company: "Dashboard Data Penjualan (Power BI)",
-          type: "Project",
-          description: "Mengembangkan dashboard analitik dan visualisasi data penjualan interaktif menggunakan Microsoft Power BI untuk menyajikan tren penjualan, performa produk, dan wawasan bisnis yang mudah dipahami."
-        },
-        {
-          period: "2024",
-          role: "Web Security Tester",
-          company: "Web Security Testing (DVWA)",
-          type: "Academic Lab",
-          description: "Melakukan pengujian kerentanan keamanan web menggunakan Damn Vulnerable Web Application (DVWA) mencakup analisis Cross-Site Scripting (XSS), Open Redirect, dan CAPTCHA Bypass."
+          period: "2024 - 2025",
+          role: "UI/UX & Data Analyst",
+          company: "Proyek SIA-BINATAMA (SMK Binatama)",
+          type: "Project Team",
+          description: "Merancang wireframing dan visualisasi antarmuka presensi guru berbasis web, menyusun struktur rekapitulasi data kehadiran, dan mendampingi pengujian fungsionalitas sistem."
         },
         {
           period: "2023 - 2024",
-          role: "Database Designer & Architect",
-          company: "Perancangan Database (ERD & MySQL)",
-          type: "Academic Project",
-          description: "Merancang skema arsitektur basis data, pemodelan Entity Relationship Diagram (ERD), normalisasi data, relasi antartabel, serta mengeksekusi query data terstruktur menggunakan MySQL dan SQL."
+          role: "Pengembang Aplikasi Web Mahasiswa",
+          company: "Proyek SiPmanTep & Kebugaran",
+          type: "Proyek Tim",
+          description: "Merancang alur pengguna dan antarmuka web sistem parkir stasiun, implementasi database MySQL, serta pembuatan prototipe interaktif aplikasi mobile workout di Figma."
         }
       ],
       education: [
         {
           period: "2023 - Sekarang",
-          degree: "S1 Sistem Informasi",
-          institution: "Universitas Bina Sarana Informatika",
-          description: "IPK: 3,88 / 4,00. Fokus studi: Data Analytics, Database Design & Architecture, Business Intelligence, Audit Sistem Informasi, Teknologi Informasi, dan Keamanan Web."
+          degree: "S1 Sistem Informasi (IPK: 3.88/4.00)",
+          institution: "Universitas Bina Sarana Informatika (UBSI)",
+          description: "Fokus pada Data Analytics, Sistem Basis Data, Rekayasa Web, Audit SI, dan UI/UX Design."
         }
       ],
       certifications: [
-        { name: "Junior Web Developer", issuer: "Vocational School Graduate Academy (VSGA) - Kominfo", year: "2025", id: "VSGA-KOMINFO-2025" },
         { name: "Sertifikasi Kompetensi Database Administrator", issuer: "Lembaga Sertifikasi Profesi (LSP / BNSP)", year: "2026", id: "BNSP-DBA-2026" },
         { name: "Uji Kompetensi Berbasis Industri - Bidang Sistem Basis Data", issuer: "Uji Kompetensi Industri", year: "2024", id: "UK-SBD-2024" },
         { name: "Seminar Akselerasi Transformasi Digital & Peningkatan Talenta Digital", issuer: "Kementerian Kominfo / Penyelenggara Nasional", year: "2023", id: "SEM-DIGITAL-2023" }
@@ -362,117 +349,113 @@ def rerank_context_chunks(query_emb, candidates, top_k=5):
         }
       ]
     },
-
     viola: {
       id: "viola",
       name: "Viola Amelia",
       nickname: "Viola",
-      role: "Machine Learning Engineer & Mobile Intelligence Specialist",
+      role: "IT Project Manager & Agile Scrum Master",
       location: "Bandung / Jakarta, Indonesia",
       email: "viola.amelia@portfolio.dev",
       github: "https://github.com/violaamelia",
       linkedin: "https://linkedin.com/in/violaamelia",
       avatar: "assets/img/viola.jpg",
-      status: "Exploring AI Research & Applied ML Roles",
-      bio: "Engineer di persimpangan Machine Learning, Computer Vision, dan Aplikasi Mobile. Mengkhususkan diri dalam melatih model AI yang efisien (quantized on-device models), pipeline data skala besar, dan integrasi kecerdasan buatan ke dalam aplikasi mobile yang responsif. Berorientasi pada model accuracy, computational efficiency, dan implementasi etis AI.",
-      radarSkills: {
-        labels: ["Machine Learning", "Deep Learning / CV", "Mobile (Flutter/Dart)", "Python & MLOps", "Data Engineering", "Math & Statistics"],
-        values: [96, 94, 91, 95, 88, 93]
-      },
+      status: "Available for Project Manager & Scrum Master Roles",
+      bio: "Project Manager dan Agile Scrum Master berpengalaman dalam memimpin siklus pengembangan software end-to-end (SDLC). Terampil dalam backlog prioritization, roadmap delivery, stakeholder management, resource allocation, sprint ceremonies, dan risk mitigation. Berperan sebagai Lead Project Manager pada project presensi guru SIA-BINATAMA yang mengorkestrasi rilis sistem tepat waktu sesuai kebutuhan dewan guru SMK Binatama.",
       stats: [
         { label: "Tahun Pengalaman", value: 3.5, suffix: "+" },
-        { label: "ML Models Trained", value: 50, suffix: "+" },
-        { label: "Average Accuracy", value: 97.4, suffix: "%" },
-        { label: "Mobile Apps Shipped", value: 12, suffix: " Apps" }
+        { label: "Sprints Delivered", value: 45, suffix: "+" },
+        { label: "On-Time Delivery", value: 98.5, suffix: "%" },
+        { label: "Projects Managed", value: 18, suffix: "+" }
       ],
       techStack: [
-        { name: "Python (NumPy, Pandas)", category: "language", level: 98, exp: "4 Tahun", icon: "python" },
-        { name: "Dart (Flutter)", category: "language", level: 92, exp: "3 Tahun", icon: "flutter" },
-        { name: "C++ (Edge Inference)", category: "language", level: 82, exp: "2 Tahun", icon: "code" },
-        { name: "SQL & Data Extraction", category: "language", level: 88, exp: "3 Tahun", icon: "database" },
-        { name: "PyTorch & TorchVision", category: "framework", level: 94, exp: "3.5 Tahun", icon: "cpu" },
-        { name: "TensorFlow & TFLite", category: "framework", level: 91, exp: "3 Tahun", icon: "cpu" },
-        { name: "Scikit-Learn & XGBoost", category: "framework", level: 95, exp: "4 Tahun", icon: "activity" },
-        { name: "OpenCV & Computer Vision", category: "framework", level: 92, exp: "3 Tahun", icon: "eye" },
-        { name: "Flutter Cross-Platform", category: "framework", level: 93, exp: "3 Tahun", icon: "smartphone" },
-        { name: "Hugging Face & Transformers", category: "cloud", level: 90, exp: "2.5 Tahun", icon: "box" },
-        { name: "MLflow & Weights & Biases", category: "tools", level: 86, exp: "2.5 Tahun", icon: "bar-chart-2" },
-        { name: "Docker for ML Pipelines", category: "tools", level: 85, exp: "2.5 Tahun", icon: "docker" }
+        { name: "Jira", category: "tools", icon: "jira", exp: "4+ Tahun", desc: "Agile Sprint Tracking, Epics & Backlog Management" },
+        { name: "Trello", category: "tools", icon: "trello", exp: "4+ Tahun", desc: "Kanban Workflow & Task Prioritization" },
+        { name: "Notion", category: "tools", icon: "notion", exp: "3.5+ Tahun", desc: "Product Specs, SOP & Team Knowledge Base" },
+        { name: "Figma", category: "tools", icon: "figma", exp: "3+ Tahun", desc: "PRD Wireframe Review & UX Walkthrough" },
+        { name: "Confluence", category: "tools", icon: "confluence", exp: "3.5+ Tahun", desc: "Technical Documentation & Release Notes" },
+        { name: "Miro", category: "tools", icon: "miro", exp: "3+ Tahun", desc: "Visual Brainstorming, Retrospective & User Story Mapping" },
+        { name: "Slack", category: "tools", icon: "slack", exp: "4+ Tahun", desc: "Cross-functional Team Communication & Alerts" },
+        { name: "Asana", category: "tools", icon: "asana", exp: "3+ Tahun", desc: "Project Milestone & Timeline Tracking" },
+        { name: "ClickUp", category: "tools", icon: "clickup", exp: "3+ Tahun", desc: "Goal Tracking & Sprint Burndown Management" },
+        { name: "Google Sheets", category: "tools", icon: "sheets", exp: "4+ Tahun", desc: "Velocity Metrics & Resource Planning" },
+        { name: "Git & GitHub", category: "tools", icon: "git", exp: "3.5+ Tahun", desc: "Milestones, Release Tags & Issue Tracking" }
       ],
       experience: [
         {
           period: "2024 - Sekarang",
-          role: "Senior Machine Learning Engineer",
-          company: "Cognitive Vision AI Labs",
+          role: "Agile Project Manager",
+          company: "Nexus Agile Solutions",
           type: "Full-Time",
-          description: "Mengembangkan pipeline computer vision edge untuk deteksi cacat manufaktur dengan akurasi 98.7% dan inferensi real-time di bawah 30ms per frame."
+          description: "Memimpin 3 squad engineer lintas fungsi (15+ developer & QA) dalam pengiriman 12 fitur enterprise SaaS. Menjaga sprint velocity stabil pada 98.5% on-time delivery dengan zero scope creep."
         },
         {
-          period: "2023 - 2024",
-          role: "Applied AI & Mobile Developer",
-          company: "Inovasi Kecerdasan Buatan",
-          type: "Full-Time",
-          description: "Mengintegrasikan model TensorFlow Lite ke dalam aplikasi mobile Flutter, mengoptimalkan ukuran binary model sebesar 60% dengan INT8 quantization."
+          period: "2024 - 2025",
+          role: "Lead Project Manager & Product Owner",
+          company: "Proyek SIA-BINATAMA (SMK Binatama)",
+          type: "Project Lead",
+          description: "Menyusun PRD, memfasilitasi sprint ceremonies, mengelola komunikasi dengan Kepala Sekolah dan dewan guru SMK Binatama, serta mengawal UAT presensi geofence hingga fase implementasi sukses."
         },
         {
           period: "2022 - 2023",
-          role: "Junior Data Scientist & ML Researcher",
-          company: "Data Nusantara Analytics",
-          type: "Contract",
-          description: "Menganalisis dataset medis 100k+ sampel, membangun prediktor risiko penyakit kronis menggunakan ensemble machine learning."
+          role: "Associate Product Manager",
+          company: "Digital Solusindo Nusantara",
+          type: "Full-Time",
+          description: "Menyusun user stories, memprioritaskan backlog fitur, dan mengoordinasikan rilis mingguan bersama tim engineering dan UI/UX designer."
         }
       ],
       education: [
         {
           period: "2021 - 2025",
-          degree: "Sarjana Sains (S.Si) - Ilmu Komputasi & Kecerdasan Buatan",
-          institution: "Fakultas Sains & Teknologi Terapan",
-          description: "IPK 3.90/4.00. Penulis publikasi ilmiah terindeks Scopus mengenai 'Quantized Lightweight Vision Transformer for Mobile Diagnostic Assistance'."
+          degree: "Sarjana Sistem Informasi (S.Kom) - Manajemen Rekayasa TI",
+          institution: "Fakultas Ilmu Terapan & Manajemen Proyek",
+          description: "IPK 3.91/4.00 (Cum Laude). Riset Tugas Akhir tentang 'Agile Governance and Risk Mitigation Framework in Rapid Education Technology Deployments'."
         }
       ],
       certifications: [
-        { name: "TensorFlow Developer Certificate", issuer: "Google Developers", year: "2024", id: "TF-DEV-88910" },
-        { name: "Deep Learning Specialization", issuer: "DeepLearning.AI", year: "2023", id: "DLAI-DL-3341" },
-        { name: "Flutter Mobile Developer Certified Specialist", issuer: "AppBrewery & Google", year: "2023", id: "FLTR-CERT-720" }
+        { name: "Professional Scrum Master™ I (PSM I)", issuer: "Scrum.org", year: "2024", id: "PSM-I-88910" },
+        { name: "Project Management Professional (PMP) Prep", issuer: "PMI Authorized Training", year: "2023", id: "PMP-PREP-3341" },
+        { name: "Google Project Management Professional Certificate", issuer: "Google Career Certificates", year: "2023", id: "G-PM-CERT-720" }
       ],
       individualProjects: [
         {
           id: "viola-proj-1",
-          title: "VisionGuard Edge Anomaly Detector",
-          tagline: "Ultra-fast on-device computer vision defect inspector",
-          category: "Computer Vision",
-          imageBadge: "PyTorch • OpenCV • YOLO",
-          description: "Sistem computer vision real-time untuk mendeteksi anomali mikroskopis pada perakitan sirkuit elektronik dengan performa 60 FPS pada hardware low-power.",
-          metrics: { value: "98.9%", label: "Precision Rate" },
-          githubUrl: "https://github.com/violaamelia/visionguard-edge-cv",
-          demoUrl: "https://visionguard.demo.dev",
-          tags: ["Computer Vision", "PyTorch", "YOLOv8", "OpenCV", "Python"]
+          title: "EduTrack Agile Transformation",
+          tagline: "End-to-end LMS deployment roadmap for 12 partner educational institutions",
+          category: "Project Management",
+          imageBadge: "Jira • Scrum • Roadmap",
+          description: "Manajemen siklus rilis dan adopsi learning management system di 12 sekolah mitra. Mengorkestrasi timeline 6 bulan dengan 100% target milestone tercapai tanpa deviasi budget.",
+          metrics: { value: "98.5%", label: "On-Time Velocity" },
+          githubUrl: "https://github.com/violaamelia/edutrack-agile-case-study",
+          demoUrl: "https://edutrack-pm.demo.dev",
+          tags: ["Project Management", "Jira", "Scrum", "Risk Mitigation", "Confluence"]
         },
         {
           id: "viola-proj-2",
-          title: "NeuroPredict Clinical ML",
-          tagline: "Predictive clinical analytics with explainable AI SHAP values",
-          category: "Health AI",
-          imageBadge: "TensorFlow • Scikit-Learn • SHAP",
-          description: "Model estimasi progresi klinis pasien berbasis rekam medis historis, dilengkapi interpretasi kontribusi fitur (feature importance) untuk dokter spesialis.",
-          metrics: { value: "0.94", label: "AUROC Score" },
-          githubUrl: "https://github.com/violaamelia/neuropredict-clinical-ml",
-          demoUrl: "https://neuropredict.demo.dev",
-          tags: ["Healthcare AI", "Python", "Explainable AI", "Pandas", "Streamlit"]
+          title: "HealthHub Telehealth Roadmap & UAT",
+          tagline: "Product discovery to release orchestration with 50,000+ active users",
+          category: "Product Management",
+          imageBadge: "Notion • Miro • PRD",
+          description: "Perumusan product requirement document (PRD), user journey mapping, dan orkestrasi UAT lintas dokter spesialis dan pasien dengan skor CSAT kepuasan 4.85/5.00.",
+          metrics: { value: "50k+", label: "Active Users" },
+          githubUrl: "https://github.com/violaamelia/healthhub-telehealth-roadmap",
+          demoUrl: "https://healthhub-pm.demo.dev",
+          tags: ["Product Management", "Miro", "Notion", "UAT Testing", "Analytics"]
         },
         {
           id: "viola-proj-3",
-          title: "PulseFit AI Mobile Companion",
-          tagline: "On-device motion analysis and posture coaching app",
-          category: "Mobile AI",
-          imageBadge: "Flutter • TFLite • PoseNet",
-          description: "Aplikasi mobile Flutter cerdas yang memanfaatkan kamera smartphone untuk menghitung repetisi olahraga dan membetulkan postur tubuh secara instan tanpa internet.",
-          metrics: { value: "15ms", label: "Inference Time" },
-          githubUrl: "https://github.com/violaamelia/pulsefit-ai-mobile",
-          demoUrl: "https://pulsefit.demo.dev",
-          tags: ["Flutter", "Dart", "TensorFlow Lite", "Mobile", "Edge AI"]
+          title: "RetailSync Omnichannel Delivery",
+          tagline: "Multi-squad sprint synchronization across inventory & POS systems",
+          category: "Agile Leadership",
+          imageBadge: "Trello • Asana • Scrum",
+          description: "Penyelarasan dependensi teknis 2 squad engineering (backend & frontend) dalam migrasi sistem point of sale (POS) offline ke cloud dengan zero downtime operasional toko.",
+          metrics: { value: "0 hr", label: "Store Downtime" },
+          githubUrl: "https://github.com/violaamelia/retailsync-omnichannel",
+          demoUrl: "https://retailsync-pm.demo.dev",
+          tags: ["Scrum", "Trello", "Asana", "Stakeholder Alignment", "SDLC"]
         }
       ]
     }
   }
 };
+
+window.PORTFOLIO_DATA = PORTFOLIO_DATA;
