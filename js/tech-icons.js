@@ -78,7 +78,21 @@ const TECH_ICONS = {
 
   clickup: `<svg viewBox="0 0 24 24" width="40" height="40" fill="none"><path d="M4 14.5L12 7.5L20 14.5L16.8 17.8L12 13.5L7.2 17.8L4 14.5Z" fill="#7B68EE"/><path d="M5.5 18C7.5 20.2 9.5 21 12 21C14.5 21 16.5 20.2 18.5 18L16.5 16C15.2 17.4 13.8 18 12 18C10.2 18 8.8 17.4 7.5 16L5.5 18Z" fill="#FF007A"/></svg>`,
 
-  sheets: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#0F9D58"/><rect x="5" y="5" width="14" height="14" rx="2" fill="#FFF"/><path d="M5 9.5H19M5 14H19M10.5 5V19M15 5V19" stroke="#0F9D58" stroke-width="1.6"/></svg>`
+  sheets: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#0F9D58"/><rect x="5" y="5" width="14" height="14" rx="2" fill="#FFF"/><path d="M5 9.5H19M5 14H19M10.5 5V19M15 5V19" stroke="#0F9D58" stroke-width="1.6"/></svg>`,
+
+  word: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#185ABD"/><path d="M6 6.5L8.5 17.5H10.5L12 11.5L13.5 17.5H15.5L18 6.5H15.8L14.2 14.5L12.8 6.5H11.2L9.8 14.5L8.2 6.5H6Z" fill="#FFF"/></svg>`,
+
+  excel: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#107C41"/><path d="M6.5 6.5L10.5 12L6.5 17.5H9L12 13.5L15 17.5H17.5L13.5 12L17.5 6.5H15L12 10.5L9 6.5H6.5Z" fill="#FFF"/></svg>`,
+
+  powerpoint: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#C43E1C"/><path d="M7 6.5H13C15.2 6.5 17 8.3 17 10.5C17 12.7 15.2 14.5 13 14.5H10V17.5H7V6.5ZM10 11.8H13C13.8 11.8 14.5 11.1 14.5 10.5C14.5 9.9 13.8 9.2 13 9.2H10V11.8Z" fill="#FFF"/></svg>`,
+
+  canva: `<svg viewBox="0 0 24 24" width="40" height="40"><circle cx="12" cy="12" r="11" fill="#00C4CC"/><path d="M12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20C13.8 20 15.5 19.4 16.8 18.3L15.4 16.9C14.4 17.6 13.2 18 12 18C8.69 18 6 15.31 6 12C6 8.69 8.69 6 12 6C14.3 6 16.2 7.3 17.2 9.2L18.9 8.2C17.5 5.7 15 4 12 4Z" fill="#FFF"/></svg>`,
+
+  vscode: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M17.5 2.5L12.5 7.5L7.5 3.5L3.5 6V18L7.5 20.5L12.5 16.5L17.5 21.5L21.5 19.5V4.5L17.5 2.5ZM17.5 7.2V16.8L13.8 12L17.5 7.2Z" fill="#007ACC"/></svg>`,
+
+  drawio: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#F08705"/><rect x="4.5" y="4.5" width="6.5" height="6.5" rx="1.5" fill="#FFF"/><rect x="13" y="13" width="6.5" height="6.5" rx="1.5" fill="#FFF"/><path d="M7.7 11V16.2H13" stroke="#FFF" stroke-width="2.2" fill="none"/></svg>`,
+
+  xampp: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#FB7A24"/><path d="M6.5 6.5L17.5 17.5M17.5 6.5L6.5 17.5" stroke="#FFF" stroke-width="3" stroke-linecap="round"/></svg>
 };
 
 window.TECH_ICONS = TECH_ICONS;

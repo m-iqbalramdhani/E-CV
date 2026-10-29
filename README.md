@@ -3,7 +3,7 @@
 Sebuah website portofolio profesional dan **Electronic Curriculum Vitae (E-CV)** modern yang dirancang untuk **3 personil**:
 1. **Muhammad Iqbal Ramdhani** — *Fullstack Engineer & Database Architect*
 2. **Nida Fuadia** — *Lead Quality Assurance & Software Tester*
-3. **Viola Amelia** — *IT Project Manager & Agile Scrum Master*
+3. **Viola Amelia** — *Mahasiswa Sistem Informasi | Administrasi*
 
 ---
 
@@ -30,7 +30,7 @@ Sebuah website portofolio profesional dan **Electronic Curriculum Vitae (E-CV)**
   - Disesuaikan spesifik untuk masing-masing keahlian:
     - **Iqbal**: Go, PostgreSQL, MySQL, Redis, MongoDB, PHP/Laravel, TypeScript, JavaScript, React, Node.js, Vue, Docker, Git, Linux, Tailwind CSS.
     - **Nida**: Postman, Cypress, Playwright, Selenium, Jest, Apache JMeter, k6, SonarQube, Katalon Studio, Swagger, Git, Linux.
-    - **Viola**: Jira, Trello, Notion, Figma, Confluence, Miro, Slack, Asana, ClickUp, Google Sheets, GitHub Projects.
+    - **Viola**: Microsoft Word, Microsoft Excel, Microsoft PowerPoint, Canva, Figma, PHP (Basic), VS Code, Draw.io, XAMPP.
 
 - **Project Masing-Masing (Portofolio Personal)**:
   - 3 proyek unggulan untuk tiap anggota dengan metrik dampak nyata, tag teknologi, dan modal studi kasus mendalam.

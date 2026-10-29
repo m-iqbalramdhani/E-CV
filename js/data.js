@@ -358,105 +358,112 @@ Acceptance Criteria:
       id: "viola",
       name: "Viola Amelia",
       nickname: "Viola",
-      role: "IT Project Manager & Agile Scrum Master",
-      location: "Bandung / Jakarta, Indonesia",
-      email: "viola.amelia@portfolio.dev",
+      role: "Mahasiswa Sistem Informasi | Administrasi",
+      location: "Kabupaten Bekasi, Jawa Barat",
+      email: "ameliaviolaa01@gmail.com",
+      phone: "+62 856 9145 4807",
       github: "https://github.com/violaamelia",
       linkedin: "https://linkedin.com/in/violaamelia",
       avatar: "assets/img/viola-amelia.jpg",
-      status: "Available for Project Manager & Scrum Master Roles",
-      bio: "Project Manager dan Agile Scrum Master berpengalaman dalam memimpin siklus pengembangan software end-to-end (SDLC). Terampil dalam backlog prioritization, roadmap delivery, stakeholder management, resource allocation, sprint ceremonies, dan risk mitigation. Berperan sebagai Lead Project Manager pada project presensi guru SIA-BINATAMA yang mengorkestrasi rilis sistem tepat waktu sesuai kebutuhan dewan guru SMK Binatama.",
+      status: "Mahasiswa Semester 6 (IPK 3.94) • Staf Tata Usaha SMK Binatama",
+      bio: "Mahasiswa semester 6 Program Studi Sistem Informasi Universitas Bina Sarana Informatika dengan IPK 3,94, memiliki pengalaman kerja sebagai Staf Tata Usaha di SMK Binatama. Berpengalaman dalam pengelolaan administrasi kepegawaian, kesiswaan, keuangan, persuratan, serta koordinasi kegiatan. Memiliki kemampuan bekerja dalam tim, teliti, disiplin, jujur, dan cepat beradaptasi. Aktif mengikuti kegiatan akademik dan pelatihan untuk meningkatkan kompetensi profesional.",
       stats: [
-        { label: "Tahun Pengalaman", value: 3.5, suffix: "+" },
-        { label: "Sprints Delivered", value: 45, suffix: "+" },
-        { label: "On-Time Delivery", value: 98.5, suffix: "%" },
-        { label: "Projects Managed", value: 18, suffix: "+" }
+        { label: "IPK Akademik", value: 3.94, suffix: "/4.00" },
+        { label: "Semester Berjalan", value: 6, suffix: "" },
+        { label: "Dedikasi & Ketelitian", value: 100, suffix: "%" },
+        { label: "Sertifikasi Resmi", value: 5, suffix: "+" }
       ],
       techStack: [
-        { name: "Jira", category: "tools", icon: "jira", exp: "4+ Tahun", desc: "Agile Sprint Tracking, Epics & Backlog Management" },
-        { name: "Trello", category: "tools", icon: "trello", exp: "4+ Tahun", desc: "Kanban Workflow & Task Prioritization" },
-        { name: "Notion", category: "tools", icon: "notion", exp: "3.5+ Tahun", desc: "Product Specs, SOP & Team Knowledge Base" },
-        { name: "Figma", category: "tools", icon: "figma", exp: "3+ Tahun", desc: "PRD Wireframe Review & UX Walkthrough" },
-        { name: "Confluence", category: "tools", icon: "confluence", exp: "3.5+ Tahun", desc: "Technical Documentation & Release Notes" },
-        { name: "Miro", category: "tools", icon: "miro", exp: "3+ Tahun", desc: "Visual Brainstorming, Retrospective & User Story Mapping" },
-        { name: "Slack", category: "tools", icon: "slack", exp: "4+ Tahun", desc: "Cross-functional Team Communication & Alerts" },
-        { name: "Asana", category: "tools", icon: "asana", exp: "3+ Tahun", desc: "Project Milestone & Timeline Tracking" },
-        { name: "ClickUp", category: "tools", icon: "clickup", exp: "3+ Tahun", desc: "Goal Tracking & Sprint Burndown Management" },
-        { name: "Google Sheets", category: "tools", icon: "sheets", exp: "4+ Tahun", desc: "Velocity Metrics & Resource Planning" },
-        { name: "Git & GitHub", category: "tools", icon: "git", exp: "3.5+ Tahun", desc: "Milestones, Release Tags & Issue Tracking" }
+        { name: "Microsoft Word", category: "office", icon: "word", exp: "Mahir", desc: "Administrasi Persuratan, Dokumen Resmi & Laporan Sekolah" },
+        { name: "Microsoft Excel", category: "office", icon: "excel", exp: "Mahir", desc: "Rekapitulasi Keuangan, Administrasi PTK & Olah Data Kesiswaan" },
+        { name: "Microsoft PowerPoint", category: "office", icon: "powerpoint", exp: "Mahir", desc: "Presentasi Edukatif, Materi Pelatihan & Evaluasi Program" },
+        { name: "Canva", category: "design", icon: "canva", exp: "Mahir", desc: "Desain Konten Digital Marketing, Publikasi & Banner Edukasi" },
+        { name: "Figma", category: "design", icon: "figma", exp: "Menengah", desc: "Desain UI/UX & Wireframing Alur Aplikasi Sistem Informasi" },
+        { name: "PHP (Basic)", category: "programming", icon: "php", exp: "Dasar", desc: "Pemrograman Web Dasar & Integrasi Form Dinamis" },
+        { name: "VS Code", category: "tools", icon: "vscode", exp: "Menengah", desc: "Code Editor Utama untuk Proyek Pengembangan Web" },
+        { name: "Draw.io", category: "tools", icon: "drawio", exp: "Mahir", desc: "Pemodelan Diagram Alir Bisnis, Use Case & DFD Sistem" },
+        { name: "XAMPP", category: "tools", icon: "xampp", exp: "Menengah", desc: "Local Web Server & Manajemen Database MySQL" }
       ],
       experience: [
         {
-          period: "2024 - Sekarang",
-          role: "Agile Project Manager",
-          company: "Nexus Agile Solutions",
-          type: "Full-Time",
-          description: "Memimpin 3 squad engineer lintas fungsi (15+ developer & QA) dalam pengiriman 12 fitur enterprise SaaS. Menjaga sprint velocity stabil pada 98.5% on-time delivery dengan zero scope creep."
+          period: "Oktober 2024 - Sekarang",
+          role: "Staf Tata Usaha",
+          company: "SMK Binatama – Kabupaten Bekasi",
+          type: "Staf Administrasi",
+          description: "Mengelola administrasi kepegawaian (PTK), administrasi kesiswaan dari penerimaan hingga kelulusan siswa, penyusunan dokumen resmi sekolah, administrasi keuangan sekolah transparan, sarana prasarana, pengarsipan surat masuk dan keluar, serta menjadi panitia administrasi berbagai kegiatan sekolah."
         },
         {
-          period: "2024 - 2025",
-          role: "Lead Project Manager & Product Owner",
-          company: "Proyek SIA-BINATAMA (SMK Binatama)",
-          type: "Project Lead",
-          description: "Menyusun PRD, memfasilitasi sprint ceremonies, mengelola komunikasi dengan Kepala Sekolah dan dewan guru SMK Binatama, serta mengawal UAT presensi geofence hingga fase implementasi sukses."
+          period: "2019 - 2020",
+          role: "Wakil Ketua Asrama",
+          company: "MA Ummul Quro Al Islami Boarding School",
+          type: "Organisasi Santri",
+          description: "Mengelola administrasi organisasi dan kegiatan asrama santri, menyusun proposal kegiatan, mengarsipkan surat masuk dan keluar, serta berkoordinasi dalam rapat rutin pengurus."
         },
         {
-          period: "2022 - 2023",
-          role: "Associate Product Manager",
-          company: "Digital Solusindo Nusantara",
-          type: "Full-Time",
-          description: "Menyusun user stories, memprioritaskan backlog fitur, dan mengoordinasikan rilis mingguan bersama tim engineering dan UI/UX designer."
+          period: "2018 - 2019",
+          role: "Pengurus Bidang Kegiatan & Keuangan",
+          company: "ISPI (Ikatan Santri Putri)",
+          type: "Organisasi Santri",
+          description: "Menyusun jadwal kegiatan santri, mengelola laporan keuangan organisasi, mengawasi ketertiban kegiatan asrama, serta berpartisipasi dalam rapat evaluasi organisasi."
         }
       ],
       education: [
         {
-          period: "2021 - 2025",
-          degree: "Sarjana Sistem Informasi (S.Kom) - Manajemen Rekayasa TI",
-          institution: "Fakultas Ilmu Terapan & Manajemen Proyek",
-          description: "IPK 3.91/4.00 (Cum Laude). Riset Tugas Akhir tentang 'Agile Governance and Risk Mitigation Framework in Rapid Education Technology Deployments'."
+          period: "2023 - Sekarang",
+          degree: "S1 Sistem Informasi (Mahasiswa Aktif Semester 6)",
+          institution: "Universitas Bina Sarana Informatika (UBSI)",
+          description: "IPK 3.94 / 4.00. Fokus pada analisis perancangan sistem informasi, tata kelola basis data, administrasi sistem, dan metodologi perancangan perangkat lunak."
+        },
+        {
+          period: "2017 - 2020",
+          degree: "Jurusan Ilmu Pengetahuan Sosial (IPS)",
+          institution: "MA Ummul Quro Al Islami Boarding School",
+          description: "Lulus dengan prestasi Khatmil Qur'an Terbaik dari 45 Anggota. Membentuk dasar kepemimpinan, kedisiplinan, dan kemandirian."
         }
       ],
       certifications: [
-        { name: "Professional Scrum Master™ I (PSM I)", issuer: "Scrum.org", year: "2024", id: "PSM-I-88910" },
-        { name: "Project Management Professional (PMP) Prep", issuer: "PMI Authorized Training", year: "2023", id: "PMP-PREP-3341" },
-        { name: "Google Project Management Professional Certificate", issuer: "Google Career Certificates", year: "2023", id: "G-PM-CERT-720" }
+        { name: "Junior Web Developer", issuer: "Vocational School Graduate Academy (VSGA) - Digital Talent Scholarship 2025 (Komdigi)", year: "2025", id: "VSGA-KOMDIGI-2025" },
+        { name: "Pengantar Mindset Digital 1: Mengubah Masa Depan dengan Pola Pikir Digital", issuer: "Digital Talent Scholarship 2025 (Komdigi)", year: "2025", id: "DTS-MINDSET-2025" },
+        { name: "Uji Kompetensi Berbasis Industri - Bidang Sistem Basis Data", issuer: "Sertifikasi Industri Basis Data", year: "2024", id: "UKBI-DB-2024" },
+        { name: "Seminar Wajib Entrepreneur", issuer: "Universitas Bina Sarana Informatika", year: "2024", id: "SEM-ENTREPRENEUR-UBSI" },
+        { name: "Sertifikat Pengabdian kepada Masyarakat (PKM)", issuer: "Pusat Penelitian dan Pengabdian kepada Masyarakat UBSI", year: "2025", id: "PKM-AI-UBSI-2025" }
       ],
       individualProjects: [
         {
           id: "viola-proj-1",
-          title: "EduTrack Agile Transformation",
-          tagline: "End-to-end LMS deployment roadmap for 12 partner educational institutions",
-          category: "Project Management",
-          imageBadge: "Jira • Scrum • Roadmap",
-          description: "Manajemen siklus rilis dan adopsi learning management system di 12 sekolah mitra. Mengorkestrasi timeline 6 bulan dengan 100% target milestone tercapai tanpa deviasi budget.",
-          metrics: { value: "98.5%", label: "On-Time Velocity" },
-          githubUrl: "https://github.com/violaamelia/edutrack-agile-case-study",
-          demoUrl: "https://edutrack-pm.demo.dev",
-          tags: ["Project Management", "Jira", "Scrum", "Risk Mitigation", "Confluence"]
+          title: "Perancangan Website Absensi Guru SMK Binatama",
+          tagline: "Analisis Kebutuhan Sistem & Konsep Pengembangan Web Absensi Guru",
+          category: "Sistem Informasi & Project Management",
+          imageBadge: "PHP • MySQL • Draw.io • Figma",
+          description: "Mata Kuliah Proyek Sistem Informasi 2025. Berperan sebagai Project Manager memimpin tim 3 anggota (Data Analis, Konseptor, Writer). Bertanggung jawab melakukan analisis kebutuhan sistem, merancang alur proses bisnis sekolah, menyusun konsep pengembangan dan dokumentasi proyek, serta mengoordinasikan tim untuk memastikan proyek tuntas sesuai target.",
+          metrics: { value: "100%", label: "Kesesuaian Target Proyek" },
+          githubUrl: "https://github.com/violaamelia/absensi-guru-binatama",
+          demoUrl: "https://absensi-guru-binatama.demo.dev",
+          tags: ["Sistem Informasi", "Project Manager", "Draw.io", "Figma", "PHP", "Analisis Sistem"]
         },
         {
           id: "viola-proj-2",
-          title: "HealthHub Telehealth Roadmap & UAT",
-          tagline: "Product discovery to release orchestration with 50,000+ active users",
-          category: "Product Management",
-          imageBadge: "Notion • Miro • PRD",
-          description: "Perumusan product requirement document (PRD), user journey mapping, dan orkestrasi UAT lintas dokter spesialis dan pasien dengan skor CSAT kepuasan 4.85/5.00.",
-          metrics: { value: "50k+", label: "Active Users" },
-          githubUrl: "https://github.com/violaamelia/healthhub-telehealth-roadmap",
-          demoUrl: "https://healthhub-pm.demo.dev",
-          tags: ["Product Management", "Miro", "Notion", "UAT Testing", "Analytics"]
+          title: "Sistem Administrasi Tata Usaha SMK Binatama",
+          tagline: "Digitalisasi Dokumen Kepegawaian (PTK), Kesiswaan & Tata Kelola Keuangan",
+          category: "Administrasi & Tata Kelola Dokumen",
+          imageBadge: "Excel • Word • Digital Filing",
+          description: "Pengelolaan administrasi kepegawaian (PTK), kesiswaan dari penerimaan hingga kelulusan siswa, penyusunan dokumen resmi sekolah, administrasi keuangan transparan, serta sistem penataan kearsipan surat masuk dan keluar secara terstruktur dan akuntabel di SMK Binatama.",
+          metrics: { value: "100%", label: "Kerapihan & Akurasi Arsip" },
+          githubUrl: "https://github.com/violaamelia/sistem-administrasi-sekolah",
+          demoUrl: "https://administrasi-sekolah.demo.dev",
+          tags: ["Administrasi", "Microsoft Excel", "Microsoft Word", "Kearsipan", "Keuangan Sekolah"]
         },
         {
           id: "viola-proj-3",
-          title: "RetailSync Omnichannel Delivery",
-          tagline: "Multi-squad sprint synchronization across inventory & POS systems",
-          category: "Agile Leadership",
-          imageBadge: "Trello • Asana • Scrum",
-          description: "Penyelarasan dependensi teknis 2 squad engineering (backend & frontend) dalam migrasi sistem point of sale (POS) offline ke cloud dengan zero downtime operasional toko.",
-          metrics: { value: "0 hr", label: "Store Downtime" },
-          githubUrl: "https://github.com/violaamelia/retailsync-omnichannel",
-          demoUrl: "https://retailsync-pm.demo.dev",
-          tags: ["Scrum", "Trello", "Asana", "Stakeholder Alignment", "SDLC"]
+          title: "Pemberdayaan AI untuk Digital Marketing Pesantren",
+          tagline: "Pemanfaatan Kecerdasan Buatan & Canva bagi Guru/Pengasuh Ponpes Al Ma'had",
+          category: "Pengabdian kepada Masyarakat",
+          imageBadge: "Artificial Intelligence • Canva • Digital Marketing",
+          description: "Kegiatan Pengabdian kepada Masyarakat (PKM) Universitas Bina Sarana Informatika pada 11 Oktober 2025 di Pondok Pesantren Al Ma'had, Setu. Membimbing para guru dan pengasuh pondok pesantren dalam pemanfaatan teknologi AI dan Canva untuk pembuatan materi edukasi interaktif dan strategi digital marketing.",
+          metrics: { value: "100%", label: "Peserta Terlatih AI" },
+          githubUrl: "https://github.com/violaamelia/pkm-ai-digital-marketing",
+          demoUrl: "https://pkm-ai-al-mahad.demo.dev",
+          tags: ["Kecerdasan Buatan (AI)", "Digital Marketing", "Canva", "Pengabdian Masyarakat", "UBSI"]
         }
       ]
     }
