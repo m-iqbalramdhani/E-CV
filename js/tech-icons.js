@@ -92,7 +92,19 @@ const TECH_ICONS = {
 
   drawio: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#F08705"/><rect x="4.5" y="4.5" width="6.5" height="6.5" rx="1.5" fill="#FFF"/><rect x="13" y="13" width="6.5" height="6.5" rx="1.5" fill="#FFF"/><path d="M7.7 11V16.2H13" stroke="#FFF" stroke-width="2.2" fill="none"/></svg>`,
 
-  xampp: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#FB7A24"/><path d="M6.5 6.5L17.5 17.5M17.5 6.5L6.5 17.5" stroke="#FFF" stroke-width="3" stroke-linecap="round"/></svg>
+  xampp: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#FB7A24"/><path d="M6.5 6.5L17.5 17.5M17.5 6.5L6.5 17.5" stroke="#FFF" stroke-width="3" stroke-linecap="round"/></svg>`,
+
+  apk: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#3DDC84"/><path d="M6 10C6 8.5 7.5 7 10 7H14C16.5 7 18 8.5 18 10V16C18 17.5 16.5 19 14 19H10C7.5 19 6 17.5 6 16V10Z" fill="#FFF"/><circle cx="9.5" cy="11.5" r="1" fill="#3DDC84"/><circle cx="14.5" cy="11.5" r="1" fill="#3DDC84"/><line x1="8" y1="5" x2="9.5" y2="7" stroke="#FFF" stroke-width="1.8" stroke-linecap="round"/><line x1="16" y1="5" x2="14.5" y2="7" stroke="#FFF" stroke-width="1.8" stroke-linecap="round"/></svg>`,
+
+  html: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M3 2L5 20L12 22L19 20L21 2H3Z" fill="#E34F26"/><path d="M12 4V20.2L17.5 18.6L19.2 4H12Z" fill="#EF652A"/><path d="M12 7.5H7.5L7.8 11H12V14.5L9.5 13.8L9.3 12H7.2L7.6 16.5L12 17.8V14.5H16.2L16.6 9.5H12V7.5Z" fill="#FFF"/></svg>`,
+
+  css: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M3 2L5 20L12 22L19 20L21 2H3Z" fill="#1572B6"/><path d="M12 4V20.2L17.5 18.6L19.2 4H12Z" fill="#33A9DC"/><path d="M12 7.5H16.5L16.2 11H12V14.5L14.5 13.8L14.7 12H16.8L16.4 16.5L12 17.8V14.5H7.8L7.4 9.5H12V7.5Z" fill="#FFF"/></svg>`,
+
+  powerbi: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#F2C811"/><rect x="5" y="13" width="3" height="7" rx="1" fill="#242424"/><rect x="10.5" y="9" width="3" height="11" rx="1" fill="#242424"/><rect x="16" y="5" width="3" height="15" rx="1" fill="#242424"/></svg>`,
+
+  dbdesigner: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#1E88E5"/><ellipse cx="12" cy="7" rx="7" ry="2.5" fill="#FFF"/><path d="M5 7V12C5 13.4 8.1 14.5 12 14.5C15.9 14.5 19 13.4 19 12V7" stroke="#FFF" stroke-width="1.8" fill="none"/><path d="M5 12V17C5 18.4 8.1 19.5 12 19.5C15.9 19.5 19 18.4 19 17V12" stroke="#FFF" stroke-width="1.8" fill="none"/></svg>`,
+
+  cisco: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#1BA0D7"/><path d="M5 14V17M7 11V17M9 8V17M11 12V17M13 12V17M15 8V17M17 11V17M19 14V17" stroke="#FFF" stroke-width="2" stroke-linecap="round"/></svg>
 };
 
 window.TECH_ICONS = TECH_ICONS;

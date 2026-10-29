@@ -365,25 +365,30 @@ Acceptance Criteria:
       github: "https://github.com/violaamelia",
       linkedin: "https://linkedin.com/in/violaamelia",
       avatar: "assets/img/viola-amelia.jpg",
-      status: "Mahasiswa Semester 6 (IPK 3.94) • Sistem Informasi UBSI",
-      bio: "Mahasiswa semester 6 Program Studi Sistem Informasi Universitas Bina Sarana Informatika dengan IPK 3,94. Memiliki pemahaman dalam pengelolaan administrasi, persuratan, koordinasi kegiatan, dan sistem basis data. Memiliki kemampuan bekerja dalam tim, teliti, disiplin, jujur, dan cepat beradaptasi. Aktif mengikuti kegiatan akademik, organisasi, serta pelatihan untuk meningkatkan kompetensi profesional.",
+      status: "Mahasiswa Semester 7 (IPK 3.89) • Sistem Informasi UBSI",
+      bio: "Mahasiswa Program Studi Sistem Informasi Universitas Bina Sarana Informatika dengan IPK 3,89. Memiliki pemahaman dalam pengelolaan sistem informasi, perancangan basis data, administrasi, persuratan, dan koordinasi kegiatan. Memiliki kemampuan bekerja dalam tim, teliti, disiplin, jujur, dan cepat beradaptasi. Aktif mengikuti kegiatan akademik, organisasi, serta pelatihan untuk meningkatkan kompetensi profesional.",
       stats: [
-        { label: "IPK Akademik", value: 3.94, suffix: "/4.00" },
-        { label: "Semester Berjalan", value: 6, suffix: "" },
+        { label: "IPK Akademik", value: 3.89, suffix: "/4.00" },
+        { label: "Semester Berjalan", value: 7, suffix: "" },
         { label: "Dedikasi & Ketelitian", value: 100, suffix: "%" },
         { label: "Sertifikasi Resmi", value: 6, suffix: "+" }
       ],
       techStack: [
+        { name: "Figma", category: "design", icon: "figma", exp: "Mahir", desc: "Desain UI/UX, Wireframing & Prototyping Aplikasi Interaktif" },
+        { name: "Trello", category: "tools", icon: "trello", exp: "Mahir", desc: "Manajemen Proyek, Sprint Planning & Kanban Board" },
+        { name: "HTML", category: "programming", icon: "html", exp: "Mahir", desc: "Struktur & Semantik Dokumen Web Responsif" },
+        { name: "CSS", category: "programming", icon: "css", exp: "Mahir", desc: "Styling, Layouting Modern & Desain Antarmuka" },
+        { name: "Power BI", category: "tools", icon: "powerbi", exp: "Menengah", desc: "Business Intelligence, Visualisasi Data & Dashboard Analitik" },
         { name: "MySQL", category: "database", icon: "mysql", exp: "Mahir", desc: "Administrasi Basis Data Relasional, DDL/DML & Manajemen Skema" },
-        { name: "Microsoft Word", category: "office", icon: "word", exp: "Mahir", desc: "Administrasi Persuratan, Dokumen Resmi & Laporan Sekolah" },
-        { name: "Microsoft Excel", category: "office", icon: "excel", exp: "Mahir", desc: "Rekapitulasi Keuangan, Administrasi PTK & Olah Data Kesiswaan" },
-        { name: "Microsoft PowerPoint", category: "office", icon: "powerpoint", exp: "Mahir", desc: "Presentasi Edukatif, Materi Pelatihan & Evaluasi Program" },
-        { name: "Canva", category: "design", icon: "canva", exp: "Mahir", desc: "Desain Konten Digital Marketing, Publikasi & Banner Edukasi" },
-        { name: "Figma", category: "design", icon: "figma", exp: "Menengah", desc: "Desain UI/UX & Wireframing Alur Aplikasi Sistem Informasi" },
-        { name: "PHP (Basic)", category: "programming", icon: "php", exp: "Dasar", desc: "Pemrograman Web Dasar & Integrasi Form Dinamis" },
-        { name: "VS Code", category: "tools", icon: "vscode", exp: "Menengah", desc: "Code Editor Utama untuk Proyek Pengembangan Web" },
-        { name: "Draw.io", category: "tools", icon: "drawio", exp: "Mahir", desc: "Pemodelan Diagram Alir Bisnis, Use Case & DFD Sistem" },
-        { name: "XAMPP", category: "tools", icon: "xampp", exp: "Menengah", desc: "Local Web Server & Manajemen Database MySQL" }
+        { name: "DB Designer", category: "database", icon: "dbdesigner", exp: "Mahir", desc: "Pemodelan ERD (Entity Relationship Diagram) & Relasi Tabel" },
+        { name: "Cisco", category: "tools", icon: "cisco", exp: "Menengah", desc: "Jaringan Komputer, Simulasi Routing & Topologi Packet Tracer" },
+        { name: "APK Mobile", category: "tools", icon: "apk", exp: "Menengah", desc: "Simulasi & Distribusi Aplikasi Android (APK)" },
+        { name: "PHP", category: "programming", icon: "php", exp: "Dasar", desc: "Pemrograman Web Dinamis & Integrasi Database" },
+        { name: "VS Code", category: "tools", icon: "vscode", exp: "Mahir", desc: "Code Editor Utama untuk Pengembangan Web" },
+        { name: "Draw.io", category: "tools", icon: "drawio", exp: "Mahir", desc: "Pemodelan Flowchart, Use Case Diagram & Alur Bisnis" },
+        { name: "Canva", category: "design", icon: "canva", exp: "Mahir", desc: "Desain Konten Digital Marketing & Publikasi" },
+        { name: "Microsoft Word", category: "office", icon: "word", exp: "Mahir", desc: "Administrasi Persuratan, Dokumen Resmi & Laporan" },
+        { name: "Microsoft Excel", category: "office", icon: "excel", exp: "Mahir", desc: "Rekapitulasi Keuangan & Olah Data Tabular" }
       ],
       experience: [],
       organizations: [
@@ -412,9 +417,9 @@ Acceptance Criteria:
       education: [
         {
           period: "2023 - Sekarang",
-          degree: "S1 Sistem Informasi (Mahasiswa Aktif Semester 6)",
+          degree: "S1 Sistem Informasi (Mahasiswa Aktif Semester 7)",
           institution: "Universitas Bina Sarana Informatika (UBSI)",
-          description: "IPK 3.94 / 4.00. Fokus pada analisis perancangan sistem informasi, tata kelola basis data, administrasi sistem, dan metodologi perancangan perangkat lunak."
+          description: "IPK 3.89 / 4.00. Fokus pada analisis perancangan sistem informasi, tata kelola basis data, administrasi sistem, dan metodologi perancangan perangkat lunak."
         },
         {
           period: "2017 - 2020",

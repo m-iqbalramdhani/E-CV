@@ -30,7 +30,7 @@ Sebuah website portofolio profesional dan **Electronic Curriculum Vitae (E-CV)**
   - Disesuaikan spesifik untuk masing-masing keahlian:
     - **Iqbal**: Go, PostgreSQL, MySQL, Redis, MongoDB, PHP/Laravel, TypeScript, JavaScript, React, Node.js, Vue, Docker, Git, Linux, Tailwind CSS.
     - **Nida**: Postman, Cypress, Playwright, Selenium, Jest, Apache JMeter, k6, SonarQube, Katalon Studio, Swagger, Git, Linux.
-    - **Viola**: Microsoft Word, Microsoft Excel, Microsoft PowerPoint, Canva, Figma, PHP (Basic), VS Code, Draw.io, XAMPP.
+    - **Viola**: Figma, Trello, HTML, CSS, Power BI, MySQL, DB Designer, Cisco, APK Mobile, PHP, VS Code, Draw.io, Canva, Microsoft Word, Microsoft Excel.
 
 - **Project Masing-Masing (Portofolio Personal)**:
   - 3 proyek unggulan untuk tiap anggota dengan metrik dampak nyata, tag teknologi, dan modal studi kasus mendalam.
