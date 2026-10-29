@@ -457,6 +457,18 @@ Acceptance Criteria:
           tags: ["PHP", "MySQL", "VS Code", "XAMPP", "Sistem Basis Data", "Komdigi"]
         },
         {
+          id: "viola-proj-silaundry",
+          title: "SILaundry - Sistem Informasi Manajemen Laundry",
+          tagline: "Sistem Informasi Berbasis Web untuk Pengelolaan Operasional & Transaksi Laundry",
+          category: "Sistem Informasi & Web App",
+          imageBadge: "PHP • MySQL • Bootstrap • XAMPP",
+          description: "SILaundry adalah sistem berbasis website yang dirancang khusus untuk mempermudah pengelolaan bisnis laundry secara efisien dan modern. Dengan menggunakan sistem ini, pemilik laundry dapat mengelola berbagai aspek operasional seperti memfasilitasi pendaftaran pelanggan, pencatatan transaksi masuk dan keluar, serta pemantauan kondisi status pencucian secara real-time. Meminimalkan kesalahan pencatatan manual serta meningkatkan kepuasan pelanggan dengan layanan yang lebih cepat, transparan, dan akurat.",
+          metrics: { value: "100%", label: "Akurasi Transaksi & Status Cucian" },
+          githubUrl: "https://github.com/violaamelia/silaundry-web-app",
+          demoUrl: "https://silaundry.demo.dev",
+          tags: ["Sistem Informasi", "PHP", "MySQL", "Web Development", "Manajemen Operasional", "Database"]
+        },
+        {
           id: "viola-proj-3",
           title: "Pemberdayaan AI untuk Digital Marketing Pesantren",
           tagline: "Pemanfaatan Kecerdasan Buatan & Canva bagi Guru/Pengasuh Ponpes Al Ma'had",
