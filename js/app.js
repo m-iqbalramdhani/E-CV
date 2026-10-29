@@ -553,6 +553,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!techStackSection) return;
     const member = PORTFOLIO_DATA.members[personaId];
 
+    const fallbackIcons = {
+      apk: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#3DDC84"/><path d="M6 10C6 8.5 7.5 7 10 7H14C16.5 7 18 8.5 18 10V16C18 17.5 16.5 19 14 19H10C7.5 19 6 17.5 6 16V10Z" fill="#FFF"/><circle cx="9.5" cy="11.5" r="1" fill="#3DDC84"/><circle cx="14.5" cy="11.5" r="1" fill="#3DDC84"/><line x1="8" y1="5" x2="9.5" y2="7" stroke="#FFF" stroke-width="1.8" stroke-linecap="round"/><line x1="16" y1="5" x2="14.5" y2="7" stroke="#FFF" stroke-width="1.8" stroke-linecap="round"/></svg>`,
+      figma: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M8 2H12V8H8C6.3 8 5 6.7 5 5C5 3.3 6.3 2 8 2Z" fill="#F24E1E"/><path d="M12 2H16C17.7 2 19 3.3 19 5C19 6.7 17.7 8 16 8H12V2Z" fill="#FF7262"/><path d="M8 8H12V14H8C6.3 14 5 12.7 5 11C5 9.3 6.3 8 8 8Z" fill="#A259FF"/><path d="M12 8H16C17.7 8 19 9.3 19 11C19 12.7 17.7 14 16 14C14.3 14 13 12.7 13 11V8Z" fill="#1ABCFE"/><circle cx="12" cy="11" r="3" fill="#1ABCFE"/><path d="M8 14H12V18C12 19.7 10.7 21 9 21C7.3 21 6 19.7 6 18C6 16.3 7.3 14 8 14Z" fill="#0ACF83"/></svg>`,
+      trello: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="5" fill="#0079BF"/><rect x="4.5" y="4.5" width="6" height="13" rx="1.5" fill="#FFF"/><rect x="13.5" y="4.5" width="6" height="8.5" rx="1.5" fill="#FFF"/></svg>`,
+      html: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M3 2L5 20L12 22L19 20L21 2H3Z" fill="#E34F26"/><path d="M12 4V20.2L17.5 18.6L19.2 4H12Z" fill="#EF652A"/><path d="M12 7.5H7.5L7.8 11H12V14.5L9.5 13.8L9.3 12H7.2L7.6 16.5L12 17.8V14.5H16.2L16.6 9.5H12V7.5Z" fill="#FFF"/></svg>`,
+      css: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M3 2L5 20L12 22L19 20L21 2H3Z" fill="#1572B6"/><path d="M12 4V20.2L17.5 18.6L19.2 4H12Z" fill="#33A9DC"/><path d="M12 7.5H16.5L16.2 11H12V14.5L14.5 13.8L14.7 12H16.8L16.4 16.5L12 17.8V14.5H7.8L7.4 9.5H12V7.5Z" fill="#FFF"/></svg>`,
+      powerbi: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#F2C811"/><rect x="5" y="13" width="3" height="7" rx="1" fill="#242424"/><rect x="10.5" y="9" width="3" height="11" rx="1" fill="#242424"/><rect x="16" y="5" width="3" height="15" rx="1" fill="#242424"/></svg>`,
+      mysql: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M3 14C3 9 7 4 12 4C17 4 21 9 21 14C21 18 17 20 12 20C7 20 3 18 3 14Z" fill="#00758F"/><path d="M7 13C8 10 16 10 17 13" stroke="#F29111" stroke-width="2.2" stroke-linecap="round"/></svg>`,
+      dbdesigner: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#1E88E5"/><ellipse cx="12" cy="7" rx="7" ry="2.5" fill="#FFF"/><path d="M5 7V12C5 13.4 8.1 14.5 12 14.5C15.9 14.5 19 13.4 19 12V7" stroke="#FFF" stroke-width="1.8" fill="none"/><path d="M5 12V17C5 18.4 8.1 19.5 12 19.5C15.9 19.5 19 18.4 19 17V12" stroke="#FFF" stroke-width="1.8" fill="none"/></svg>`,
+      cisco: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#1BA0D7"/><path d="M5 14V17M7 11V17M9 8V17M11 12V17M13 12V17M15 8V17M17 11V17M19 14V17" stroke="#FFF" stroke-width="2" stroke-linecap="round"/></svg>`,
+      php: `<svg viewBox="0 0 24 24" width="40" height="40"><ellipse cx="12" cy="12" rx="11" ry="8" fill="#777BB4"/><text x="12" y="15" fill="#FFF" font-family="sans-serif" font-weight="900" font-size="8" text-anchor="middle">PHP</text></svg>`,
+      vscode: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M17.5 2.5L12.5 7.5L7.5 3.5L3.5 6V18L7.5 20.5L12.5 16.5L17.5 21.5L21.5 19.5V4.5L17.5 2.5ZM17.5 7.2V16.8L13.8 12L17.5 7.2Z" fill="#007ACC"/></svg>`,
+      drawio: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#F08705"/><rect x="4.5" y="4.5" width="6.5" height="6.5" rx="1.5" fill="#FFF"/><rect x="13" y="13" width="6.5" height="6.5" rx="1.5" fill="#FFF"/><path d="M7.7 11V16.2H13" stroke="#FFF" stroke-width="2.2" fill="none"/></svg>`,
+      canva: `<svg viewBox="0 0 24 24" width="40" height="40"><circle cx="12" cy="12" r="11" fill="#00C4CC"/><path d="M12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20C13.8 20 15.5 19.4 16.8 18.3L15.4 16.9C14.4 17.6 13.2 18 12 18C8.69 18 6 15.31 6 12C6 8.69 8.69 6 12 6C14.3 6 16.2 7.3 17.2 9.2L18.9 8.2C17.5 5.7 15 4 12 4Z" fill="#FFF"/></svg>`,
+      word: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#185ABD"/><path d="M6 6.5L8.5 17.5H10.5L12 11.5L13.5 17.5H15.5L18 6.5H15.8L14.2 14.5L12.8 6.5H11.2L9.8 14.5L8.2 6.5H6Z" fill="#FFF"/></svg>`,
+      excel: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#107C41"/><path d="M6.5 6.5L10.5 12L6.5 17.5H9L12 13.5L15 17.5H17.5L13.5 12L17.5 6.5H15L12 10.5L9 6.5H6.5Z" fill="#FFF"/></svg>`
+    };
+
     techStackSection.innerHTML = `
       <div class="container">
         <div class="tech-stack-layout">
@@ -560,7 +578,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="floating-logos-cluster view-enter">
             ${member.techStack.map((t, idx) => {
               const floatClass = `float-item-${(idx % 4) + 1}`;
-              const iconSvg = (window.TECH_ICONS && window.TECH_ICONS[t.icon]) ? window.TECH_ICONS[t.icon] : `
+              const k = (t.icon || '').toLowerCase();
+              const iconSvg = (window.TECH_ICONS && window.TECH_ICONS[k]) || fallbackIcons[k] || `
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
               `;
 
@@ -995,13 +1014,16 @@ document.addEventListener('DOMContentLoaded', () => {
   function initCounters() {
     const counters = document.querySelectorAll('.counter-number');
     counters.forEach(counter => {
-      const target = parseFloat(counter.dataset.target);
+      const rawTarget = counter.dataset.target || counter.textContent;
+      const target = parseFloat(rawTarget);
       if (isNaN(target)) return;
+
+      const decimalPart = rawTarget.toString().split('.')[1] || '';
+      const decimals = decimalPart.length;
 
       let current = 0;
       const duration = 1200;
       const startTime = performance.now();
-      const isDecimal = target % 1 !== 0;
 
       const updateCounter = (now) => {
         const elapsed = now - startTime;
@@ -1009,12 +1031,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const ease = 1 - Math.pow(1 - progress, 3);
         current = target * ease;
 
-        counter.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
+        counter.textContent = decimals > 0 ? current.toFixed(decimals) : Math.floor(current);
 
         if (progress < 1) {
           requestAnimationFrame(updateCounter);
         } else {
-          counter.textContent = isDecimal ? target.toFixed(1) : target;
+          counter.textContent = decimals > 0 ? target.toFixed(decimals) : target;
         }
       };
 
