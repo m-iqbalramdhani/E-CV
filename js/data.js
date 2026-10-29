@@ -63,19 +63,19 @@ async function searchVectorSpace(embedding, threshold = 0.88, limit = 10) {
 }`
         },
         nida: {
-          role: "Lead UI/UX Strategist & Design System Lead",
-          tagline: "Cognitive-friendly micro-interactions, accessibility, and high-gloss aesthetics",
+          role: "Data Analytics & UI/UX Specialist",
+          tagline: "Data visualization, database design (ERD/MySQL), and intuitive user interfaces",
           tasks: [
-            "Merancang Design System komprehensif bernama 'Synapse Neo' di Figma dengan 120+ token warna, tipografi, dan komponen interaktif.",
-            "Mengembangkan antarmuka bento-grid adaptif dengan micro-animations 60fps untuk visualisasi status multi-agent.",
-            "Melakukan usability testing dan cognitive load analysis pada 25 pengguna, menghasilkan kenaikan task completion rate hingga 40%.",
-            "Memastikan compliance WCAG 2.1 Level AAA untuk kontras warna, pembaca layar (screen-readers), dan keyboard navigation."
+            "Merancang prototype dan wireframe antarmuka pengguna berbasis Figma dengan alur interaksi intuitif dan ramah pengguna.",
+            "Membangun dashboard visualisasi data dan metrik performa interaktif yang memudahkan pemantauan analitik (Power BI & Web).",
+            "Merancang arsitektur basis data relasional (ERD) dan skema tabel terstruktur untuk konsistensi data sistem.",
+            "Menerapkan pengujian keamanan antarmuka dan validasi form untuk memastikan keandalan serta integritas sistem."
           ],
-          codeHighlight: `/* Dynamic Fluid Responsive Design Tokens (Nida) */
+          codeHighlight: `/* Dynamic Fluid Responsive Design Tokens & Data Architecture (Nida) */
 :root {
   --synapse-surface: rgba(15, 23, 42, 0.72);
   --synapse-border: rgba(255, 255, 255, 0.08);
-  --synapse-glow: radial-gradient(circle, #00f0ff22 0%, transparent 70%);
+  --synapse-glow: radial-gradient(circle, #f472b622 0%, transparent 70%);
   --motion-spring: cubic-bezier(0.16, 1, 0.3, 1);
   backdrop-filter: blur(24px) saturate(180%);
 }`
@@ -238,110 +238,127 @@ def rerank_context_chunks(query_emb, candidates, top_k=5):
       id: "nida",
       name: "Nida Fuadia",
       nickname: "Nida",
-      role: "UI/UX Strategist & Creative Frontend Engineer",
-      location: "Bandung, Indonesia",
-      email: "nida.fuadia@portfolio.dev",
+      role: "Information Systems Student | Data Analytics & UI/UX",
+      location: "Bekasi, Jawa Barat",
+      email: "nidafuadia20@gmail.com",
+      phone: "081585853458",
       github: "https://github.com/nidafuadia",
-      linkedin: "https://linkedin.com/in/nidafuadia",
+      linkedin: "https://www.linkedin.com/in/nida-fuadia-345858314",
+      cvUrl: "https://drive.google.com/file/d/18o08IcRVT4rG4QVK715ueJjq0yVIntBy/view?usp=sharing",
       avatar: "assets/img/nida.jpg",
-      status: "Open for Product Design & Frontend Lead",
-      bio: "Desainer produk digital dan frontend engineer yang memadukan psikologi pengguna dengan estetika visual kelas dunia. Spesialis dalam arsitektur design system, micro-interactions halus, dan accessibility. Percaya bahwa software yang baik tidak hanya berfungsi dengan benar, tetapi juga menghadirkan kesenangan estetik dan kenyamanan maksimal bagi penggunanya.",
+      status: "Mahasiswa S1 Sistem Informasi (IPK 3.88) • Open for Internship",
+      bio: "Mahasiswa S1 Sistem Informasi Universitas Bina Sarana Informatika dengan IPK 3,88. Memiliki minat mendalam pada Data Analytics, Database, Business Intelligence, Audit Sistem Informasi, dan Teknologi Informasi. Terampil menggunakan Power BI, Figma, Microsoft Office, Database Design serta memiliki pemahaman dasar MySQL, SQL, dan pengujian keamanan web. Cepat belajar, disiplin, dan siap berkembang melalui program magang serta proyek profesional.",
       radarSkills: {
-        labels: ["UI/UX Design", "Design Systems", "Frontend Dev", "User Research", "Micro-Interactions", "Accessibility (a11y)"],
-        values: [98, 95, 90, 92, 94, 91]
+        labels: ["Data Analytics", "Power BI", "Figma (UI/UX)", "Database & SQL", "Web Development", "Web Security Testing"],
+        values: [96, 95, 93, 90, 88, 85]
       },
       stats: [
-        { label: "Tahun Pengalaman", value: 3.5, suffix: "+" },
-        { label: "UI Components Built", value: 320, suffix: "+" },
-        { label: "Usability Score", value: 96.8, suffix: "%" },
-        { label: "Design Systems Led", value: 8, suffix: " Systems" }
+        { label: "Indeks Prestasi (IPK)", value: 3.88, suffix: " / 4.0" },
+        { label: "Proyek & Riset Akademik", value: 6, suffix: "+" },
+        { label: "Sertifikasi & Uji Kompetensi", value: 4, suffix: " Lisensi" },
+        { label: "Tahun Masuk Kuliah", value: 2023, suffix: "" }
       ],
       techStack: [
-        { name: "Figma & FigJam Master", category: "tools", level: 98, exp: "4 Tahun", icon: "figma" },
-        { name: "Design Tokens & System", category: "tools", level: 96, exp: "3.5 Tahun", icon: "layout" },
-        { name: "HTML5 & Semantic Web", category: "language", level: 98, exp: "4 Tahun", icon: "html" },
-        { name: "CSS3 / Sass / CSS Modules", category: "language", level: 96, exp: "4 Tahun", icon: "css" },
-        { name: "JavaScript (ES6+) / TypeScript", category: "language", level: 88, exp: "3 Tahun", icon: "javascript" },
-        { name: "React.js & Next.js", category: "framework", level: 90, exp: "3 Tahun", icon: "react" },
-        { name: "Tailwind CSS & Vanilla Design", category: "framework", level: 96, exp: "3.5 Tahun", icon: "palette" },
-        { name: "Framer Motion & GSAP", category: "framework", level: 92, exp: "2.5 Tahun", icon: "zap" },
-        { name: "User Testing & Heuristic Eval", category: "tools", level: 92, exp: "3 Tahun", icon: "users" },
-        { name: "WCAG 2.1 Accessibility", category: "tools", level: 94, exp: "3 Tahun", icon: "check-circle" },
-        { name: "Adobe Creative Suite", category: "tools", level: 85, exp: "4 Tahun", icon: "image" },
-        { name: "Git & Version Control", category: "tools", level: 86, exp: "3 Tahun", icon: "git" }
+        { name: "Microsoft Power BI (Dashboard & BI)", category: "tools", level: 95, exp: "Data Analytics", icon: "layout" },
+        { name: "Figma (Wireframe & UI/UX Prototype)", category: "tools", level: 93, exp: "UI/UX Design", icon: "figma" },
+        { name: "MySQL & SQL (Query & DDL/DML)", category: "language", level: 90, exp: "Database", icon: "database" },
+        { name: "Database Design & Relasi ERD", category: "tools", level: 92, exp: "Data Architecture", icon: "server" },
+        { name: "Microsoft Excel (VLOOKUP, SUM, IF)", category: "tools", level: 95, exp: "Data Processing", icon: "table" },
+        { name: "Data Visualization & Analytics", category: "tools", level: 94, exp: "Visual Insights", icon: "zap" },
+        { name: "HTML5 & CSS3 (Dasar Web)", category: "language", level: 88, exp: "Frontend Web", icon: "html" },
+        { name: "Web Security Testing (DVWA Assessment)", category: "tools", level: 85, exp: "Security Testing", icon: "terminal" },
+        { name: "Microsoft Word & PowerPoint", category: "tools", level: 96, exp: "Office Suite", icon: "layout" },
+        { name: "Berpikir Analitis & Problem Solving", category: "framework", level: 95, exp: "Core Competency", icon: "check-circle" },
+        { name: "Audit Sistem Informasi & BI", category: "framework", level: 90, exp: "Information Systems", icon: "users" },
+        { name: "Kerja Sama Tim & Komunikasi", category: "tools", level: 94, exp: "Soft Skills", icon: "users" }
       ],
       experience: [
         {
-          period: "2024 - Sekarang",
-          role: "Lead Product Designer & Design Engineer",
-          company: "Aura Studio & Labs",
-          type: "Full-Time",
-          description: "Mengarahkan design roadmap untuk produk SaaS enterprise. Mengembangkan design system berskala besar yang digunakan oleh 14 tim produk, mempercepat sprint frontend hingga 35%."
+          period: "2024",
+          role: "Web Developer & UI Designer",
+          company: "SiPmanTep (Stasiun Metland Telaga Murni)",
+          type: "Academic Project",
+          description: "Merancang dan membangun sistem informasi pengelolaan tempat parkir berbasis website (SiPmanTep) di Stasiun Metland Telaga Murni untuk mempermudah pencatatan, pemantauan kapasitas slot parkir, dan rekapitulasi data kendaraan."
+        },
+        {
+          period: "2024",
+          role: "UI/UX Designer",
+          company: "Perancangan UI/UX Aplikasi Workout",
+          type: "Academic Project",
+          description: "Merancang wireframing, user flow, visual design system, dan prototipe interaktif aplikasi mobile kebugaran/workout menggunakan Figma dengan pendekatan user-centered design."
+        },
+        {
+          period: "2024",
+          role: "Business Intelligence & Data Analyst",
+          company: "Dashboard Data Penjualan (Power BI)",
+          type: "Project",
+          description: "Mengembangkan dashboard analitik dan visualisasi data penjualan interaktif menggunakan Microsoft Power BI untuk menyajikan tren penjualan, performa produk, dan wawasan bisnis yang mudah dipahami."
+        },
+        {
+          period: "2024",
+          role: "Web Security Tester",
+          company: "Web Security Testing (DVWA)",
+          type: "Academic Lab",
+          description: "Melakukan pengujian kerentanan keamanan web menggunakan Damn Vulnerable Web Application (DVWA) mencakup analisis Cross-Site Scripting (XSS), Open Redirect, dan CAPTCHA Bypass."
         },
         {
           period: "2023 - 2024",
-          role: "Senior UI/UX & Frontend Specialist",
-          company: "Kreatif Digital Nusantara",
-          type: "Full-Time",
-          description: "Memimpin perancangan ulang (redesign) aplikasi fintech ternama. Meningkatkan skor kepuasan CSAT pengguna dari 3.8 menjadi 4.7 dari skala 5."
-        },
-        {
-          period: "2022 - 2023",
-          role: "UI Designer & Web Interactive",
-          company: "Pixel Craft Studio",
-          type: "Contract",
-          description: "Merancang visual branding dan interaksi animasi interaktif berbasis web untuk 20+ brand startup dan klien internasional."
+          role: "Database Designer & Architect",
+          company: "Perancangan Database (ERD & MySQL)",
+          type: "Academic Project",
+          description: "Merancang skema arsitektur basis data, pemodelan Entity Relationship Diagram (ERD), normalisasi data, relasi antartabel, serta mengeksekusi query data terstruktur menggunakan MySQL dan SQL."
         }
       ],
       education: [
         {
-          period: "2021 - 2025",
-          degree: "Sarjana Desain Komunikasi Visual / Sistem Informasi",
-          institution: "Institut Seni & Teknologi Kreatif",
-          description: "IPK 3.92/4.00 (Cum Laude). Riset Tugas Akhir tentang 'Emotional Design & Micro-Interactions in High-Stakes Fintech Applications'."
+          period: "2023 - Sekarang",
+          degree: "S1 Sistem Informasi",
+          institution: "Universitas Bina Sarana Informatika",
+          description: "IPK: 3,88 / 4,00. Fokus studi: Data Analytics, Database Design & Architecture, Business Intelligence, Audit Sistem Informasi, Teknologi Informasi, dan Keamanan Web."
         }
       ],
       certifications: [
-        { name: "Google UX Design Professional Certificate", issuer: "Google Career Certificates", year: "2024", id: "G-UX-99214" },
-        { name: "Interaction Design Specialist (IxDF)", issuer: "Interaction Design Foundation", year: "2023", id: "IXDF-4819" },
-        { name: "Enterprise Design Thinking Co-Creator", issuer: "IBM", year: "2023", id: "IBM-DT-772" }
+        { name: "Junior Web Developer", issuer: "Vocational School Graduate Academy (VSGA) - Kominfo", year: "2025", id: "VSGA-KOMINFO-2025" },
+        { name: "Sertifikasi Kompetensi Database Administrator", issuer: "Lembaga Sertifikasi Profesi (LSP / BNSP)", year: "2026", id: "BNSP-DBA-2026" },
+        { name: "Uji Kompetensi Berbasis Industri - Bidang Sistem Basis Data", issuer: "Uji Kompetensi Industri", year: "2024", id: "UK-SBD-2024" },
+        { name: "Seminar Akselerasi Transformasi Digital & Peningkatan Talenta Digital", issuer: "Kementerian Kominfo / Penyelenggara Nasional", year: "2023", id: "SEM-DIGITAL-2023" }
       ],
       individualProjects: [
         {
           id: "nida-proj-1",
-          title: "Lumina Design System",
-          tagline: "Enterprise-grade accessible tokenized UI library",
-          category: "Design System",
-          imageBadge: "Figma • React • Tokens",
-          description: "Sistem komponen UI komprehensif dengan dukungan otomatis mode terang/gelap, keyboard accessibility WCAG AAA, dan dokumentasi interaktif.",
-          metrics: { value: "120+", label: "Figma Components" },
-          githubUrl: "https://github.com/nidafuadia/lumina-design-system",
-          demoUrl: "https://lumina-ui.demo.dev",
-          tags: ["Design System", "Figma", "React", "WCAG 2.1", "Tokens"]
+          title: "SiPmanTep — Sistem Parkir Stasiun",
+          tagline: "Sistem pengelolaan tempat parkir berbasis website di Stasiun Metland Telaga Murni",
+          category: "Web Application",
+          imageBadge: "Website • MySQL • UI Design",
+          description: "Website pengelolaan dan pemantauan ketersediaan area parkir di Stasiun Metland Telaga Murni. Mempermudah pencatatan keluar-masuk kendaraan, validasi tiket, dan rekapitulasi data operasional stasiun.",
+          metrics: { value: "100%", label: "Digital Tracking" },
+          githubUrl: "https://github.com/nidafuadia",
+          demoUrl: "https://drive.google.com/file/d/18o08IcRVT4rG4QVK715ueJjq0yVIntBy/view?usp=sharing",
+          tags: ["Website", "MySQL", "UI/UX", "Database", "Sistem Informasi"]
         },
         {
           id: "nida-proj-2",
-          title: "FinVibe Wealth Management",
-          tagline: "Next-gen investment and wealth dashboard for Gen-Z",
-          category: "Fintech App",
-          imageBadge: "UI/UX • Framer • Micro-Motion",
-          description: "Antarmuka aplikasi finansial dengan visualisasi portofolio interaktif, gestur swipe intuitif, dan feedback micro-animation yang memikat.",
-          metrics: { value: "4.9/5", label: "UX Delight Score" },
-          githubUrl: "https://github.com/nidafuadia/finvibe-mobile-design",
-          demoUrl: "https://finvibe.demo.dev",
-          tags: ["Figma", "UI/UX", "Prototyping", "Fintech", "CSS Motion"]
+          title: "UI/UX Prototype Aplikasi Workout",
+          tagline: "Perancangan wireframing dan prototipe antarmuka interaktif aplikasi kebugaran",
+          category: "UI/UX Design",
+          imageBadge: "Figma • Prototype • User Flow",
+          description: "Perancangan UI/UX lengkap aplikasi kebugaran (workout) di Figma. Dirancang dengan tata letak visual modern, pemilihan kontras ergonomis, dan flow latihan yang memandu pengguna secara intuitif.",
+          metrics: { value: "Figma", label: "Interactive Prototype" },
+          githubUrl: "https://github.com/nidafuadia",
+          demoUrl: "https://drive.google.com/file/d/18o08IcRVT4rG4QVK715ueJjq0yVIntBy/view?usp=sharing",
+          tags: ["Figma", "UI/UX", "Mobile Design", "Prototyping", "User Research"]
         },
         {
           id: "nida-proj-3",
-          title: "HealthZen Telemedicine Portal",
-          tagline: "Empathetic, calm patient health monitoring dashboard",
-          category: "Healthcare UI",
-          imageBadge: "Vue.js • CSS • a11y",
-          description: "Portal konsultasi medis dengan tone visual menenangkan, kontras optik terkalibrasi untuk lansia, dan alur booking dokter tanpa friksi.",
-          metrics: { value: "-40%", label: "User Task Time" },
-          githubUrl: "https://github.com/nidafuadia/healthzen-portal",
-          demoUrl: "https://healthzen.demo.dev",
-          tags: ["Healthcare", "Accessibility", "Design", "CSS Grid", "Vue"]
+          title: "Dashboard Data Penjualan Power BI",
+          tagline: "Visualisasi analitik performa penjualan dan business intelligence interaktif",
+          category: "Data Analytics",
+          imageBadge: "Power BI • Excel • Analytics",
+          description: "Dashboard visualisasi analitik interaktif yang mengolah data transaksi penjualan. Dilengkapi filter dinamis, visualisasi tren penjualan berkala, dan metrik performa produk untuk pengambilan keputusan bisnis.",
+          metrics: { value: "3.88", label: "GPA Rigor" },
+          githubUrl: "https://github.com/nidafuadia",
+          demoUrl: "https://drive.google.com/file/d/18o08IcRVT4rG4QVK715ueJjq0yVIntBy/view?usp=sharing",
+          tags: ["Power BI", "Data Analytics", "Excel", "Business Intelligence", "Charts"]
         }
       ]
     },

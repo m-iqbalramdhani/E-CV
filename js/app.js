@@ -256,10 +256,21 @@ document.addEventListener('DOMContentLoaded', () => {
             <h2 class="hero-subtitle">${member.role}</h2>
             <p class="hero-bio">${member.bio}</p>
             <div class="hero-actions">
-              <button class="btn-primary" id="openEcvBtn">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                View / Export E-CV
-              </button>
+              ${member.cvUrl ? `
+                <a href="${member.cvUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary" id="openDriveCvBtn" style="text-decoration:none;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                  Buka CV (Google Drive)
+                </a>
+                <button class="btn-secondary" id="openEcvBtn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                  Interactive E-CV
+                </button>
+              ` : `
+                <button class="btn-primary" id="openEcvBtn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                  View / Export E-CV
+                </button>
+              `}
               <button class="btn-secondary" id="heroHireBtn">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 Hire / Contact ${member.nickname}
@@ -293,6 +304,11 @@ document.addEventListener('DOMContentLoaded', () => {
                   <span class="portrait-person-role">${member.location}</span>
                 </div>
                 <div class="portrait-socials">
+                  ${member.cvUrl ? `
+                    <a href="${member.cvUrl}" target="_blank" rel="noopener noreferrer" class="social-mini-btn" title="Lihat CV di Google Drive">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    </a>
+                  ` : ''}
                   <a href="${member.github}" target="_blank" rel="noopener noreferrer" class="social-mini-btn" title="GitHub Profile">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                   </a>
@@ -459,7 +475,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </button>
               <button class="contrib-tab-btn ${state.activeContribTab === 'nida' ? 'active' : ''}" data-member="nida">
                 <img src="${PORTFOLIO_DATA.members.nida.avatar}" alt="Nida" class="contrib-tab-avatar">
-                <span>Nida Fuadia (UI/UX & Design System)</span>
+                <span>Nida Fuadia (Data Analytics & UI/UX)</span>
               </button>
               <button class="contrib-tab-btn ${state.activeContribTab === 'viola' ? 'active' : ''}" data-member="viola">
                 <img src="${PORTFOLIO_DATA.members.viola.avatar}" alt="Viola" class="contrib-tab-avatar">
@@ -1009,7 +1025,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (body) {
       body.innerHTML = `
-        <div style="display:flex; justify-content:flex-end; gap:0.75rem; margin-bottom:1rem;">
+        <div style="display:flex; justify-content:flex-end; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap;">
+          ${(personaId !== 'team' && PORTFOLIO_DATA.members[personaId]?.cvUrl) ? `
+            <a href="${PORTFOLIO_DATA.members[personaId].cvUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding:0.5rem 1.25rem; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem; background:rgba(244, 114, 182, 0.15); border:1px solid #f472b6; color:#fff;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Buka Google Drive CV (${PORTFOLIO_DATA.members[personaId].nickname})
+            </a>
+          ` : ''}
           <button class="btn-primary" id="triggerPrintBtn" style="padding:0.5rem 1.25rem;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
             Print / Save to PDF
@@ -1020,24 +1042,44 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="ecv-preview-sheet" style="margin-bottom: 2rem;">
             <div class="ecv-header-row">
               <img src="${m.avatar}" alt="${m.name}" class="ecv-avatar-mini">
-              <div>
+              <div style="flex:1;">
                 <h2 class="ecv-name">${m.name}</h2>
                 <div class="ecv-role">${m.role}</div>
                 <div class="ecv-contact-line">
-                  📍 ${m.location} • ✉️ ${m.email}
+                  📍 ${m.location} • ✉️ ${m.email} ${m.phone ? ` • 📞 ${m.phone}` : ''} ${m.linkedin ? ` • <a href="${m.linkedin}" target="_blank" rel="noopener noreferrer" style="color:#be185d; text-decoration:none; font-weight:600;">LinkedIn Profile</a>` : ''}
                 </div>
               </div>
+              ${m.cvUrl ? `
+                <div>
+                  <a href="${m.cvUrl}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:0.4rem; font-size:0.82rem; font-weight:600; padding:0.4rem 0.8rem; background:#fdf2f8; color:#db2777; border:1px solid #f472b6; border-radius:8px; text-decoration:none;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    Google Drive CV (Asli)
+                  </a>
+                </div>
+              ` : ''}
             </div>
 
-            <h3 class="ecv-section-heading">Professional Summary</h3>
+            <h3 class="ecv-section-heading">Profil / Ringkasan Profesional</h3>
             <p class="ecv-text-body">${m.bio}</p>
 
-            <h3 class="ecv-section-heading">Key Technical Competencies</h3>
+            <h3 class="ecv-section-heading">Pendidikan Formal</h3>
+            ${m.education.map(ed => `
+              <div style="margin-bottom:0.75rem;">
+                <div style="display:flex; justify-content:space-between; font-weight:700; font-size:0.92rem; color:#0f172a;">
+                  <span>${ed.institution}</span>
+                  <span style="color:#64748b; font-size:0.82rem;">${ed.period}</span>
+                </div>
+                <div style="font-weight:600; font-size:0.88rem; color:#334155;">${ed.degree}</div>
+                <div style="font-size:0.84rem; color:#475569; margin-top:2px;">${ed.description}</div>
+              </div>
+            `).join('')}
+
+            <h3 class="ecv-section-heading">Keahlian & Kompetensi Teknis</h3>
             <div class="ecv-skills-chips">
-              ${m.techStack.map(t => `<span class="ecv-chip">${t.name} (${t.level}%)</span>`).join('')}
+              ${m.techStack.map(t => `<span class="ecv-chip">${t.name}</span>`).join('')}
             </div>
 
-            <h3 class="ecv-section-heading">Work Experience</h3>
+            <h3 class="ecv-section-heading">Pengalaman & Proyek Akademik Terpilih</h3>
             ${m.experience.map(e => `
               <div style="margin-bottom:0.75rem;">
                 <div style="display:flex; justify-content:space-between; font-weight:700; font-size:0.92rem; color:#0f172a;">
@@ -1048,15 +1090,16 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
             `).join('')}
 
-            <h3 class="ecv-section-heading">Education & Certifications</h3>
-            ${m.education.map(ed => `
-              <div style="margin-bottom:0.5rem;">
-                <div style="font-weight:700; font-size:0.9rem; color:#0f172a;">${ed.degree} (${ed.period})</div>
-                <div style="font-size:0.82rem; color:#475569;">${ed.institution} — ${ed.description}</div>
-              </div>
-            `).join('')}
-            <div style="margin-top:0.5rem; font-size:0.82rem; color:#334155;">
-              <strong>Certifications:</strong> ${m.certifications.map(c => `${c.name} (${c.issuer})`).join('; ')}
+            <h3 class="ecv-section-heading">Sertifikasi & Uji Kompetensi</h3>
+            <div style="display:flex; flex-direction:column; gap:0.4rem;">
+              ${m.certifications.map(c => `
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; font-size:0.85rem; color:#1e293b;">
+                  <div>
+                    <strong>• ${c.name}</strong> <span style="color:#64748b;">— ${c.issuer}</span>
+                  </div>
+                  <span style="font-weight:600; color:#64748b; font-size:0.8rem;">${c.year}</span>
+                </div>
+              `).join('')}
             </div>
           </div>
         `).join('')}
