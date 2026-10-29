@@ -433,33 +433,9 @@ Acceptance Criteria:
       ],
       individualProjects: [
         {
-          id: "viola-proj-1",
-          title: "Perancangan Website Absensi Guru SMK Binatama",
-          tagline: "Analisis Kebutuhan Sistem & Konsep Pengembangan Web Absensi Guru",
-          category: "Sistem Informasi & Project Management",
-          imageBadge: "PHP • MySQL • Draw.io • Figma",
-          description: "Mata Kuliah Proyek Sistem Informasi 2025. Berperan sebagai Project Manager memimpin tim 3 anggota (Data Analis, Konseptor, Writer). Bertanggung jawab melakukan analisis kebutuhan sistem, merancang alur proses bisnis sekolah, menyusun konsep pengembangan dan dokumentasi proyek, serta mengoordinasikan tim untuk memastikan proyek tuntas sesuai target.",
-          metrics: { value: "100%", label: "Kesesuaian Target Proyek" },
-          githubUrl: "https://github.com/violaamelia/absensi-guru-binatama",
-          demoUrl: "https://absensi-guru-binatama.demo.dev",
-          tags: ["Sistem Informasi", "Project Manager", "Draw.io", "Figma", "PHP", "Analisis Sistem"]
-        },
-        {
-          id: "viola-proj-2",
-          title: "Pengembangan Aplikasi Web Dinamis (VSGA)",
-          tagline: "Implementasi Sistem CRUD & Arsitektur Basis Data Berbasis PHP & MySQL",
-          category: "Web Development & Basis Data",
-          imageBadge: "PHP • MySQL • VS Code • XAMPP",
-          description: "Proyek pelatihan dan sertifikasi kompetensi Junior Web Developer (Vocational School Graduate Academy - Digital Talent Scholarship Komdigi). Membangun arsitektur sistem informasi berbasis web dinamis dengan validasi input, sanitasi form, dan pengelolaan database relasional.",
-          metrics: { value: "100%", label: "Kelulusan Sertifikasi VSGA" },
-          githubUrl: "https://github.com/violaamelia/vsga-web-project",
-          demoUrl: "https://vsga-web.demo.dev",
-          tags: ["PHP", "MySQL", "VS Code", "XAMPP", "Sistem Basis Data", "Komdigi"]
-        },
-        {
           id: "viola-proj-silaundry",
           title: "SILaundry - Sistem Informasi Manajemen Laundry",
-          tagline: "Sistem Informasi Berbasis Web untuk Pengelolaan Operasional & Transaksi Laundry",
+          tagline: "Sistem Informasi Berbasis Web untuk Pengelolaan Operasional & Transaksi Laundry Modern",
           category: "Sistem Informasi & Web App",
           imageBadge: "PHP • MySQL • Bootstrap • XAMPP",
           description: "SILaundry adalah sistem berbasis website yang dirancang khusus untuk mempermudah pengelolaan bisnis laundry secara efisien dan modern. Dengan menggunakan sistem ini, pemilik laundry dapat mengelola berbagai aspek operasional seperti memfasilitasi pendaftaran pelanggan, pencatatan transaksi masuk dan keluar, serta pemantauan kondisi status pencucian secara real-time. Meminimalkan kesalahan pencatatan manual serta meningkatkan kepuasan pelanggan dengan layanan yang lebih cepat, transparan, dan akurat.",
@@ -469,16 +445,28 @@ Acceptance Criteria:
           tags: ["Sistem Informasi", "PHP", "MySQL", "Web Development", "Manajemen Operasional", "Database"]
         },
         {
-          id: "viola-proj-3",
-          title: "Pemberdayaan AI untuk Digital Marketing Pesantren",
-          tagline: "Pemanfaatan Kecerdasan Buatan & Canva bagi Guru/Pengasuh Ponpes Al Ma'had",
-          category: "Pengabdian kepada Masyarakat",
-          imageBadge: "Artificial Intelligence • Canva • Digital Marketing",
-          description: "Kegiatan Pengabdian kepada Masyarakat (PKM) Universitas Bina Sarana Informatika pada 11 Oktober 2025 di Pondok Pesantren Al Ma'had, Setu. Membimbing para guru dan pengasuh pondok pesantren dalam pemanfaatan teknologi AI dan Canva untuk pembuatan materi edukasi interaktif dan strategi digital marketing.",
-          metrics: { value: "100%", label: "Peserta Terlatih AI" },
-          githubUrl: "https://github.com/violaamelia/pkm-ai-digital-marketing",
-          demoUrl: "https://pkm-ai-al-mahad.demo.dev",
-          tags: ["Kecerdasan Buatan (AI)", "Digital Marketing", "Canva", "Pengabdian Masyarakat", "UBSI"]
+          id: "viola-proj-dekorpro",
+          title: "DekorPro - E-Commerce Furniture & Dekorasi Ruangan",
+          tagline: "Website E-Commerce Penjualan Furniture & Dekorasi Interior Ruangan Modern",
+          category: "E-Commerce & Web Development",
+          imageBadge: "PHP • MySQL • E-Commerce • UI/UX",
+          description: "Proyek ini bertujuan untuk mengembangkan sebuah website e-commerce yang berfokus pada penjualan furniture dekorasi ruangan seperti meja, lemari dan berbagai furniture interior lainnya. Website ini dirancang untuk memberikan pengalaman berbelanja yang mudah dan nyaman bagi pelanggan yang ingin mempercantik ruangannya tanpa harus datang langsung ke toko. Beberapa fitur utama yang disediakan antara lain katalog produk lengkap dengan gambar dan deskripsi, fitur pencarian dan filter, keranjang belanja, sistem checkout, serta halaman admin untuk mengelola data produk, pesanan, dan pengguna. Website ini ditujukan untuk membantu pelaku usaha dekorasi ruangan dalam memasarkan produknya secara digital, memperluas jangkauan pasar, dan meningkatkan efisiensi penjualan di era modern.",
+          metrics: { value: "100%", label: "Katalog & Transaksi Online" },
+          githubUrl: "https://github.com/violaamelia/dekorpro-furniture-ecommerce",
+          demoUrl: "https://dekorpro.demo.dev",
+          tags: ["E-Commerce", "PHP", "MySQL", "Furniture Interior", "Keranjang Belanja", "Admin Dashboard"]
+        },
+        {
+          id: "viola-proj-siquiz",
+          title: "Siquiz - Aplikasi Simulasi Quiz Daring (Metode Waterfall)",
+          tagline: "Aplikasi Simulasi Quiz Berbasis Waterfall SDLC untuk Pembelajaran Daring",
+          category: "E-Learning & SDLC Waterfall",
+          imageBadge: "Waterfall SDLC • Quiz Daring • PHP • MySQL",
+          description: "Siquiz adalah aplikasi simulasi quiz secara daring sebagai sistem pembelajaran berbasis teknologi informasi. Dikembangkan menggunakan kerangka kerja SDLC (Software Development Life Cycle) klasik dengan Metode Waterfall, yaitu metode perancangan yang berjalan secara linear di mana fase satu harus selesai secara tuntas sebelum masuk ke fase berikutnya (Requirement Analysis, System Design, Implementation, Testing, Deployment, & Maintenance). Memfasilitasi pengerjaan quiz interaktif, bank soal terstruktur, evaluasi jawaban otomatis, serta rekapitulasi performa belajar peserta secara terukur dan transparan.",
+          metrics: { value: "100%", label: "Kepatuhan Linear Fase Waterfall" },
+          githubUrl: "https://github.com/violaamelia/siquiz-online-simulation",
+          demoUrl: "https://siquiz.demo.dev",
+          tags: ["Quiz Daring", "SDLC Waterfall", "Pembelajaran Online", "PHP", "MySQL", "Metode Linear"]
         }
       ]
     }
