@@ -365,8 +365,8 @@ Acceptance Criteria:
       github: "https://github.com/violaamelia",
       linkedin: "https://linkedin.com/in/violaamelia",
       avatar: "assets/img/viola-amelia.jpg",
-      status: "Mahasiswa Semester 6 (IPK 3.94) • Staf Tata Usaha SMK Binatama",
-      bio: "Mahasiswa semester 6 Program Studi Sistem Informasi Universitas Bina Sarana Informatika dengan IPK 3,94, memiliki pengalaman kerja sebagai Staf Tata Usaha di SMK Binatama. Berpengalaman dalam pengelolaan administrasi kepegawaian, kesiswaan, keuangan, persuratan, serta koordinasi kegiatan. Memiliki kemampuan bekerja dalam tim, teliti, disiplin, jujur, dan cepat beradaptasi. Aktif mengikuti kegiatan akademik dan pelatihan untuk meningkatkan kompetensi profesional.",
+      status: "Mahasiswa Semester 6 (IPK 3.94) • Sistem Informasi UBSI",
+      bio: "Mahasiswa semester 6 Program Studi Sistem Informasi Universitas Bina Sarana Informatika dengan IPK 3,94. Memiliki pemahaman dalam pengelolaan administrasi, persuratan, koordinasi kegiatan, dan sistem basis data. Memiliki kemampuan bekerja dalam tim, teliti, disiplin, jujur, dan cepat beradaptasi. Aktif mengikuti kegiatan akademik, organisasi, serta pelatihan untuk meningkatkan kompetensi profesional.",
       stats: [
         { label: "IPK Akademik", value: 3.94, suffix: "/4.00" },
         { label: "Semester Berjalan", value: 6, suffix: "" },
@@ -384,27 +384,28 @@ Acceptance Criteria:
         { name: "Draw.io", category: "tools", icon: "drawio", exp: "Mahir", desc: "Pemodelan Diagram Alir Bisnis, Use Case & DFD Sistem" },
         { name: "XAMPP", category: "tools", icon: "xampp", exp: "Menengah", desc: "Local Web Server & Manajemen Database MySQL" }
       ],
-      experience: [
+      experience: [],
+      organizations: [
         {
-          period: "Oktober 2024 - Sekarang",
-          role: "Staf Tata Usaha",
-          company: "SMK Binatama – Kabupaten Bekasi",
-          type: "Staf Administrasi",
-          description: "Mengelola administrasi kepegawaian (PTK), administrasi kesiswaan dari penerimaan hingga kelulusan siswa, penyusunan dokumen resmi sekolah, administrasi keuangan sekolah transparan, sarana prasarana, pengarsipan surat masuk dan keluar, serta menjadi panitia administrasi berbagai kegiatan sekolah."
+          period: "11 Oktober 2025",
+          role: "Peserta Pengabdian kepada Masyarakat (PKM)",
+          company: "Universitas Bina Sarana Informatika (UBSI)",
+          type: "Kegiatan Akademik",
+          description: "Berpartisipasi dalam kegiatan Pengabdian kepada Masyarakat di Pondok Pesantren Al Ma'had, Setu dengan materi 'Pemanfaatan Kecerdasan Buatan untuk Digital Marketing bagi Guru dan Pengasuh Pondok Pesantren Al Ma'had'."
         },
         {
           period: "2019 - 2020",
           role: "Wakil Ketua Asrama",
           company: "MA Ummul Quro Al Islami Boarding School",
           type: "Organisasi Santri",
-          description: "Mengelola administrasi organisasi dan kegiatan asrama santri, menyusun proposal kegiatan, mengarsipkan surat masuk dan keluar, serta berkoordinasi dalam rapat rutin pengurus."
+          description: "Mengelola administrasi organisasi dan kegiatan asrama, menyusun proposal kegiatan, mengelola surat masuk dan keluar, serta berkoordinasi dalam rapat rutin."
         },
         {
           period: "2018 - 2019",
-          role: "Pengurus Bidang Kegiatan & Keuangan",
-          company: "ISPI (Ikatan Santri Putri)",
+          role: "Pengurus Ikatan Santri Putri (ISPI)",
+          company: "Organisasi Santri ISPI",
           type: "Organisasi Santri",
-          description: "Menyusun jadwal kegiatan santri, mengelola laporan keuangan organisasi, mengawasi ketertiban kegiatan asrama, serta berpartisipasi dalam rapat evaluasi organisasi."
+          description: "Menyusun jadwal kegiatan santri, mengelola laporan keuangan organisasi, mengawasi kegiatan asrama, serta berpartisipasi dalam rapat evaluasi organisasi."
         }
       ],
       education: [
@@ -443,15 +444,15 @@ Acceptance Criteria:
         },
         {
           id: "viola-proj-2",
-          title: "Sistem Administrasi Tata Usaha SMK Binatama",
-          tagline: "Digitalisasi Dokumen Kepegawaian (PTK), Kesiswaan & Tata Kelola Keuangan",
-          category: "Administrasi & Tata Kelola Dokumen",
-          imageBadge: "Excel • Word • Digital Filing",
-          description: "Pengelolaan administrasi kepegawaian (PTK), kesiswaan dari penerimaan hingga kelulusan siswa, penyusunan dokumen resmi sekolah, administrasi keuangan transparan, serta sistem penataan kearsipan surat masuk dan keluar secara terstruktur dan akuntabel di SMK Binatama.",
-          metrics: { value: "100%", label: "Kerapihan & Akurasi Arsip" },
-          githubUrl: "https://github.com/violaamelia/sistem-administrasi-sekolah",
-          demoUrl: "https://administrasi-sekolah.demo.dev",
-          tags: ["Administrasi", "Microsoft Excel", "Microsoft Word", "Kearsipan", "Keuangan Sekolah"]
+          title: "Pengembangan Aplikasi Web Dinamis (VSGA)",
+          tagline: "Implementasi Sistem CRUD & Arsitektur Basis Data Berbasis PHP & MySQL",
+          category: "Web Development & Basis Data",
+          imageBadge: "PHP • MySQL • VS Code • XAMPP",
+          description: "Proyek pelatihan dan sertifikasi kompetensi Junior Web Developer (Vocational School Graduate Academy - Digital Talent Scholarship Komdigi). Membangun arsitektur sistem informasi berbasis web dinamis dengan validasi input, sanitasi form, dan pengelolaan database relasional.",
+          metrics: { value: "100%", label: "Kelulusan Sertifikasi VSGA" },
+          githubUrl: "https://github.com/violaamelia/vsga-web-project",
+          demoUrl: "https://vsga-web.demo.dev",
+          tags: ["PHP", "MySQL", "VS Code", "XAMPP", "Sistem Basis Data", "Komdigi"]
         },
         {
           id: "viola-proj-3",

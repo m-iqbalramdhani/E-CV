@@ -132,6 +132,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    // Adjust active timeline tab if current persona doesn't have work experience
+    const targetMember = PORTFOLIO_DATA.members[personaId];
+    if (targetMember && (!targetMember.experience || targetMember.experience.length === 0)) {
+      if (state.activeTimelineTab === 'experience') {
+        state.activeTimelineTab = 'education';
+      }
+    }
+
     // Re-render Components
     renderHero(personaId);
     renderJointProject();
@@ -633,25 +641,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 9. Render Timeline (Experience vs Education)
+  // 9. Render Timeline (Experience vs Education / Organization)
   function renderTimeline(personaId) {
     if (!timelineSection) return;
     const member = PORTFOLIO_DATA.members[personaId];
-    const isExp = state.activeTimelineTab === 'experience';
-    const list = isExp ? member.experience : member.education;
-    const items = list.map(i => ({ ...i, owner: member.name, ownerNick: member.nickname }));
+    const hasExp = member.experience && member.experience.length > 0;
+    const hasOrg = member.organizations && member.organizations.length > 0;
 
-    const title = isExp ? `Pengalaman Kerja: ${member.nickname}` : `Riwayat Edukasi: ${member.nickname}`;
-    const subtitle = isExp
-      ? `Rekam jejak kontribusi industri dan peran profesional ${member.name}.`
-      : `Pendidikan formal dan prestasi akademis ${member.name}.`;
+    // Default to education if member has no work experience
+    if (!hasExp && state.activeTimelineTab === 'experience') {
+      state.activeTimelineTab = 'education';
+    }
+
+    let list = member.education;
+    let title = `Riwayat Edukasi: ${member.nickname}`;
+    let subtitle = `Pendidikan formal dan prestasi akademis ${member.name}.`;
+
+    if (state.activeTimelineTab === 'experience' && hasExp) {
+      list = member.experience;
+      title = `Pengalaman Kerja: ${member.nickname}`;
+      subtitle = `Rekam jejak kontribusi industri dan peran profesional ${member.name}.`;
+    } else if (state.activeTimelineTab === 'organization' && hasOrg) {
+      list = member.organizations;
+      title = `Pengalaman Organisasi &amp; Kegiatan: ${member.nickname}`;
+      subtitle = `Aktivitas kepengurusan organisasi, pengabdian, dan kepemimpinan ${member.name}.`;
+    }
+
+    const items = list.map(i => ({ ...i, owner: member.name, ownerNick: member.nickname }));
 
     timelineSection.innerHTML = `
       <div class="container">
         <div class="section-header" style="align-items: center; text-align: center;">
           <div class="section-tag">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Chronicle & Milestones
+            Chronicle &amp; Milestones
           </div>
           <h2 class="section-title">${title}</h2>
           <p class="section-desc">${subtitle}</p>
@@ -659,12 +682,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div class="timeline-toggle-wrapper">
           <div class="timeline-toggle-bar">
-            <button class="time-tab ${state.activeTimelineTab === 'experience' ? 'active' : ''}" data-type="experience">
-              Pengalaman Kerja
-            </button>
+            ${hasExp ? `
+              <button class="time-tab ${state.activeTimelineTab === 'experience' ? 'active' : ''}" data-type="experience">
+                Pengalaman Kerja
+              </button>
+            ` : ''}
             <button class="time-tab ${state.activeTimelineTab === 'education' ? 'active' : ''}" data-type="education">
               Pendidikan Formal
             </button>
+            ${hasOrg ? `
+              <button class="time-tab ${state.activeTimelineTab === 'organization' ? 'active' : ''}" data-type="organization">
+                Organisasi &amp; Kegiatan
+              </button>
+            ` : ''}
           </div>
         </div>
 
@@ -822,16 +852,31 @@ document.addEventListener('DOMContentLoaded', () => {
             ${m.techStack.map(t => `<span class="ecv-chip">${t.name} (${t.exp})</span>`).join('')}
           </div>
 
-          <h3 class="ecv-section-heading">Pengalaman Kerja</h3>
-          ${m.experience.map(e => `
-            <div style="margin-bottom:0.75rem;">
-              <div style="display:flex; justify-content:space-between; font-weight:700; font-size:0.92rem; color:#0f172a;">
-                <span>${e.role} — ${e.company}</span>
-                <span style="color:#64748b; font-size:0.82rem;">${e.period}</span>
+          ${m.experience && m.experience.length > 0 ? `
+            <h3 class="ecv-section-heading">Pengalaman Kerja</h3>
+            ${m.experience.map(e => `
+              <div style="margin-bottom:0.75rem;">
+                <div style="display:flex; justify-content:space-between; font-weight:700; font-size:0.92rem; color:#0f172a;">
+                  <span>${e.role} — ${e.company}</span>
+                  <span style="color:#64748b; font-size:0.82rem;">${e.period}</span>
+                </div>
+                <p class="ecv-text-body" style="font-size:0.85rem; margin-top:2px;">${e.description}</p>
               </div>
-              <p class="ecv-text-body" style="font-size:0.85rem; margin-top:2px;">${e.description}</p>
-            </div>
-          `).join('')}
+            `).join('')}
+          ` : ''}
+
+          ${m.organizations && m.organizations.length > 0 ? `
+            <h3 class="ecv-section-heading">Pengalaman Organisasi &amp; Kegiatan</h3>
+            ${m.organizations.map(o => `
+              <div style="margin-bottom:0.75rem;">
+                <div style="display:flex; justify-content:space-between; font-weight:700; font-size:0.92rem; color:#0f172a;">
+                  <span>${o.role} — ${o.company}</span>
+                  <span style="color:#64748b; font-size:0.82rem;">${o.period}</span>
+                </div>
+                <p class="ecv-text-body" style="font-size:0.85rem; margin-top:2px;">${o.description}</p>
+              </div>
+            `).join('')}
+          ` : ''}
 
           <h3 class="ecv-section-heading">Pendidikan & Sertifikasi</h3>
           ${m.education.map(ed => `
