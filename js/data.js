@@ -365,13 +365,13 @@ Acceptance Criteria:
       github: "https://github.com/violaamelia",
       linkedin: "https://linkedin.com/in/violaamelia",
       avatar: "assets/img/viola-amelia.jpg",
-      status: "Mahasiswa Semester 7 (IPK 3.89) • Sistem Informasi UBSI",
+      status: "Mahasiswa Semester 7 (IPK 3,89) • Sistem Informasi UBSI",
       bio: "Mahasiswa Program Studi Sistem Informasi Universitas Bina Sarana Informatika dengan IPK 3,89. Memiliki pemahaman dalam pengelolaan sistem informasi, perancangan basis data, administrasi, persuratan, dan koordinasi kegiatan. Memiliki kemampuan bekerja dalam tim, teliti, disiplin, jujur, dan cepat beradaptasi. Aktif mengikuti kegiatan akademik, organisasi, serta pelatihan untuk meningkatkan kompetensi profesional.",
       stats: [
-        { label: "IPK Akademik", value: 3.89, suffix: "/4.00" },
-        { label: "Semester Berjalan", value: 7, suffix: "" },
-        { label: "Dedikasi & Ketelitian", value: 100, suffix: "%" },
-        { label: "Sertifikasi Resmi", value: 6, suffix: "+" }
+        { label: "IPK Akademik", value: 3.89, display: "3,89", suffix: "/4.00" },
+        { label: "Semester Berjalan", value: 7, display: "7", suffix: "" },
+        { label: "Dedikasi & Ketelitian", value: 100, display: "100", suffix: "%" },
+        { label: "Sertifikasi Resmi", value: 6, display: "6", suffix: "+" }
       ],
       techStack: [
         { name: "Figma", category: "design", icon: "figma", exp: "Mahir", desc: "Desain UI/UX, Wireframing & Prototyping Aplikasi Interaktif" },
@@ -382,13 +382,14 @@ Acceptance Criteria:
         { name: "MySQL", category: "database", icon: "mysql", exp: "Mahir", desc: "Administrasi Basis Data Relasional, DDL/DML & Manajemen Skema" },
         { name: "DB Designer", category: "database", icon: "dbdesigner", exp: "Mahir", desc: "Pemodelan ERD (Entity Relationship Diagram) & Relasi Tabel" },
         { name: "Cisco", category: "tools", icon: "cisco", exp: "Menengah", desc: "Jaringan Komputer, Simulasi Routing & Topologi Packet Tracer" },
-        { name: "APK Mobile", category: "tools", icon: "apk", exp: "Menengah", desc: "Simulasi & Distribusi Aplikasi Android (APK)" },
+        { name: "APK Android", category: "tools", icon: "apk", exp: "Menengah", desc: "Simulasi & Distribusi Aplikasi Android (APK)" },
         { name: "PHP", category: "programming", icon: "php", exp: "Dasar", desc: "Pemrograman Web Dinamis & Integrasi Database" },
         { name: "VS Code", category: "tools", icon: "vscode", exp: "Mahir", desc: "Code Editor Utama untuk Pengembangan Web" },
         { name: "Draw.io", category: "tools", icon: "drawio", exp: "Mahir", desc: "Pemodelan Flowchart, Use Case Diagram & Alur Bisnis" },
         { name: "Canva", category: "design", icon: "canva", exp: "Mahir", desc: "Desain Konten Digital Marketing & Publikasi" },
         { name: "Microsoft Word", category: "office", icon: "word", exp: "Mahir", desc: "Administrasi Persuratan, Dokumen Resmi & Laporan" },
-        { name: "Microsoft Excel", category: "office", icon: "excel", exp: "Mahir", desc: "Rekapitulasi Keuangan & Olah Data Tabular" }
+        { name: "Microsoft Excel", category: "office", icon: "excel", exp: "Mahir", desc: "Rekapitulasi Keuangan & Olah Data Tabular" },
+        { name: "XAMPP", category: "tools", icon: "xampp", exp: "Mahir", desc: "Web Server Stack Localhost & Database MySQL" }
       ],
       experience: [],
       organizations: [
