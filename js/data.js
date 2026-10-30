@@ -254,7 +254,7 @@ Acceptance Criteria:
       linkedin: "https://www.linkedin.com/in/nida-fuadia-345858314",
       cvUrl: "https://drive.google.com/file/d/18o08IcRVT4rG4QVK715ueJjq0yVIntBy/view?usp=sharing",
       avatar: "assets/img/nida.jpg",
-      status: "Mahasiswa S1 Sistem Informasi (IPK 3.88) • Open for Internship",
+      status: "Mahasiswa S1 Sistem Informasi (IPK 3,88) • Open for Internship",
       bio: "Mahasiswa S1 Sistem Informasi Universitas Bina Sarana Informatika dengan IPK 3,88. Memiliki minat mendalam pada Data Analytics, Database, Business Intelligence, Audit Sistem Informasi, dan Teknologi Informasi. Terampil menggunakan Power BI, Figma, Microsoft Office, Database Design serta memiliki pemahaman dasar MySQL, SQL, dan pengujian sistem web. Cepat belajar, disiplin, dan siap berkembang melalui program magang serta proyek profesional.",
       stats: [
         { label: "Indeks Prestasi (IPK)", value: 3.88, suffix: " / 4.0" },
@@ -300,7 +300,7 @@ Acceptance Criteria:
       education: [
         {
           period: "2023 - Sekarang",
-          degree: "S1 Sistem Informasi (IPK: 3.88/4.00)",
+          degree: "S1 Sistem Informasi (IPK: 3,88 / 4,00)",
           institution: "Universitas Bina Sarana Informatika (UBSI)",
           description: "Fokus pada Data Analytics, Sistem Basis Data, Rekayasa Web, Audit SI, dan UI/UX Design."
         }
@@ -342,7 +342,7 @@ Acceptance Criteria:
           category: "Data Analytics",
           imageBadge: "Power BI • Excel • Analytics",
           description: "Dashboard visualisasi analitik interaktif yang mengolah data transaksi penjualan. Dilengkapi filter dinamis, visualisasi tren penjualan berkala, dan metrik performa produk untuk pengambilan keputusan bisnis.",
-          metrics: { value: "3.88", label: "GPA Rigor" },
+          metrics: { value: "3,88", label: "IPK / GPA" },
           githubUrl: "https://github.com/Nidafuadia",
           demoUrl: "https://drive.google.com/file/d/18o08IcRVT4rG4QVK715ueJjq0yVIntBy/view?usp=sharing",
           tags: ["Power BI", "Data Analytics", "Excel", "Business Intelligence", "Charts"]

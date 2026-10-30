@@ -200,10 +200,12 @@ document.addEventListener('DOMContentLoaded', () => {
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
               Project SIA-Binatama
             </button>
-            <button class="btn-secondary" id="heroHireBtn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              Hubungi ${member.nickname}
-            </button>
+            ${member.id !== 'nida' ? `
+              <button class="btn-secondary" id="heroHireBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Hubungi ${member.nickname}
+              </button>
+            ` : ''}
             <button class="btn-secondary" id="copyEmailBtn" data-email="${member.email}">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               Salin Email
@@ -213,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ${member.stats.map(m => `
               <div class="metric-item">
                 <div class="metric-number">
-                  <span class="counter-number" data-target="${m.value}">${m.value}</span>
+                  <span class="counter-number" data-target="${m.value}">${typeof m.value === 'number' && m.value % 1 !== 0 ? m.value.toString().replace('.', ',') : m.value}</span>
                   <span class="metric-suffix">${m.suffix}</span>
                 </div>
                 <span class="metric-label">${m.label}</span>
@@ -987,13 +989,21 @@ document.addEventListener('DOMContentLoaded', () => {
   function initCounters() {
     const counters = document.querySelectorAll('.counter-number');
     counters.forEach(counter => {
-      const target = parseFloat(counter.dataset.target);
+      const rawTarget = counter.dataset.target || '';
+      const target = parseFloat(rawTarget.replace(',', '.'));
       if (isNaN(target)) return;
 
       let current = 0;
       const duration = 1200;
       const startTime = performance.now();
-      const isDecimal = target % 1 !== 0;
+      const decMatch = rawTarget.match(/[.,](\d+)/);
+      const decimalPlaces = decMatch ? decMatch[1].length : (target % 1 !== 0 ? 2 : 0);
+      const isDecimal = decimalPlaces > 0;
+
+      const formatVal = (val) => {
+        if (!isDecimal) return Math.floor(val).toString();
+        return val.toFixed(decimalPlaces).replace('.', ',');
+      };
 
       const updateCounter = (now) => {
         const elapsed = now - startTime;
@@ -1001,12 +1011,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const ease = 1 - Math.pow(1 - progress, 3);
         current = target * ease;
 
-        counter.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
+        counter.textContent = formatVal(current);
 
         if (progress < 1) {
           requestAnimationFrame(updateCounter);
         } else {
-          counter.textContent = isDecimal ? target.toFixed(1) : target;
+          counter.textContent = formatVal(target);
         }
       };
 
