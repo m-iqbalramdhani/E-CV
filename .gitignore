@@ -17,3 +17,4 @@ yarn-debug.log*
 # Firebase Cache
 .firebase/
 
+push.bat
