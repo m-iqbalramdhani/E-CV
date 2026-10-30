@@ -250,7 +250,7 @@ Acceptance Criteria:
       location: "Bekasi, Jawa Barat",
       email: "nidafuadia20@gmail.com",
       phone: "081585853458",
-      github: "https://github.com/nidafuadia",
+      github: "https://github.com/Nidafuadia",
       linkedin: "https://www.linkedin.com/in/nida-fuadia-345858314",
       cvUrl: "https://drive.google.com/file/d/18o08IcRVT4rG4QVK715ueJjq0yVIntBy/view?usp=sharing",
       avatar: "assets/img/nida.jpg",
@@ -263,16 +263,16 @@ Acceptance Criteria:
         { label: "Tahun Masuk Kuliah", value: 2023, suffix: " (Sem. 7)" }
       ],
       techStack: [
+        { name: "Power BI", category: "tools", icon: "powerbi", exp: "2+ Tahun", desc: "Interactive Business Intelligence & Data Visualization Dashboard" },
         { name: "Figma (UI/UX)", category: "tools", icon: "figma", exp: "2.5+ Tahun", desc: "Interactive Prototyping, Wireframing & Design Systems" },
-        { name: "Power BI & Excel", category: "tools", icon: "sheets", exp: "2+ Tahun", desc: "Interactive Business Dashboard & Data Visualization" },
-        { name: "MySQL & Database", category: "database", icon: "mysql", exp: "2+ Tahun", desc: "Relational Database Design & SQL Querying" },
-        { name: "Postman & API QA", category: "tools", icon: "postman", exp: "1.5+ Tahun", desc: "API Endpoint Validation & Testing" },
-        { name: "Git & GitHub", category: "tools", icon: "git", exp: "2+ Tahun", desc: "Version Control & Project Collaboration" },
-        { name: "Trello & Management", category: "tools", icon: "trello", exp: "2+ Tahun", desc: "Sprint Tracking & Task Organization" },
-        { name: "Notion & Documentation", category: "tools", icon: "notion", exp: "2+ Tahun", desc: "SRS, ERD & Specification Documentation" },
-        { name: "JavaScript Web", category: "language", icon: "javascript", exp: "2+ Tahun", desc: "Frontend Interface & DOM Manipulation" },
-        { name: "Slack & Collaboration", category: "tools", icon: "slack", exp: "2+ Tahun", desc: "Team Communication & Project Updates" },
-        { name: "ClickUp & Reporting", category: "tools", icon: "clickup", exp: "1.5+ Tahun", desc: "Task Milestone & Timeline Planning" }
+        { name: "Microsoft Excel", category: "tools", icon: "excel", exp: "3+ Tahun", desc: "Data Analytics, Pivot Tables, Formulas & Business Modeling" },
+        { name: "MySQL & Database", category: "database", icon: "mysql", exp: "2+ Tahun", desc: "Relational Database Design, ERD Architecture & SQL Querying" },
+        { name: "Microsoft Word", category: "tools", icon: "word", exp: "4+ Tahun", desc: "Technical Documentation, System Reports & Administration" },
+        { name: "HTML5", category: "language", icon: "html5", exp: "2+ Tahun", desc: "Semantic Web Structure & UI Markup" },
+        { name: "CSS3", category: "framework", icon: "css3", exp: "2+ Tahun", desc: "Responsive Web Styling & Component Design" },
+        { name: "GitHub", category: "tools", icon: "github", exp: "2+ Tahun", desc: "Version Control & Project Collaboration (Nidafuadia)" },
+        { name: "VS Code", category: "tools", icon: "vscode", exp: "2+ Tahun", desc: "Code & Web Development Environment" },
+        { name: "Canva", category: "tools", icon: "canva", exp: "3+ Tahun", desc: "Creative Visual Design & Infographic Presentations" }
       ],
       experience: [
         {
@@ -319,7 +319,7 @@ Acceptance Criteria:
           imageBadge: "Website • MySQL • UI Design",
           description: "Website pengelolaan dan pemantauan ketersediaan area parkir di Stasiun Metland Telaga Murni. Mempermudah pencatatan keluar-masuk kendaraan, validasi tiket, dan rekapitulasi data operasional stasiun.",
           metrics: { value: "100%", label: "Digital Tracking" },
-          githubUrl: "https://github.com/nidafuadia",
+          githubUrl: "https://github.com/Nidafuadia",
           demoUrl: "https://drive.google.com/file/d/18o08IcRVT4rG4QVK715ueJjq0yVIntBy/view?usp=sharing",
           tags: ["Website", "MySQL", "UI/UX", "Database", "Sistem Informasi"]
         },
@@ -331,7 +331,7 @@ Acceptance Criteria:
           imageBadge: "Figma • Prototype • User Flow",
           description: "Perancangan UI/UX lengkap aplikasi kebugaran (workout) di Figma. Dirancang dengan tata letak visual modern, pemilihan kontras ergonomis, dan flow latihan yang memandu pengguna secara intuitif.",
           metrics: { value: "Figma", label: "Interactive Prototype" },
-          githubUrl: "https://github.com/nidafuadia",
+          githubUrl: "https://github.com/Nidafuadia",
           demoUrl: "https://drive.google.com/file/d/18o08IcRVT4rG4QVK715ueJjq0yVIntBy/view?usp=sharing",
           tags: ["Figma", "UI/UX", "Mobile Design", "Prototyping", "User Research"]
         },
@@ -343,7 +343,7 @@ Acceptance Criteria:
           imageBadge: "Power BI • Excel • Analytics",
           description: "Dashboard visualisasi analitik interaktif yang mengolah data transaksi penjualan. Dilengkapi filter dinamis, visualisasi tren penjualan berkala, dan metrik performa produk untuk pengambilan keputusan bisnis.",
           metrics: { value: "3.88", label: "GPA Rigor" },
-          githubUrl: "https://github.com/nidafuadia",
+          githubUrl: "https://github.com/Nidafuadia",
           demoUrl: "https://drive.google.com/file/d/18o08IcRVT4rG4QVK715ueJjq0yVIntBy/view?usp=sharing",
           tags: ["Power BI", "Data Analytics", "Excel", "Business Intelligence", "Charts"]
         }

@@ -11,6 +11,8 @@ const TECH_ICONS = {
   
   javascript: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="4" fill="#F7DF1E"/><path d="M7 12V18C7 19.5 5.5 19.5 4.5 18.8" stroke="#000" stroke-width="2.2" stroke-linecap="round"/><path d="M19 13.5C18.5 12.2 17 11.5 15.5 12C14 12.5 13.8 13.8 14.2 15C14.8 16.8 19.2 16 19 18.2C18.8 19.8 17 20.2 15.2 19.8C13.8 19.4 13.2 18.5 13 17.5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg>`,
   
+  python: `<svg viewBox="0 0 24 24" width="40" height="40" fill="none"><path d="M11.9 2C8.6 2 8.8 3.4 8.8 3.4L8.8 4.9H12.1V5.4H5.8C3.8 5.4 2 7 2 9.5C2 12 3.3 12.5 3.3 12.5H4.8V10.9C4.8 9.3 6.1 8 7.7 8H12V7C12 5.5 13.5 5.5 13.5 5.5H16.8C16.8 3.5 14.8 2 11.9 2ZM10.2 3.6C10.6 3.6 11 4 11 4.4C11 4.8 10.6 5.2 10.2 5.2C9.8 5.2 9.4 4.8 9.4 4.4C9.4 4 9.8 3.6 10.2 3.6Z" fill="#3776AB"/><path d="M12.1 22C15.4 22 15.2 20.6 15.2 20.6V19.1H11.9V18.6H18.2C20.2 18.6 22 17 22 14.5C22 12 20.7 11.5 20.7 11.5H19.2V13.1C19.2 14.7 17.9 16 16.3 16H12V17C12 18.5 10.5 18.5 10.5 18.5H7.2C7.2 20.5 9.2 22 12.1 22ZM13.8 20.4C13.4 20.4 13 20 13 19.6C13 19.2 13.4 18.8 13.8 18.8C14.2 18.8 14.6 19.2 14.6 19.6C14.6 20 14.2 20.4 13.8 20.4Z" fill="#FFD43B"/></svg>`,
+
   php: `<svg viewBox="0 0 24 24" width="40" height="40"><ellipse cx="12" cy="12" rx="11" ry="8" fill="#777BB4"/><text x="12" y="15" fill="#FFF" font-family="sans-serif" font-weight="900" font-size="8" text-anchor="middle">PHP</text></svg>`,
 
   laravel: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M3 7L12 2L21 7V17L12 22L3 17V7Z" fill="#FF2D20"/><path d="M12 6L17 9V15L12 18L7 15V9L12 6Z" fill="#FFF"/></svg>`,
@@ -21,10 +23,16 @@ const TECH_ICONS = {
 
   nodejs: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M12 2L21 7V17L12 22L3 17V7L12 2Z" fill="#339933"/><path d="M12 5L18 8.5V15.5L12 19L6 15.5V8.5L12 5Z" fill="#FFF"/><circle cx="12" cy="12" r="3" fill="#339933"/></svg>`,
 
-  // --- Database Engines (Iqbal's Core DB) ---
+  html5: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M3 2L4.8 19.5L12 21.5L19.2 19.5L21 2H3Z" fill="#E44D26"/><path d="M12 3.8V19.8L17.6 18.2L19.1 3.8H12Z" fill="#F16529"/><path d="M7.4 6.8H16.6L16.2 10.5H11.9L12.1 12.5H16L15.6 16.2L12 17.2L8.4 16.2L8.2 13.8H10.1L10.2 14.8L12 15.3L13.8 14.8L14 12.5H8L7.4 6.8Z" fill="#FFF"/></svg>`,
+
+  css3: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M3 2L4.8 19.5L12 21.5L19.2 19.5L21 2H3Z" fill="#1572B6"/><path d="M12 3.8V19.8L17.6 18.2L19.1 3.8H12Z" fill="#33A9DC"/><path d="M7.4 6.8H16.6L16.4 8.7H10.1L10.3 10.6H16.2L15.7 15.8L12 16.8L8.3 15.8L8.1 13.5H10.1L10.2 14.4L12 14.9L13.8 14.4L14 12.4H8L7.4 6.8Z" fill="#FFF"/></svg>`,
+
+  vscode: `<svg viewBox="0 0 24 24" width="40" height="40" fill="none"><path d="M17.5 2L7.2 9.8L3.5 7L2 8V16L3.5 17L7.2 14.2L17.5 22L22 19.8V4.2L17.5 2Z" fill="#0065A9"/><path d="M17.5 2L9.5 9.5L17.5 17L22 19.8V4.2L17.5 2Z" fill="#007ACC"/><path d="M7.2 9.8L17.5 2L22 4.2V7.2L10.5 13L7.2 9.8Z" fill="#1F9CF0"/><path d="M3.5 7L2 8V16L3.5 17L7.2 14.2V9.8L3.5 7Z" fill="#0065A9"/></svg>`,
+
+  // --- Database Engines ---
   postgres: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2Z" fill="#336791"/><circle cx="9" cy="10" r="1.5" fill="#FFF"/><circle cx="15" cy="10" r="1.5" fill="#FFF"/><path d="M9 15C10 16 14 16 15 15" stroke="#FFF" stroke-width="1.8" stroke-linecap="round"/><path d="M12 12V15" stroke="#FFF" stroke-width="1.6"/></svg>`,
 
-  mysql: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M3 14C3 9 7 4 12 4C17 4 21 9 21 14C21 18 17 20 12 20C7 20 3 18 3 14Z" fill="#00758F"/><path d="M7 13C8 10 16 10 17 13" stroke="#F29111" stroke-width="2.2" stroke-linecap="round"/></svg>`,
+  mysql: `<svg viewBox="0 0 24 24" width="40" height="40" fill="none"><rect width="24" height="24" rx="4" fill="#00758F"/><path d="M18.5 7.2C16.8 5.6 14.2 5.5 12.5 6.6C11.2 7.4 10.4 8.8 9.8 10.2C9.2 11.5 8.4 12.6 7.2 13.3C6.5 13.7 5.8 13.9 5 13.8C5.5 14.8 6.4 15.5 7.5 15.8C9 16.2 10.5 15.5 11.7 14.5C12.8 13.5 13.7 12.2 14.7 11.2C15.7 10.2 17.1 9.6 18.5 9.8C19.2 9.9 19.9 10.2 20.5 10.6C20.7 9.4 20.3 8.3 19.6 7.5L18.5 7.2Z" fill="#F29111"/><text x="12" y="21.5" fill="#FFF" font-family="'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="5" text-anchor="middle">MySQL</text></svg>`,
 
   redis: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M12 2L3 7L12 12L21 7L12 2Z" fill="#DC382D"/><path d="M3 12L12 17L21 12" stroke="#A8201A" stroke-width="2.5"/><path d="M3 17L12 22L21 17" stroke="#A8201A" stroke-width="2.5"/></svg>`,
 
@@ -34,11 +42,26 @@ const TECH_ICONS = {
 
   git: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M21.5 10.5L13.5 2.5C12.8 1.8 11.7 1.8 11 2.5L2.5 11C1.8 11.7 1.8 12.8 2.5 13.5L10.5 21.5C11.2 22.2 12.3 22.2 13 21.5L21.5 13C22.2 12.3 22.2 11.2 21.5 10.5Z" fill="#F05032"/><circle cx="8" cy="12" r="2" fill="#FFF"/><circle cx="16" cy="12" r="2" fill="#FFF"/><circle cx="12" cy="8" r="2" fill="#FFF"/><line x1="8" y1="12" x2="16" y2="12" stroke="#FFF" stroke-width="2"/><line x1="12" y1="8" x2="12" y2="12" stroke="#FFF" stroke-width="2"/></svg>`,
 
+  github: `<svg viewBox="0 0 24 24" width="40" height="40" fill="#FFF"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>`,
+
   linux: `<svg viewBox="0 0 24 24" width="40" height="40"><ellipse cx="12" cy="12" rx="7" ry="9" fill="#000"/><ellipse cx="12" cy="13" rx="5" ry="7" fill="#FFF"/><circle cx="10" cy="8" r="1.2" fill="#000"/><circle cx="14" cy="8" r="1.2" fill="#000"/><path d="M10 10C11 12 13 12 14 10" stroke="#FFA500" stroke-width="2" stroke-linecap="round"/><ellipse cx="8" cy="20" rx="3" ry="1.5" fill="#FFA500"/><ellipse cx="16" cy="20" rx="3" ry="1.5" fill="#FFA500"/></svg>`,
 
   tailwind: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M12 6C9 6 7.5 7.5 7.5 10.5C8.5 9 10 8.5 11.5 9C13 9.5 14 11 15.5 11C18 11 19.5 9.5 19.5 6.5C18.5 8 17 8.5 15.5 8C14 7.5 13 6 12 6ZM4.5 12C1.5 12 0 13.5 0 16.5C1 15 2.5 14.5 4 15C5.5 15.5 6.5 17 8 17C10.5 17 12 15.5 12 12.5C11 14 9.5 14.5 8 14C6.5 13.5 5.5 12 4.5 12Z" fill="#06B6D4"/></svg>`,
 
-  // --- QA / Software Tester Tools (Nida's Core) ---
+  // --- Data Analytics, UI/UX & Productivity Tools ---
+  powerbi: `<svg viewBox="0 0 24 24" width="40" height="40" fill="none"><rect x="2" y="13" width="4" height="8" rx="1.5" fill="#C98B05"/><rect x="7.5" y="8" width="4.5" height="13" rx="1.5" fill="#E6AD10"/><rect x="13.5" y="3" width="4.5" height="18" rx="1.5" fill="#F2C811"/><rect x="19.5" y="9.5" width="3" height="11.5" rx="1.5" fill="#D99B00"/></svg>`,
+
+  excel: `<svg viewBox="0 0 24 24" width="40" height="40"><rect x="7" y="3" width="15" height="18" rx="2" fill="#107C41"/><path d="M11 7H18M11 10H18M11 13H18M11 16H18" stroke="#33C481" stroke-width="1.5" stroke-linecap="round"/><path d="M14.5 7V17" stroke="#33C481" stroke-width="1.5" stroke-linecap="round"/><rect x="2" y="6" width="12" height="12" rx="2.5" fill="#0E5E30" stroke="#107C41" stroke-width="0.5"/><path d="M5 8.5L7.5 12L5 15.5H6.5L8.2 13.1L9.9 15.5H11.4L8.9 12L11.4 8.5H9.9L8.2 10.9L6.5 8.5H5Z" fill="#FFF"/></svg>`,
+
+  word: `<svg viewBox="0 0 24 24" width="40" height="40"><rect x="7" y="3" width="15" height="18" rx="2" fill="#185ABD"/><path d="M11 7H18M11 10H18M11 13H18M11 16H18" stroke="#4B90F2" stroke-width="1.5" stroke-linecap="round"/><rect x="2" y="6" width="12" height="12" rx="2.5" fill="#103F91" stroke="#185ABD" stroke-width="0.5"/><path d="M4.8 8.5L6.2 15.5H7.5L8.5 11.2L9.5 15.5H10.8L12.2 8.5H10.9L10 13.2L9 8.5H8L7 13.2L6.1 8.5H4.8Z" fill="#FFF"/></svg>`,
+
+  office: `<svg viewBox="0 0 24 24" width="40" height="40" fill="none"><rect width="24" height="24" rx="5" fill="#D83B01"/><path d="M14.5 3L6 6.5V17.5L14.5 21L19 18V6L14.5 3Z" fill="#EA3E00"/><path d="M14.5 3V21L19 18V6L14.5 3Z" fill="#D83B01"/><path d="M14.5 7L9 9V15L14.5 17V7Z" fill="#FFF" opacity="0.95"/></svg>`,
+
+  canva: `<svg viewBox="0 0 24 24" width="40" height="40"><circle cx="12" cy="12" r="11" fill="url(#canvaGrad)"/><defs><linearGradient id="canvaGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00C4CC"/><stop offset="100%" stop-color="#7D2AE8"/></linearGradient></defs><path d="M12.5 7.5C10 7.5 8 9.5 8 12.2C8 15.2 10.2 17 13 17C14.5 17 15.8 16.3 16.4 15.2L15 14.4C14.6 15 13.8 15.5 13 15.5C11.3 15.5 9.8 14.2 9.8 12.2C9.8 10.4 11 9 12.5 9C13.5 9 14.2 9.5 14.6 10.2L16 9.4C15.3 8.2 14 7.5 12.5 7.5Z" fill="#FFF"/></svg>`,
+
+  figma: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M8 2H12V8H8C6.3 8 5 6.7 5 5C5 3.3 6.3 2 8 2Z" fill="#F24E1E"/><path d="M12 2H16C17.7 2 19 3.3 19 5C19 6.7 17.7 8 16 8H12V2Z" fill="#FF7262"/><path d="M8 8H12V14H8C6.3 14 5 12.7 5 11C5 9.3 6.3 8 8 8Z" fill="#A259FF"/><path d="M12 8H16C17.7 8 19 9.3 19 11C19 12.7 17.7 14 16 14C14.3 14 13 12.7 13 11V8Z" fill="#1ABCFE"/><circle cx="12" cy="11" r="3" fill="#1ABCFE"/><path d="M8 14H12V18C12 19.7 10.7 21 9 21C7.3 21 6 19.7 6 18C6 16.3 7.3 14 8 14Z" fill="#0ACF83"/></svg>`,
+
+  // --- QA / Software Tester Tools ---
   postman: `<svg viewBox="0 0 24 24" width="40" height="40"><circle cx="12" cy="12" r="11" fill="#FF6C37"/><path d="M12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4ZM15.5 9.5L13.8 14.2L12 13.5L13.2 10.2L9.5 11.5L8.5 10L14.5 7.5L15.5 9.5Z" fill="#FFF"/></svg>`,
 
   cypress: `<svg viewBox="0 0 24 24" width="40" height="40"><circle cx="12" cy="12" r="11" fill="#1B1E2B"/><path d="M9.5 8C7 8 5.5 9.5 5.5 12C5.5 14.5 7 16 9.5 16C11.5 16 12.8 15 13.2 13.5H11.2C10.9 14.2 10.3 14.5 9.5 14.5C8 14.5 7.2 13.5 7.2 12C7.2 10.5 8 9.5 9.5 9.5C10.3 9.5 10.9 9.8 11.2 10.5H13.2C12.8 9 11.5 8 9.5 8ZM14.2 9.5L16 14L17.8 9.5H19.5L16.8 16H15.2L12.5 9.5H14.2Z" fill="#69D3A7"/></svg>`,
@@ -65,8 +88,6 @@ const TECH_ICONS = {
   trello: `<svg viewBox="0 0 24 24" width="40" height="40"><rect width="24" height="24" rx="5" fill="#0079BF"/><rect x="4.5" y="4.5" width="6" height="13" rx="1.5" fill="#FFF"/><rect x="13.5" y="4.5" width="6" height="8.5" rx="1.5" fill="#FFF"/></svg>`,
 
   notion: `<svg viewBox="0 0 24 24" width="40" height="40" fill="none"><rect width="24" height="24" rx="5" fill="#000"/><path d="M5 6.5L14 5.5L18.5 7V18L10 19L5 18V6.5Z" fill="#FFF"/><path d="M7.5 8.5V16L9.5 16V11.2L14.5 16.2H16.5V8.8L14.5 8.8V13.5L9.5 8.5H7.5Z" fill="#000"/></svg>`,
-
-  figma: `<svg viewBox="0 0 24 24" width="40" height="40"><path d="M8 2H12V8H8C6.3 8 5 6.7 5 5C5 3.3 6.3 2 8 2Z" fill="#F24E1E"/><path d="M12 2H16C17.7 2 19 3.3 19 5C19 6.7 17.7 8 16 8H12V2Z" fill="#FF7262"/><path d="M8 8H12V14H8C6.3 14 5 12.7 5 11C5 9.3 6.3 8 8 8Z" fill="#A259FF"/><path d="M12 8H16C17.7 8 19 9.3 19 11C19 12.7 17.7 14 16 14C14.3 14 13 12.7 13 11V8Z" fill="#1ABCFE"/><circle cx="12" cy="11" r="3" fill="#1ABCFE"/><path d="M8 14H12V18C12 19.7 10.7 21 9 21C7.3 21 6 19.7 6 18C6 16.3 7.3 14 8 14Z" fill="#0ACF83"/></svg>`,
 
   confluence: `<svg viewBox="0 0 24 24" width="40" height="40" fill="none"><rect width="24" height="24" rx="5" fill="#0052CC"/><path d="M5 16.5C7.5 14.5 9.5 13 12 14C14.5 15 16.5 17 20 16C17 20 12 21 7 20C5.5 19 4.5 18 5 16.5Z" fill="#FFF"/><path d="M19 7.5C16.5 9.5 14.5 11 12 10C9.5 9 7.5 7 4 8C7 4 12 3 17 4C18.5 5 19.5 6 19 7.5Z" fill="#2684FF"/></svg>`,
 
