@@ -18,3 +18,4 @@ yarn-debug.log*
 .firebase/
 
 push.bat
+push-langsung.bat
